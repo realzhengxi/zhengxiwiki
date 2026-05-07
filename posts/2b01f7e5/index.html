@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mac 用户 Claude Code 完全配置指南：接入 DeepSeek / Kimi 等国内大模型 | ZhengXi Wiki</title>
+
+
+  <meta name="description" content="A personal wiki for organizing knowledge and notes. Note: Some content is AI-generated and for reference only.">
+
+
+
+  <meta name="keywords" content="wiki, knowledge base, notes">
+
+
+<!-- Noto Serif SC — 开源可商用思源宋体 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;700&display=swap">
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/obsidian.css">
+
+<meta name="description" content="[!abstract] 适用环境与目标  适用环境：macOS（Intel &#x2F; Apple Silicon）+ Homebrew + zsh   目标：在无法直接访问 Anthropic 官方服务的环境下，让 Claude Code 通过国内大模型（DeepSeek、Kimi、GLM、MiniMax 等）正常运行。    一、安装 Claude CodeClaude Code 是 An">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac 用户 Claude Code 完全配置指南：接入 DeepSeek &#x2F; Kimi 等国内大模型">
+<meta property="og:url" content="https://wiki.zhengxi.me/posts/2b01f7e5/index.html">
+<meta property="og:site_name" content="ZhengXi Wiki">
+<meta property="og:description" content="[!abstract] 适用环境与目标  适用环境：macOS（Intel &#x2F; Apple Silicon）+ Homebrew + zsh   目标：在无法直接访问 Anthropic 官方服务的环境下，让 Claude Code 通过国内大模型（DeepSeek、Kimi、GLM、MiniMax 等）正常运行。    一、安装 Claude CodeClaude Code 是 An">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-04-24T23:13:25.000Z">
+<meta property="article:modified_time" content="2026-04-28T12:53:57.000Z">
+<meta property="article:author" content="zhengxi">
+<meta property="article:tag" content="AI编程">
+<meta property="article:tag" content="Claude Code">
+<meta property="article:tag" content="DeepSeek">
+<meta property="article:tag" content="Kimi">
+<meta property="article:tag" content="macOS">
+<meta property="article:tag" content="开发工具">
+<meta name="twitter:card" content="summary">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress" id="reading-progress"></div>
+
+  <header id="header">
+  <div class="header-inner">
+    <div class="site-brand">
+      <span class="site-logo-marker"></span>
+      <a href="/" class="site-logo">ZhengXi Wiki</a>
+    </div>
+    <nav class="site-nav">
+      <a href="/">Home</a>
+      <a href="/archives/">Archives</a>
+      
+        <a href="/categories/">Categories</a>
+      
+      
+        <a href="/tags/">Tags</a>
+      
+    </nav>
+  </div>
+</header>
+
+
+  <div id="main">
+    <aside id="sidebar">
+      <div class="sidebar-inner">
+  <!-- Search -->
+  
+    <div class="widget widget-search">
+      <input type="text" id="search-input" placeholder="Search wiki..." />
+    </div>
+  
+
+  <!-- Table of Contents (on posts) -->
+  
+
+  <!-- Categories -->
+  
+    <div class="widget widget-categories">
+      <h3 class="widget-title">Categories</h3>
+      <ul class="category-list">
+        
+          <li>
+            <a href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置</a>
+            <span class="count">3</span>
+          </li>
+        
+          <li>
+            <a href="/categories/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">开发笔记</a>
+            <span class="count">5</span>
+          </li>
+        
+          <li>
+            <a href="/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">环境配置</a>
+            <span class="count">1</span>
+          </li>
+        
+          <li>
+            <a href="/categories/%E9%A3%9F%E7%94%A8%E8%8F%8C%E7%A0%94%E7%A9%B6/">食用菌研究</a>
+            <span class="count">6</span>
+          </li>
+        
+      </ul>
+    </div>
+  
+
+  <!-- Tags -->
+  
+    <div class="widget widget-tags">
+      <h3 class="widget-title">Tags</h3>
+      <div class="tag-cloud">
+        
+          <a href="/tags/AI%E7%BC%96%E7%A8%8B/" class="tag-link">#AI编程</a>
+        
+          <a href="/tags/API/" class="tag-link">#API</a>
+        
+          <a href="/tags/Auricularia/" class="tag-link">#Auricularia</a>
+        
+          <a href="/tags/CI-CD/" class="tag-link">#CI/CD</a>
+        
+          <a href="/tags/Claude-Code/" class="tag-link">#Claude Code</a>
+        
+          <a href="/tags/DNA%E6%9D%A1%E5%BD%A2%E7%A0%81/" class="tag-link">#DNA条形码</a>
+        
+          <a href="/tags/DeepSeek/" class="tag-link">#DeepSeek</a>
+        
+          <a href="/tags/GCPSR/" class="tag-link">#GCPSR</a>
+        
+          <a href="/tags/Git/" class="tag-link">#Git</a>
+        
+          <a href="/tags/GitHub/" class="tag-link">#GitHub</a>
+        
+          <a href="/tags/GitHub-Actions/" class="tag-link">#GitHub Actions</a>
+        
+          <a href="/tags/GitHub-Pages/" class="tag-link">#GitHub Pages</a>
+        
+          <a href="/tags/Hexo/" class="tag-link">#Hexo</a>
+        
+          <a href="/tags/IGS/" class="tag-link">#IGS</a>
+        
+          <a href="/tags/ITS/" class="tag-link">#ITS</a>
+        
+          <a href="/tags/Kimi/" class="tag-link">#Kimi</a>
+        
+          <a href="/tags/Node-js/" class="tag-link">#Node.js</a>
+        
+          <a href="/tags/PCR%E5%BC%95%E7%89%A9/" class="tag-link">#PCR引物</a>
+        
+      </div>
+      
+        <a href="/tags/" class="widget-more">more →</a>
+      
+    </div>
+  
+
+  <!-- Archives -->
+  
+    <div class="widget widget-archives">
+      <h3 class="widget-title">Archives</h3>
+      <ul class="archive-list">
+        
+          <li>
+            <a href="/posts/a3f7b2d1/">硫磺菌（Laetiporus）新种发表——完整工作流程与数据统计指南</a>
+          </li>
+        
+          <li>
+            <a href="/posts/526a2e3a/">MacOS 上 Conda 安装与使用指南</a>
+          </li>
+        
+          <li>
+            <a href="/posts/e5faa21f/">Claude 环境变量配置 ｜ 搭配 DeepSeek V4 模型</a>
+          </li>
+        
+          <li>
+            <a href="/posts/64478dc9/">Claude Code Skills 安装记录</a>
+          </li>
+        
+          <li>
+            <a href="/posts/72c69583/">真菌分子系统学与多基因系统发育树构建</a>
+          </li>
+        
+          <li>
+            <a href="/posts/c5bf302b/">硫磺菌（Laetiporus）分类学与新种鉴定</a>
+          </li>
+        
+          <li>
+            <a href="/posts/d3363a64/">羊肚菌（Morchella）分类学与系统发育</a>
+          </li>
+        
+          <li>
+            <a href="/posts/342e4b03/">Hexo 静态博客方案 ｜ GitHub Actions 自动化部署</a>
+          </li>
+        
+      </ul>
+      
+        <a href="/archives/" class="widget-more">more →</a>
+      
+    </div>
+  
+</div>
+
+    </aside>
+    <main id="content">
+      <article class="wiki-post">
+  <header class="post-header">
+    <h1 class="post-title">Mac 用户 Claude Code 完全配置指南：接入 DeepSeek / Kimi 等国内大模型</h1>
+    <div class="post-meta">
+      <time datetime="2026-04-24T23:13:25.000Z">2026-04-24</time>
+      
+        <span class="meta-sep">·</span>
+        <span class="post-updated">Updated: 2026-04-28</span>
+      
+      
+        <span class="meta-sep">·</span>
+        <span class="post-categories">
+          
+            <a href="/categories/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">开发笔记</a>
+          
+        </span>
+      
+    </div>
+  </header>
+
+  <div class="wiki-content">
+    <blockquote>
+<p>[!abstract] 适用环境与目标</p>
+<ul>
+<li><strong>适用环境</strong>：macOS（Intel &#x2F; Apple Silicon）+ Homebrew + zsh  </li>
+<li><strong>目标</strong>：在无法直接访问 Anthropic 官方服务的环境下，让 Claude Code 通过国内大模型（DeepSeek、Kimi、GLM、MiniMax 等）正常运行。</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="一、安装-Claude-Code"><a href="#一、安装-Claude-Code" class="headerlink" title="一、安装 Claude Code"></a>一、安装 Claude Code</h2><p>Claude Code 是 Anthropic 推出的终端 AI 编程助手，可通过 Homebrew 一键安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">brew install --cask claude-code@latest<br></code></pre></td></tr></table></figure>
+
+<p>安装完成后，终端输入：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">claude<br></code></pre></td></tr></table></figure>
+
+<p>如果看到 Claude Code 的 ASCII 艺术启动画面，说明安装成功。</p>
+<hr>
+<h2 id="二、国内网络环境下的核心问题"><a href="#二、国内网络环境下的核心问题" class="headerlink" title="二、国内网络环境下的核心问题"></a>二、国内网络环境下的核心问题</h2><p>安装完成后，直接运行 <code>claude</code> 大概率会报错：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">Unable to connect to Anthropic services<br>Failed to connect to api.anthropic.com: ERR_BAD_REQUEST<br></code></pre></td></tr></table></figure>
+
+<p><strong>原因</strong>：Claude Code 默认直连 Anthropic 官方 API（<code>api.anthropic.com</code>），而国内网络环境无法稳定访问该地址。</p>
+<p><strong>解决思路</strong>：Claude Code 底层调用的是 Anthropic Messages API。国内大模型厂商（DeepSeek、Kimi、GLM、MiniMax 等）已经提供了<strong>兼容该协议的接口</strong>。我们只需修改几个环境变量，让 Claude Code 把请求转发到国内模型即可。</p>
+<hr>
+<h2 id="三、方案探索：ccswitch-工具（及踩坑记录）"><a href="#三、方案探索：ccswitch-工具（及踩坑记录）" class="headerlink" title="三、方案探索：ccswitch 工具（及踩坑记录）"></a>三、方案探索：ccswitch 工具（及踩坑记录）</h2><p>社区有一个专门用于 Claude Code 模型切换的开源工具 <code>claude-code-switch</code>（简称 ccswitch），理论上可以一键切换模型。</p>
+<h3 id="3-1-尝试安装-ccswitch"><a href="#3-1-尝试安装-ccswitch" class="headerlink" title="3.1 尝试安装 ccswitch"></a>3.1 尝试安装 ccswitch</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">npm install -g claude-code-switch<br></code></pre></td></tr></table></figure>
+
+<p><strong>踩坑 1：权限报错（EACCES）</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">npm error code EACCES<br>npm error syscall symlink<br>npm error path ../lib/node_modules/claude-code-switch/bin/ccs.js<br>npm error dest /usr/local/bin/ccs<br></code></pre></td></tr></table></figure>
+
+<p><strong>原因</strong>：macOS 的 <code>/usr/local/bin</code> 默认需要 root 权限写入，<code>npm -g</code> 全局安装时无法创建符号链接。</p>
+<blockquote>
+<p>[!warning] 不建议使用 <code>sudo npm install -g</code><br>npm 包的 <code>postinstall</code> 脚本会以 root 权限执行任意代码，存在供应链攻击风险。更安全的做法是将全局包安装到用户目录，或直接使用 <code>npx</code>。</p>
+</blockquote>
+<h3 id="3-2-改用-npx-运行（无需安装）"><a href="#3-2-改用-npx-运行（无需安装）" class="headerlink" title="3.2 改用 npx 运行（无需安装）"></a>3.2 改用 npx 运行（无需安装）</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">npx claude-code-switch deepseek<br></code></pre></td></tr></table></figure>
+
+<p><strong>踩坑 2：切换后无输出 &#x2F; 环境变量未生效</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">npx claude-code-switch status<br><span class="hljs-comment"># （没有任何输出）</span><br><br><span class="hljs-built_in">echo</span> <span class="hljs-variable">$ANTHROPIC_BASE_URL</span><br><span class="hljs-comment"># （空）</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>原因</strong>：<code>~/.ccswitch/models.json</code> 配置文件不存在，ccswitch 找不到 API Key，导致切换命令实际上没有生效。</p>
+<h3 id="3-3-创建-ccswitch-配置文件"><a href="#3-3-创建-ccswitch-配置文件" class="headerlink" title="3.3 创建 ccswitch 配置文件"></a>3.3 创建 ccswitch 配置文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p ~/.ccswitch<br><span class="hljs-built_in">cat</span> &gt; ~/.ccswitch/models.json &lt;&lt; <span class="hljs-string">&#x27;EOF&#x27;</span><br>&#123;<br>  <span class="hljs-string">&quot;deepseek&quot;</span>: &#123;<br>    <span class="hljs-string">&quot;base_url&quot;</span>: <span class="hljs-string">&quot;https://api.deepseek.com/anthropic&quot;</span>,<br>    <span class="hljs-string">&quot;api_key&quot;</span>: <span class="hljs-string">&quot;sk-你的DeepSeekKey&quot;</span>,<br>    <span class="hljs-string">&quot;model&quot;</span>: <span class="hljs-string">&quot;deepseek-chat&quot;</span><br>  &#125;,<br>  <span class="hljs-string">&quot;kimi&quot;</span>: &#123;<br>    <span class="hljs-string">&quot;base_url&quot;</span>: <span class="hljs-string">&quot;https://api.moonshot.cn/anthropic&quot;</span>,<br>    <span class="hljs-string">&quot;api_key&quot;</span>: <span class="hljs-string">&quot;sk-你的KimiKey&quot;</span>,<br>    <span class="hljs-string">&quot;model&quot;</span>: <span class="hljs-string">&quot;kimi-k2-thinking-turbo&quot;</span><br>  &#125;<br>&#125;<br>EOF<br></code></pre></td></tr></table></figure>
+
+<p><strong>踩坑 3：填好 Key 后仍然无效</strong></p>
+<p>即使配置文件存在且 Key 正确，<code>npx claude-code-switch deepseek</code> 执行后仍然没有任何反馈，<code>echo $ANTHROPIC_BASE_URL</code> 依然为空。</p>
+<p><strong>结论</strong>：ccswitch 工具在当前版本（0.0.7）下存在稳定性问题，<strong>不建议作为主要生产工具</strong>。我们转而使用更直接、更可靠的手动环境变量配置方案。</p>
+<hr>
+<h2 id="四、最终推荐方案：手动配置环境变量"><a href="#四、最终推荐方案：手动配置环境变量" class="headerlink" title="四、最终推荐方案：手动配置环境变量"></a>四、最终推荐方案：手动配置环境变量</h2><p>这是最透明、最稳定的方式，没有中间工具，出了问题一眼就能看出来。</p>
+<h3 id="4-1-获取-API-Key"><a href="#4-1-获取-API-Key" class="headerlink" title="4.1 获取 API Key"></a>4.1 获取 API Key</h3><table>
+<thead>
+<tr>
+<th>厂商</th>
+<th>申请地址</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>DeepSeek</strong></td>
+<td><a target="_blank" rel="noopener" href="https://platform.deepseek.com/">platform.deepseek.com</a></td>
+<td>推理能力强，性价比高，推荐优先使用</td>
+</tr>
+<tr>
+<td><strong>Kimi</strong></td>
+<td><a target="_blank" rel="noopener" href="https://platform.moonshot.cn/">platform.moonshot.cn</a></td>
+<td>上下文长达 256K，编程能力优秀</td>
+</tr>
+<tr>
+<td><strong>GLM</strong></td>
+<td><a target="_blank" rel="noopener" href="https://open.bigmodel.cn/">open.bigmodel.cn</a></td>
+<td>免费额度高，日常编码够用</td>
+</tr>
+<tr>
+<td><strong>MiniMax</strong></td>
+<td><a target="_blank" rel="noopener" href="https://platform.minimaxi.com/">platform.minimaxi.com</a></td>
+<td>长上下文优秀，价格低</td>
+</tr>
+</tbody></table>
+<p>注册后进入「API Keys」页面，创建并复制 Key。</p>
+<h3 id="4-2-在当前终端手动设置（临时生效）"><a href="#4-2-在当前终端手动设置（临时生效）" class="headerlink" title="4.2 在当前终端手动设置（临时生效）"></a>4.2 在当前终端手动设置（临时生效）</h3><p>把 <code>sk-你的DeepSeekKey</code> 替换为真实 Key，在当前终端执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> ANTHROPIC_BASE_URL=<span class="hljs-string">&quot;https://api.deepseek.com/anthropic&quot;</span><br><span class="hljs-built_in">export</span> ANTHROPIC_AUTH_TOKEN=<span class="hljs-string">&quot;sk-你的DeepSeekKey&quot;</span><br><span class="hljs-built_in">export</span> ANTHROPIC_MODEL=<span class="hljs-string">&quot;deepseek-chat&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>验证是否生效：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-variable">$ANTHROPIC_BASE_URL</span><br><span class="hljs-comment"># 输出：https://api.deepseek.com/anthropic</span><br></code></pre></td></tr></table></figure>
+
+<p>启动 Claude Code：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">claude<br></code></pre></td></tr></table></figure>
+
+<p>如果左下角显示 <code>deepseek-v4-pro</code>（或类似的 DeepSeek 模型标识），说明配置成功。</p>
+<hr>
+<h2 id="五、长期化配置：写入-zshrc"><a href="#五、长期化配置：写入-zshrc" class="headerlink" title="五、长期化配置：写入 ~&#x2F;.zshrc"></a>五、长期化配置：写入 ~&#x2F;.zshrc</h2><p>上面的 <code>export</code> 只对<strong>当前终端窗口</strong>有效，关闭后失效。为了方便长期使用，我们将配置写入 <code>~/.zshrc</code>。</p>
+<h3 id="5-1-编辑-zshrc"><a href="#5-1-编辑-zshrc" class="headerlink" title="5.1 编辑 ~&#x2F;.zshrc"></a>5.1 编辑 ~&#x2F;.zshrc</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">open -e ~/.zshrc<br><span class="hljs-comment"># 或者使用 VS Code：code ~/.zshrc</span><br></code></pre></td></tr></table></figure>
+
+<p>在文件末尾追加以下内容（<strong>务必将 <code>sk-...</code> 替换为你的真实 API Key</strong>）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># ============================================</span><br><span class="hljs-comment"># Claude Code 国内大模型切换配置</span><br><span class="hljs-comment"># ============================================</span><br><br><span class="hljs-comment"># DeepSeek 配置</span><br>cc-<span class="hljs-function"><span class="hljs-title">ds</span></span>() &#123;<br>  <span class="hljs-built_in">export</span> ANTHROPIC_BASE_URL=<span class="hljs-string">&quot;https://api.deepseek.com/anthropic&quot;</span><br>  <span class="hljs-built_in">export</span> ANTHROPIC_AUTH_TOKEN=<span class="hljs-string">&quot;sk-你的DeepSeekKey&quot;</span><br>  <span class="hljs-built_in">export</span> ANTHROPIC_MODEL=<span class="hljs-string">&quot;deepseek-chat&quot;</span><br>  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;✅ 已切换至 DeepSeek&quot;</span><br>&#125;<br><br><span class="hljs-comment"># Kimi 配置</span><br>cc-<span class="hljs-function"><span class="hljs-title">kimi</span></span>() &#123;<br>  <span class="hljs-built_in">export</span> ANTHROPIC_BASE_URL=<span class="hljs-string">&quot;https://api.moonshot.cn/anthropic&quot;</span><br>  <span class="hljs-built_in">export</span> ANTHROPIC_AUTH_TOKEN=<span class="hljs-string">&quot;sk-你的KimiKey&quot;</span><br>  <span class="hljs-built_in">export</span> ANTHROPIC_MODEL=<span class="hljs-string">&quot;kimi-k2-thinking-turbo&quot;</span><br>  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;✅ 已切换至 Kimi&quot;</span><br>&#125;<br><br><span class="hljs-comment"># GLM 配置（可选）</span><br>cc-<span class="hljs-function"><span class="hljs-title">glm</span></span>() &#123;<br>  <span class="hljs-built_in">export</span> ANTHROPIC_BASE_URL=<span class="hljs-string">&quot;https://open.bigmodel.cn/api/anthropic&quot;</span><br>  <span class="hljs-built_in">export</span> ANTHROPIC_AUTH_TOKEN=<span class="hljs-string">&quot;sk-你的GLMKey&quot;</span><br>  <span class="hljs-built_in">export</span> ANTHROPIC_MODEL=<span class="hljs-string">&quot;glm-4-7&quot;</span><br>  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;✅ 已切换至 GLM&quot;</span><br>&#125;<br><br><span class="hljs-comment"># 恢复官方 Claude</span><br>cc-<span class="hljs-function"><span class="hljs-title">official</span></span>() &#123;<br>  <span class="hljs-built_in">unset</span> ANTHROPIC_BASE_URL ANTHROPIC_AUTH_TOKEN ANTHROPIC_MODEL<br>  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;✅ 已恢复官方 Claude&quot;</span><br>&#125;<br><br><span class="hljs-comment"># 快捷启动命令</span><br><span class="hljs-function"><span class="hljs-title">ccd</span></span>() &#123; cc-ds; claude <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>; &#125;<br><span class="hljs-function"><span class="hljs-title">cck</span></span>() &#123; cc-kimi; claude <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>; &#125;<br><span class="hljs-function"><span class="hljs-title">ccg</span></span>() &#123; cc-glm; claude <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>; &#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="5-2-重新加载配置"><a href="#5-2-重新加载配置" class="headerlink" title="5.2 重新加载配置"></a>5.2 重新加载配置</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">source</span> ~/.zshrc<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="六、日常使用速查表"><a href="#六、日常使用速查表" class="headerlink" title="六、日常使用速查表"></a>六、日常使用速查表</h2><p>配置完成后，以下是常用的快捷命令：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ccd</code></td>
+<td>启动 DeepSeek 版 Claude Code</td>
+</tr>
+<tr>
+<td><code>cck</code></td>
+<td>启动 Kimi 版 Claude Code</td>
+</tr>
+<tr>
+<td><code>ccg</code></td>
+<td>启动 GLM 版 Claude Code</td>
+</tr>
+<tr>
+<td><code>cc-ds</code></td>
+<td>仅切换环境变量到 DeepSeek（不启动 Claude Code）</td>
+</tr>
+<tr>
+<td><code>cc-kimi</code></td>
+<td>仅切换环境变量到 Kimi</td>
+</tr>
+<tr>
+<td><code>cc-official</code></td>
+<td>恢复官方 Claude（取消所有环境变量）</td>
+</tr>
+</tbody></table>
+<h3 id="6-1-验证当前使用的模型"><a href="#6-1-验证当前使用的模型" class="headerlink" title="6.1 验证当前使用的模型"></a>6.1 验证当前使用的模型</h3><p>在 Claude Code 运行界面，左下角会显示当前模型名称，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">deepseek-v4-pro · API Usage Billing<br></code></pre></td></tr></table></figure>
+
+<p>或者在终端执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-variable">$ANTHROPIC_MODEL</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="七、主流模型配置参数速查"><a href="#七、主流模型配置参数速查" class="headerlink" title="七、主流模型配置参数速查"></a>七、主流模型配置参数速查</h2><table>
+<thead>
+<tr>
+<th>厂商</th>
+<th>兼容接口地址（<code>ANTHROPIC_BASE_URL</code>）</th>
+<th>推荐模型名</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DeepSeek</td>
+<td><code>https://api.deepseek.com/anthropic</code></td>
+<td><code>deepseek-chat</code> &#x2F; <code>deepseek-reasoner</code></td>
+<td>推理能力强，性价比高</td>
+</tr>
+<tr>
+<td>Kimi</td>
+<td><code>https://api.moonshot.cn/anthropic</code></td>
+<td><code>kimi-k2-thinking-turbo</code></td>
+<td>256K 长上下文，编程优秀</td>
+</tr>
+<tr>
+<td>GLM</td>
+<td><code>https://open.bigmodel.cn/api/anthropic</code></td>
+<td><code>glm-4-7</code></td>
+<td>免费额度高，日常编码够用</td>
+</tr>
+<tr>
+<td>MiniMax</td>
+<td><code>https://api.minimaxi.com/anthropic</code></td>
+<td><code>minimax-m2</code></td>
+<td>长上下文优秀，价格低</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="八、常见问题"><a href="#八、常见问题" class="headerlink" title="八、常见问题"></a>八、常见问题</h2><h3 id="Q1：Claude-Code-启动后仍然显示-Unable-to-connect-to-Anthropic-services"><a href="#Q1：Claude-Code-启动后仍然显示-Unable-to-connect-to-Anthropic-services" class="headerlink" title="Q1：Claude Code 启动后仍然显示 &quot;Unable to connect to Anthropic services&quot;"></a>Q1：Claude Code 启动后仍然显示 &quot;Unable to connect to Anthropic services&quot;</h3><p><strong>排查步骤</strong>：</p>
+<ol>
+<li>检查环境变量是否生效：<code>echo $ANTHROPIC_BASE_URL</code></li>
+<li>如果为空，说明当前终端没有正确加载配置，重新执行 <code>source ~/.zshrc</code></li>
+<li>检查 API Key 是否正确（Key 错误会导致认证失败）</li>
+<li>检查网络是否能访问对应平台（如 <code>curl https://api.deepseek.com</code>）</li>
+</ol>
+<h3 id="Q2：新开的终端窗口需要重新设置环境变量吗？"><a href="#Q2：新开的终端窗口需要重新设置环境变量吗？" class="headerlink" title="Q2：新开的终端窗口需要重新设置环境变量吗？"></a>Q2：新开的终端窗口需要重新设置环境变量吗？</h3><p><strong>答</strong>：如果已经按照第五节写入了 <code>~/.zshrc</code>，并且执行过 <code>source ~/.zshrc</code>，则新终端会自动继承配置。但环境变量<strong>不会自动切换模型</strong>，需要手动执行 <code>cc-ds</code> 或直接使用 <code>ccd</code> 启动。</p>
+<h3 id="Q3：如何让-Claude-Code-默认使用国内模型，而不是每次手动切换？"><a href="#Q3：如何让-Claude-Code-默认使用国内模型，而不是每次手动切换？" class="headerlink" title="Q3：如何让 Claude Code 默认使用国内模型，而不是每次手动切换？"></a>Q3：如何让 Claude Code 默认使用国内模型，而不是每次手动切换？</h3><p><strong>答</strong>：在 <code>~/.zshrc</code> 中直接写入 <code>export</code> 语句（而不是函数），这样每次打开终端就自动生效：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 默认使用 DeepSeek</span><br><span class="hljs-built_in">export</span> ANTHROPIC_BASE_URL=<span class="hljs-string">&quot;https://api.deepseek.com/anthropic&quot;</span><br><span class="hljs-built_in">export</span> ANTHROPIC_AUTH_TOKEN=<span class="hljs-string">&quot;sk-你的DeepSeekKey&quot;</span><br><span class="hljs-built_in">export</span> ANTHROPIC_MODEL=<span class="hljs-string">&quot;deepseek-chat&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Q4：API-调用费用如何？"><a href="#Q4：API-调用费用如何？" class="headerlink" title="Q4：API 调用费用如何？"></a>Q4：API 调用费用如何？</h3><p><strong>答</strong>：各平台都有免费额度，DeepSeek 和 GLM 的免费额度相对 generous。具体费率请查看各平台的官方定价页面。Claude Code 作为编程助手，代码补全和文件操作的 Token 消耗量通常不大。</p>
+<hr>
+<h2 id="八、Claude-Code-入门：常用命令与实战案例"><a href="#八、Claude-Code-入门：常用命令与实战案例" class="headerlink" title="八、Claude Code 入门：常用命令与实战案例"></a>八、Claude Code 入门：常用命令与实战案例</h2><p>配置好模型只是第一步，下面介绍 Claude Code 的核心用法，帮助你快速上手这个终端 AI 编程助手。</p>
+<h3 id="8-1-启动方式"><a href="#8-1-启动方式" class="headerlink" title="8.1 启动方式"></a>8.1 启动方式</h3><p>Claude Code 有两种启动方式：</p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>全局启动</strong></td>
+<td><code>claude</code></td>
+<td>在任意目录运行，Claude 可以访问整个文件系统</td>
+</tr>
+<tr>
+<td><strong>项目内启动</strong></td>
+<td><code>claude</code>（在项目根目录）</td>
+<td>推荐方式，Claude 会自动聚焦当前项目上下文</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>[!tip] 最佳实践<br>进入你的项目目录后再启动 Claude Code，这样它能自动识别项目结构、技术栈和依赖关系。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ~/my-project<br>ccd  <span class="hljs-comment"># 或 cck，取决于你配置的快捷命令</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="8-2-内置命令（以-开头）"><a href="#8-2-内置命令（以-开头）" class="headerlink" title="8.2 内置命令（以 / 开头）"></a>8.2 内置命令（以 <code>/</code> 开头）</h3><p>在 Claude Code 交互界面中，输入 <code>?</code> 可查看所有快捷命令。以下是核心命令：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/init</code></td>
+<td>初始化 <code>CLAUDE.md</code> 文件</td>
+<td>在新项目中创建 AI 助手的行为规范文档</td>
+</tr>
+<tr>
+<td><code>/help</code></td>
+<td>显示帮助信息</td>
+<td>忘记命令时快速查询</td>
+</tr>
+<tr>
+<td><code>/review</code></td>
+<td>代码审查</td>
+<td>让 Claude 检查当前文件的代码质量、潜在 Bug</td>
+</tr>
+<tr>
+<td><code>/commit</code></td>
+<td>自动提交 Git 变更</td>
+<td>Claude 会生成规范的 commit message 并提交</td>
+</tr>
+<tr>
+<td><code>/pr</code></td>
+<td>创建 Pull Request</td>
+<td>自动总结变更并创建 PR 描述（需配合 GitHub CLI）</td>
+</tr>
+<tr>
+<td><code>/fix</code></td>
+<td>自动修复问题</td>
+<td>当 Claude 发现错误或 linter 报错时使用</td>
+</tr>
+<tr>
+<td><code>/test</code></td>
+<td>运行测试</td>
+<td>执行项目测试套件并分析失败原因</td>
+</tr>
+<tr>
+<td><code>/clear</code></td>
+<td>清空对话历史</td>
+<td>上下文太长时重置会话</td>
+</tr>
+<tr>
+<td><code>/theme</code></td>
+<td>切换终端主题</td>
+<td>更改代码高亮和界面配色</td>
+</tr>
+<tr>
+<td><code>/cost</code></td>
+<td>查看 API 用量</td>
+<td>监控本次会话的 Token 消耗和费用</td>
+</tr>
+<tr>
+<td><code>/exit</code> 或 <code>Ctrl+D</code></td>
+<td>退出 Claude Code</td>
+<td>结束当前会话</td>
+</tr>
+</tbody></table>
+<h4 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">&gt; /review<br>Claude 会分析你当前打开的文件，指出：<br>- 潜在的逻辑错误<br>- 性能优化建议<br>- 代码风格问题<br>- 安全风险<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="8-3-日常交互模式"><a href="#8-3-日常交互模式" class="headerlink" title="8.3 日常交互模式"></a>8.3 日常交互模式</h3><p>Claude Code 的核心使用方式是<strong>自然语言对话</strong>。你可以像和同事交流一样描述需求。</p>
+<h4 id="场景-1：代码生成"><a href="#场景-1：代码生成" class="headerlink" title="场景 1：代码生成"></a>场景 1：代码生成</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">&gt; 帮我写一个 Python 函数，读取 CSV 文件并返回按日期排序的 DataFrame<br><br>Claude 会：<br>1. 询问 CSV 的日期列名（或根据上下文推断）<br>2. 生成带类型注解和文档字符串的函数<br>3. 询问是否需要处理异常（如文件不存在、日期格式错误）<br>4. 将代码写入你指定的文件<br></code></pre></td></tr></table></figure>
+
+<h4 id="场景-2：代码重构"><a href="#场景-2：代码重构" class="headerlink" title="场景 2：代码重构"></a>场景 2：代码重构</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">&gt; 把 src/utils.py 里的重复逻辑提取成独立函数<br><br>Claude 会：<br>1. 读取 src/utils.py<br>2. 识别重复代码块<br>3. 提出重构方案（展示 diff）<br>4. 经你确认后执行修改<br></code></pre></td></tr></table></figure>
+
+<h4 id="场景-3：Debug-调试"><a href="#场景-3：Debug-调试" class="headerlink" title="场景 3：Debug 调试"></a>场景 3：Debug 调试</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">&gt; 运行项目测试时报错了，帮我看看<br><br>Claude 会：<br>1. 执行测试命令（如 pytest / npm test）<br>2. 分析错误堆栈<br>3. 定位问题根源<br>4. 提出修复方案或自动修复<br></code></pre></td></tr></table></figure>
+
+<h4 id="场景-4：批量文件操作"><a href="#场景-4：批量文件操作" class="headerlink" title="场景 4：批量文件操作"></a>场景 4：批量文件操作</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">&gt; 把所有 .js 文件里的 console.log 替换成 logger.debug<br><br>Claude 会：<br>1. 搜索项目中的所有 .js 文件<br>2. 展示将要修改的文件列表<br>3. 经确认后执行批量替换<br>4. 生成变更摘要<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="8-4-文件与代码操作"><a href="#8-4-文件与代码操作" class="headerlink" title="8.4 文件与代码操作"></a>8.4 文件与代码操作</h3><p>Claude Code 可以直接操作文件系统，所有修改都会征求你的确认。</p>
+<h4 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">&gt; 看一下 src/App.tsx 的内容<br>&gt; 比较 src/old.js 和 src/new.js 的区别<br>&gt; 搜索项目中所有用到 useEffect 的地方<br></code></pre></td></tr></table></figure>
+
+<h4 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">&gt; 创建一个 Dockerfile，基于 Node 18 镜像，暴露 3000 端口<br>&gt; 在 tests/ 目录下添加 login.spec.js 的 Playwright 测试<br></code></pre></td></tr></table></figure>
+
+<h4 id="编辑文件"><a href="#编辑文件" class="headerlink" title="编辑文件"></a>编辑文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">&gt; 在 README.md 的安装章节后面添加 Troubleshooting 部分<br>&gt; 给 src/api.js 里的 fetchUser 函数添加重试逻辑<br>&gt; 删除 src/components/OldComponent.jsx（已废弃）<br></code></pre></td></tr></table></figure>
+
+<h4 id="运行终端命令"><a href="#运行终端命令" class="headerlink" title="运行终端命令"></a>运行终端命令</h4><p>Claude Code 可以代表你运行终端命令，执行前会请求确认：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">&gt; 安装 axios 和 lodash<br>Claude: 我将运行 `npm install axios lodash`，是否继续？ (Y/n)<br><br>&gt; 把当前分支推送到远程<br>Claude: 我将运行 `git push origin feature-branch`，是否继续？ (Y/n)<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="8-5-项目初始化：CLAUDE-md"><a href="#8-5-项目初始化：CLAUDE-md" class="headerlink" title="8.5 项目初始化：CLAUDE.md"></a>8.5 项目初始化：CLAUDE.md</h3><p><code>/init</code> 命令会在项目根目录创建一个 <code>CLAUDE.md</code> 文件，这是给 Claude 的&quot;项目说明书&quot;。</p>
+<p><strong>CLAUDE.md 的作用</strong>：</p>
+<ul>
+<li>描述项目架构和技术栈</li>
+<li>定义编码规范（缩进、命名约定、注释风格）</li>
+<li>指定测试策略和目录结构</li>
+<li>列出需要特别注意的业务逻辑</li>
+</ul>
+<p><strong>示例 CLAUDE.md</strong>：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 项目规范</span><br><br><span class="hljs-section">## 技术栈</span><br><span class="hljs-bullet">-</span> React 18 + TypeScript<br><span class="hljs-bullet">-</span> Vite 构建工具<br><span class="hljs-bullet">-</span> Tailwind CSS<br><span class="hljs-bullet">-</span> React Query 管理服务端状态<br><br><span class="hljs-section">## 编码规范</span><br><span class="hljs-bullet">-</span> 使用函数组件 + Hooks<br><span class="hljs-bullet">-</span> 类型定义放在 <span class="hljs-code">`src/types/`</span> 目录<br><span class="hljs-bullet">-</span> API 请求统一封装在 <span class="hljs-code">`src/api/`</span> 目录<br><span class="hljs-bullet">-</span> 组件 props 必须写接口定义<br><br><span class="hljs-section">## 测试要求</span><br><span class="hljs-bullet">-</span> 新增功能必须配套单元测试<br><span class="hljs-bullet">-</span> 使用 Vitest + React Testing Library<br><span class="hljs-bullet">-</span> 测试文件放在 <span class="hljs-code">`__tests__/`</span> 目录或 <span class="hljs-code">`.test.ts`</span> 后缀<br></code></pre></td></tr></table></figure>
+
+<p>创建后，Claude 在后续对话中会自动遵循这些规范，无需每次重复说明。</p>
+<hr>
+<h3 id="8-6-实战完整案例"><a href="#8-6-实战完整案例" class="headerlink" title="8.6 实战完整案例"></a>8.6 实战完整案例</h3><h4 id="案例：从零搭建一个-Express-API-项目"><a href="#案例：从零搭建一个-Express-API-项目" class="headerlink" title="案例：从零搭建一个 Express API 项目"></a>案例：从零搭建一个 Express API 项目</h4><p><strong>步骤 1：创建项目目录并进入</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> my-api &amp;&amp; <span class="hljs-built_in">cd</span> my-api<br>ccd<br></code></pre></td></tr></table></figure>
+
+<p><strong>步骤 2：初始化项目</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">&gt; 初始化一个 Node.js Express 项目，使用 TypeScript，添加 eslint 和 prettier 配置<br></code></pre></td></tr></table></figure>
+
+<p>Claude 会：</p>
+<ol>
+<li>运行 <code>npm init -y</code></li>
+<li>安装 <code>express</code>、<code>typescript</code>、<code>@types/express</code>、<code>eslint</code>、<code>prettier</code> 等依赖</li>
+<li>创建 <code>tsconfig.json</code></li>
+<li>创建 <code>.eslintrc.js</code> 和 <code>.prettierrc</code></li>
+<li>创建 <code>src/index.ts</code> 入口文件</li>
+</ol>
+<p><strong>步骤 3：创建用户模块</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">&gt; 创建用户相关的 CRUD API，包括：<br>&gt; - GET /users 获取用户列表<br>&gt; - GET /users/:id 获取单个用户<br>&gt; - POST /users 创建用户<br>&gt; - PUT /users/:id 更新用户<br>&gt; - DELETE /users/:id 删除用户<br>&gt; <br>&gt; 使用内存数组存储数据即可，先不做数据库<br></code></pre></td></tr></table></figure>
+
+<p>Claude 会：</p>
+<ol>
+<li>创建 <code>src/routes/users.ts</code></li>
+<li>创建 <code>src/types/user.ts</code> 定义 User 接口</li>
+<li>在 <code>src/index.ts</code> 中注册路由</li>
+<li>添加基本的输入验证</li>
+</ol>
+<p><strong>步骤 4：添加测试</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">&gt; 给用户模块添加 Jest 单元测试，覆盖所有路由<br></code></pre></td></tr></table></figure>
+
+<p>Claude 会：</p>
+<ol>
+<li>安装 <code>jest</code>、<code>supertest</code>、<code>@types/jest</code></li>
+<li>创建 <code>src/routes/users.test.ts</code></li>
+<li>配置 <code>jest.config.js</code></li>
+</ol>
+<p><strong>步骤 5：代码审查</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">&gt; /review<br></code></pre></td></tr></table></figure>
+
+<p>Claude 会检查代码中的潜在问题，比如：</p>
+<ul>
+<li>缺少错误处理中间件</li>
+<li>没有输入校验</li>
+<li>TypeScript 类型不够严谨</li>
+</ul>
+<p><strong>步骤 6：提交代码</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">&gt; /commit<br></code></pre></td></tr></table></figure>
+
+<p>Claude 会自动：</p>
+<ol>
+<li><code>git add .</code></li>
+<li>生成规范的 commit message（如 <code>feat: add user CRUD endpoints with tests</code>）</li>
+<li><code>git commit</code></li>
+</ol>
+<hr>
+<h3 id="8-7-快捷键与效率技巧"><a href="#8-7-快捷键与效率技巧" class="headerlink" title="8.7 快捷键与效率技巧"></a>8.7 快捷键与效率技巧</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Tab</code></td>
+<td>自动补全 Claude 的建议</td>
+</tr>
+<tr>
+<td><code>↑</code> &#x2F; <code>↓</code></td>
+<td>浏览历史输入</td>
+</tr>
+<tr>
+<td><code>Ctrl+C</code></td>
+<td>取消当前操作</td>
+</tr>
+<tr>
+<td><code>Ctrl+D</code></td>
+<td>退出 Claude Code</td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td>显示命令帮助</td>
+</tr>
+</tbody></table>
+<h4 id="效率技巧"><a href="#效率技巧" class="headerlink" title="效率技巧"></a>效率技巧</h4><ol>
+<li><p><strong>多轮对话保持上下文</strong>：Claude Code 会记住整个会话的历史，你可以随时说&quot;刚才那个函数再改一下&quot;或&quot;回到上一步&quot;。</p>
+</li>
+<li><p><strong>@ 引用文件</strong>：在对话中用 <code>@文件名</code> 快速让 Claude 关注特定文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">&gt; @src/utils.js 里的 parseDate 函数有 bug，帮我修复<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>批量确认</strong>：Claude 在执行危险操作（如删除文件、git push）前会征求确认。你可以输入 <code>Y</code> 确认单条，<code>A</code> 确认全部剩余操作，<code>N</code> 跳过，<code>Q</code> 退出。</p>
+</li>
+<li><p><strong>查看成本</strong>：随时输入 <code>/cost</code> 了解当前会话消耗了多少 Token，便于控制预算。</p>
+</li>
+<li><p><strong>结合 tmux&#x2F;screen</strong>：在 tmux 会话中运行 Claude Code，即使关闭终端也不会中断长任务。</p>
+</li>
+</ol>
+<hr>
+<h3 id="8-8-使用注意事项"><a href="#8-8-使用注意事项" class="headerlink" title="8.8 使用注意事项"></a>8.8 使用注意事项</h3><table>
+<thead>
+<tr>
+<th>注意点</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Git 状态</strong></td>
+<td>Claude Code 会自动检测 Git 变更，建议在干净的工作区启动，或先提交现有改动</td>
+</tr>
+<tr>
+<td><strong>大文件</strong></td>
+<td>避免让 Claude 读取过大的二进制文件或日志文件，会消耗大量 Token</td>
+</tr>
+<tr>
+<td><strong>敏感信息</strong></td>
+<td>不要让 Claude 读取包含密码、API Key、私钥的文件</td>
+</tr>
+<tr>
+<td><strong>确认机制</strong></td>
+<td>所有文件修改和命令执行默认需要确认，不要轻易输入 <code>A</code>（全部确认）</td>
+</tr>
+<tr>
+<td><strong>网络状态</strong></td>
+<td>使用国内模型时，确保网络可以稳定访问对应平台（DeepSeek&#x2F;Kimi&#x2F;GLM）</td>
+</tr>
+</tbody></table>
+<hr>
+<hr>
+<h2 id="九、Skills-系统详解：扩展-Claude-Code-的能力边界"><a href="#九、Skills-系统详解：扩展-Claude-Code-的能力边界" class="headerlink" title="九、Skills 系统详解：扩展 Claude Code 的能力边界"></a>九、Skills 系统详解：扩展 Claude Code 的能力边界</h2><p>Claude Code 的 Skills 系统是其最强大的特性之一。通过 Skills，你可以为 Claude 注入特定领域的知识、编码规范、团队约定，甚至自定义命令。本节将详细讲解 Skills 的安装、作用范围，以及国内网络环境下的最佳实践。</p>
+<h3 id="9-1-Skills-是什么"><a href="#9-1-Skills-是什么" class="headerlink" title="9.1 Skills 是什么"></a>9.1 Skills 是什么</h3><p>简单来说，<strong>Skill 是一个包含 <code>SKILL.md</code> 文件的文件夹</strong>，里面写满了给 Claude 的「专项 Instructions」。安装后，Claude 在对应场景下会自动调用这些知识。</p>
+<p><strong>类比理解</strong>：</p>
+<ul>
+<li>如果把 Claude Code 比作一个通用程序员</li>
+<li>那么 Skills 就是他的「专业资格证书」——装上 React Skill，他就是一个熟手 React 开发者；装上 Testing Skill，他就精通各种测试框架</li>
+</ul>
+<p><strong>典型使用场景</strong>：</p>
+<ul>
+<li>团队编码规范（缩进、命名、注释风格）</li>
+<li>特定技术栈的深度知识（Next.js、Django、Rust 等）</li>
+<li>内部工具链的使用方法（私有 npm 仓库、内部 CLI）</li>
+<li>代码审查标准（安全规范、性能要求）</li>
+</ul>
+<h3 id="9-2-Skills-的两种作用范围"><a href="#9-2-Skills-的两种作用范围" class="headerlink" title="9.2 Skills 的两种作用范围"></a>9.2 Skills 的两种作用范围</h3><p>这是最容易混淆的地方。<strong>Claude Code 的 Skills 同时支持全局和项目级两种作用范围</strong>，优先级规则是：<strong>项目级 &gt; 全局</strong>。</p>
+<h4 id="全局-Skills（用户级）"><a href="#全局-Skills（用户级）" class="headerlink" title="全局 Skills（用户级）"></a>全局 Skills（用户级）</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>存放位置</strong></td>
+<td><code>~/.claude/skills/</code></td>
+</tr>
+<tr>
+<td><strong>作用范围</strong></td>
+<td>当前用户的<strong>所有项目</strong></td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>个人通用工具、跨项目都会用到的规范</td>
+</tr>
+</tbody></table>
+<p><strong>示例</strong>：你个人习惯使用 2 空格缩进、单引号、尾部逗号，可以把这些偏好写入一个全局 Skill，这样每个项目都会自动遵循。</p>
+<h4 id="项目级-Skills（局部，默认）"><a href="#项目级-Skills（局部，默认）" class="headerlink" title="项目级 Skills（局部，默认）"></a>项目级 Skills（局部，默认）</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>存放位置</strong></td>
+<td><code>./.claude/skills/</code>（项目根目录下）</td>
+</tr>
+<tr>
+<td><strong>作用范围</strong></td>
+<td><strong>仅当前项目</strong></td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>团队规范、项目特定的技术栈、协作共享</td>
+</tr>
+</tbody></table>
+<p><strong>示例</strong>：公司 A 项目使用 Vue + Pinia + Element Plus，有一套特定的组件封装规范。把这些写入项目级 Skill，提交到 Git 仓库，团队所有人都能获得一致的 AI 辅助体验。</p>
+<h4 id="优先级规则"><a href="#优先级规则" class="headerlink" title="优先级规则"></a>优先级规则</h4><p>当全局和项目级存在同名 Skill 时，<strong>项目级优先</strong>。这意味着：</p>
+<ul>
+<li>你可以有一个全局的「通用代码规范」Skill</li>
+<li>同时在某个项目中放置「该项目特定的规范」Skill</li>
+<li>Claude 会优先遵循项目级的约定</li>
+</ul>
+<h3 id="9-3-安装-Skills-的两种方式"><a href="#9-3-安装-Skills-的两种方式" class="headerlink" title="9.3 安装 Skills 的两种方式"></a>9.3 安装 Skills 的两种方式</h3><h4 id="方式一：插件市场安装（推荐，网络通畅时）"><a href="#方式一：插件市场安装（推荐，网络通畅时）" class="headerlink" title="方式一：插件市场安装（推荐，网络通畅时）"></a>方式一：插件市场安装（推荐，网络通畅时）</h4><p>Claude Code 内置了插件市场体系，类似于 npm 的包管理。</p>
+<p><strong>核心命令</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查看已添加的市场</span><br>/plugin marketplace list<br><br><span class="hljs-comment"># 添加市场（必须使用 HTTPS 地址）</span><br>/plugin marketplace add https://github.com/anthropics/claude-plugins-official<br><br><span class="hljs-comment"># 浏览市场可用插件</span><br>/plugin marketplace list<br><br><span class="hljs-comment"># 安装插件（格式：插件名@市场名）</span><br>/plugin install code-review@claude-plugins-official<br><br><span class="hljs-comment"># 查看已安装插件</span><br>/plugin list<br><br><span class="hljs-comment"># 启用/禁用插件</span><br>/plugin <span class="hljs-built_in">enable</span> 插件名@市场名<br>/plugin <span class="hljs-built_in">disable</span> 插件名@市场名<br><br><span class="hljs-comment"># 卸载插件</span><br>/plugin uninstall 插件名@市场名<br></code></pre></td></tr></table></figure>
+
+<p><strong>⚠️ 重要注意</strong>：<code>/plugin install</code> <strong>默认安装到项目级</strong>（<code>./.claude/skills/</code>），不是全局的。这意味着：</p>
+<ul>
+<li>你在项目 A 安装了 Skill</li>
+<li>进入项目 B 后，该 Skill <strong>不可用</strong></li>
+</ul>
+<p><strong>如果你想让所有项目都能用</strong>，安装后需要手动复制到全局目录：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 从项目级复制到全局（macOS/Linux）</span><br><span class="hljs-built_in">cp</span> -r ./.claude/skills/skill-name ~/.claude/skills/<br></code></pre></td></tr></table></figure>
+
+<h4 id="方式二：本地手动安装（离线环境、国内网络受限时）"><a href="#方式二：本地手动安装（离线环境、国内网络受限时）" class="headerlink" title="方式二：本地手动安装（离线环境、国内网络受限时）"></a>方式二：本地手动安装（离线环境、国内网络受限时）</h4><p>如果网络不畅或处于离线环境，可以直接将 Skill 文件夹复制到指定目录。</p>
+<p><strong>步骤 1：获取 Skill 文件</strong></p>
+<p>从 GitHub 下载 Skill 仓库的 ZIP 包，解压后得到 Skill 文件夹（内部应包含 <code>SKILL.md</code> 文件）。</p>
+<p><strong>步骤 2：复制到目标目录</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 全局安装（所有项目可用）</span><br><span class="hljs-built_in">cp</span> -r /path/to/skill-folder ~/.claude/skills/<br><br><span class="hljs-comment"># 项目级安装（仅当前项目可用）</span><br><span class="hljs-built_in">mkdir</span> -p ./.claude/skills<br><span class="hljs-built_in">cp</span> -r /path/to/skill-folder ./.claude/skills/<br></code></pre></td></tr></table></figure>
+
+<p><strong>步骤 3：验证安装</strong></p>
+<p>重启 Claude Code，然后询问：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">&gt; 你有哪些可用的 Skills？<br></code></pre></td></tr></table></figure>
+
+<p>如果 Claude 列出了你刚安装的 Skill，说明安装成功。</p>
+<h3 id="9-4-国内网络环境下的-Skills-安装策略"><a href="#9-4-国内网络环境下的-Skills-安装策略" class="headerlink" title="9.4 国内网络环境下的 Skills 安装策略"></a>9.4 国内网络环境下的 Skills 安装策略</h3><p>国内用户安装 Skills 时，最常见的问题是访问 GitHub 慢或超时。以下是几种经过验证的解决方案：</p>
+<h4 id="策略-1：配置-Git-代理（推荐）"><a href="#策略-1：配置-Git-代理（推荐）" class="headerlink" title="策略 1：配置 Git 代理（推荐）"></a>策略 1：配置 Git 代理（推荐）</h4><p>如果你已经有代理工具（Clash、Surge、V2Ray 等），配置 Git 走代理：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># HTTP 代理</span><br>git config --global http.proxy http://127.0.0.1:7890<br>git config --global https.proxy http://127.0.0.1:7890<br><br><span class="hljs-comment"># SOCKS5 代理（部分工具使用）</span><br>git config --global http.proxy socks5://127.0.0.1:7890<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[!info] 端口说明<br>端口号 <code>7890</code> 请替换为你实际代理工具的 HTTP&#x2F;SOCKS5 端口（Clash 默认 7890，Surge 默认 6152）。</p>
+</blockquote>
+<p>配置后，<code>/plugin marketplace add</code> 和 <code>/plugin install</code> 命令就可以正常访问 GitHub 了。</p>
+<h4 id="策略-2：使用-GitHub-镜像站"><a href="#策略-2：使用-GitHub-镜像站" class="headerlink" title="策略 2：使用 GitHub 镜像站"></a>策略 2：使用 GitHub 镜像站</h4><p>如果不想配置代理，可以使用国内的 GitHub 镜像站：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 添加市场时使用镜像地址</span><br>/plugin marketplace add https://gh.api.99988866.xyz/https://github.com/anthropics/claude-plugins-official<br></code></pre></td></tr></table></figure>
+
+<p>常用镜像前缀：</p>
+<ul>
+<li><code>https://gh.api.99988866.xyz/https://github.com/...</code></li>
+<li><code>https://mirror.ghproxy.com/https://github.com/...</code></li>
+<li><code>https://ghps.cc/https://github.com/...</code></li>
+</ul>
+<blockquote>
+<p>[!warning] 镜像站稳定性说明<br>镜像站稳定性不一，如果某个失效，尝试换一个。</p>
+</blockquote>
+<h4 id="策略-3：完全离线安装（内网-无网络环境）"><a href="#策略-3：完全离线安装（内网-无网络环境）" class="headerlink" title="策略 3：完全离线安装（内网&#x2F;无网络环境）"></a>策略 3：完全离线安装（内网&#x2F;无网络环境）</h4><p>这是最稳妥的方案，适合公司内网或完全无法访问外网的环境。</p>
+<p><strong>步骤 1：在能上网的机器上下载 Skills</strong></p>
+<p>访问 Claude Code 官方插件仓库或社区仓库，下载 ZIP 包：</p>
+<ul>
+<li>官方市场：<code>https://github.com/anthropics/claude-plugins-official</code></li>
+<li>社区市场：搜索 <code>claude code skills github</code></li>
+</ul>
+<p><strong>步骤 2：传输到目标机器</strong></p>
+<p>通过 U 盘、内网文件服务器、企业微信&#x2F;钉钉等方式，将解压后的 Skill 文件夹传输到目标 macOS 机器。</p>
+<p><strong>步骤 3：手动安装</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 创建全局 skills 目录</span><br><span class="hljs-built_in">mkdir</span> -p ~/.claude/skills<br><br><span class="hljs-comment"># 复制 Skill 文件夹（假设传输到了 ~/Downloads/skills/）</span><br><span class="hljs-built_in">cp</span> -r ~/Downloads/skills/* ~/.claude/skills/<br><br><span class="hljs-comment"># 验证目录结构</span><br><span class="hljs-built_in">ls</span> -la ~/.claude/skills/<br><span class="hljs-comment"># 应该看到各个 Skill 文件夹，每个文件夹内有 SKILL.md</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>步骤 4：重启 Claude Code 并使用</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">ccd<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">&gt; 你有哪些可用的 Skills？<br>&gt; /skill-name  # 调用特定 Skill<br></code></pre></td></tr></table></figure>
+
+<h3 id="9-5-热门-Skills-推荐"><a href="#9-5-热门-Skills-推荐" class="headerlink" title="9.5 热门 Skills 推荐"></a>9.5 热门 Skills 推荐</h3><p>以下是社区中评价较高的 Skills，供参考：</p>
+<table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>作用</th>
+<th>推荐级别</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>code-review</code></td>
+<td>代码审查规范，自动检查 Bug、性能问题、安全漏洞</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><code>testing</code></td>
+<td>测试框架最佳实践，生成单元测试、集成测试</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><code>security</code></td>
+<td>安全编码规范，识别 SQL 注入、XSS、敏感信息泄露</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><code>react</code></td>
+<td>React 开发规范，Hooks 使用、组件设计模式</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><code>typescript</code></td>
+<td>TypeScript 高级类型、严格模式配置</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><code>documentation</code></td>
+<td>自动生成和优化代码注释、README</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+</tbody></table>
+<p>安装方法示例：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">/plugin install code-review@claude-plugins-official<br>/plugin install testing@claude-plugins-official<br></code></pre></td></tr></table></figure>
+
+<h3 id="9-6-自定义自己的-Skill"><a href="#9-6-自定义自己的-Skill" class="headerlink" title="9.6 自定义自己的 Skill"></a>9.6 自定义自己的 Skill</h3><p>如果现成的 Skills 不能满足需求，你可以自己写一个。</p>
+<p><strong>步骤 1：创建 Skill 目录和文件</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p ~/.claude/skills/my-team-rules<br><span class="hljs-built_in">cat</span> &gt; ~/.claude/skills/my-team-rules/SKILL.md &lt;&lt; <span class="hljs-string">&#x27;EOF&#x27;</span><br><span class="hljs-comment"># My Team Coding Rules</span><br><br><span class="hljs-comment">## 命名规范</span><br>- 变量/函数：camelCase<br>- 组件/类：PascalCase<br>- 常量：UPPER_SNAKE_CASE<br>- 私有属性：_前缀<br><br><span class="hljs-comment">## 代码风格</span><br>- 缩进：2 个空格<br>- 引号：单引号<br>- 分号：必须<br>- 行尾逗号：多行时必须<br><br><span class="hljs-comment">## 文件组织</span><br>- 组件放在 `src/components/`<br>- 工具函数放在 `src/utils/`<br>- API 封装放在 `src/api/`<br>- 类型定义放在 `src/types/`<br><br><span class="hljs-comment">## 提交规范</span><br>- feat: 新功能<br>- fix: 修复<br>- docs: 文档<br>- style: 格式<br>- refactor: 重构<br>- <span class="hljs-built_in">test</span>: 测试<br>- chore: 构建/工具<br>EOF<br></code></pre></td></tr></table></figure>
+
+<p><strong>步骤 2：重启 Claude Code 即可生效</strong></p>
+<p>现在当你让 Claude 写代码时，他会自动遵循你定义的规范。</p>
+<h3 id="9-7-Skills-使用注意事项"><a href="#9-7-Skills-使用注意事项" class="headerlink" title="9.7 Skills 使用注意事项"></a>9.7 Skills 使用注意事项</h3><table>
+<thead>
+<tr>
+<th>注意点</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>版本要求</strong></td>
+<td>Skills 完整功能需要 Claude Code <strong>v2.1.0+</strong>，低版本可能不兼容</td>
+</tr>
+<tr>
+<td><strong>文件命名</strong></td>
+<td>Skill 核心文件必须命名为 <code>SKILL.md</code>（全大写），且直接放在 Skill 文件夹下，不要嵌套</td>
+</tr>
+<tr>
+<td><strong>安全审查</strong></td>
+<td>第三方 Skills 会执行其中的指令，生产环境优先使用官方或可信来源的 Skill</td>
+</tr>
+<tr>
+<td><strong>冲突处理</strong></td>
+<td>同名 Skill 项目级优先于全局，注意避免重复定义导致行为不一致</td>
+</tr>
+<tr>
+<td><strong>性能影响</strong></td>
+<td>安装的 Skills 越多，每次请求附带的上下文越长，Token 消耗越大，建议只安装必要的</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>Claude Code 的核心价值在于<strong>把 AI 能力无缝嵌入到终端工作流</strong>中。它不是一个简单的聊天机器人，而是能读懂你的代码、操作你的文件系统、运行你的测试、提交你的代码的&quot;编程搭档&quot;。</p>
+<p>通过 Skills 系统，你可以进一步定制这个搭档的专业能力——无论是团队的编码规范、特定技术栈的深度知识，还是个人的开发偏好，都能通过 Skills 注入到 Claude 中，让它真正成为&quot;懂你的 AI&quot;。</p>
+<p>配合 DeepSeek 或 Kimi 等国内模型，即使在不方便访问 Anthropic 官方服务的环境下，你也能获得流畅且高度个性化的 AI 编程体验。</p>
+<p>建议从一个小功能或一次代码重构开始尝试，逐步熟悉它的交互模式。你会发现，很多原本需要查文档、写样板代码、反复调试的工作，现在只需几句话就能完成。</p>
+<p>祝你编码愉快！</p>
+<hr>
+<h2 id="十、总结"><a href="#十、总结" class="headerlink" title="十、总结"></a>十、总结</h2><p>本文记录了在 macOS 上安装和配置 Claude Code 的完整过程，重点解决了国内网络环境下无法连接 Anthropic 官方服务的问题。</p>
+<p><strong>核心要点</strong>：</p>
+<ul>
+<li>Claude Code 通过 Anthropic Messages API 通信，国内模型提供了兼容接口</li>
+<li>修改 <code>ANTHROPIC_BASE_URL</code>、<code>ANTHROPIC_AUTH_TOKEN</code>、<code>ANTHROPIC_MODEL</code> 三个环境变量即可切换</li>
+<li><code>ccswitch</code> 工具目前不够稳定，推荐直接手动配置 + 写入 <code>~/.zshrc</code></li>
+<li>使用 <code>npx</code> 或用户级 npm 全局目录，避免 <code>sudo npm install -g</code> 的安全风险</li>
+</ul>
+<p>现在，输入 <code>ccd</code> 或 <code>cck</code>，开始你的 AI 编程之旅吧。</p>
+<hr>
+<p><em>参考链接</em>  </p>
+<ul>
+<li>Claude Code 官方文档：<a target="_blank" rel="noopener" href="https://docs.anthropic.com/en/docs/claude-code/overview">https://docs.anthropic.com/en/docs/claude-code/overview</a>  </li>
+<li>DeepSeek API 平台：<a target="_blank" rel="noopener" href="https://platform.deepseek.com/">https://platform.deepseek.com</a>  </li>
+<li>Kimi API 平台：<a target="_blank" rel="noopener" href="https://platform.moonshot.cn/">https://platform.moonshot.cn</a>  </li>
+<li>ccswitch 项目：<a target="_blank" rel="noopener" href="https://github.com/yourccswitch/claude-code-switch">https://github.com/yourccswitch/claude-code-switch</a></li>
+</ul>
+
+  </div>
+
+  
+    <div class="post-tags">
+      
+        <a href="/tags/Claude-Code/" class="post-tag">Claude Code</a>
+      
+        <a href="/tags/DeepSeek/" class="post-tag">DeepSeek</a>
+      
+        <a href="/tags/Kimi/" class="post-tag">Kimi</a>
+      
+        <a href="/tags/macOS/" class="post-tag">macOS</a>
+      
+        <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="post-tag">开发工具</a>
+      
+        <a href="/tags/AI%E7%BC%96%E7%A8%8B/" class="post-tag">AI编程</a>
+      
+    </div>
+  
+
+  <!-- Share -->
+  <div class="post-share">
+    <span class="share-label">分享</span>
+    <a class="share-btn share-twitter" href="javascript:void(0)" onclick="shareTo('twitter','Mac 用户 Claude Code 完全配置指南：接入 DeepSeek / Kimi 等国内大模型')" aria-label="分享到 Twitter">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a class="share-btn share-weibo" href="javascript:void(0)" onclick="shareTo('weibo','Mac 用户 Claude Code 完全配置指南：接入 DeepSeek / Kimi 等国内大模型')" aria-label="分享到微博">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M10.098 20.323c-3.977.391-7.414-1.406-7.672-4.02-.259-2.609 2.759-5.047 6.74-5.441 3.979-.394 7.413 1.404 7.671 4.018.259 2.6-2.759 5.049-6.739 5.443zM8.594 11.39c-5.065.662-8.727 4.033-8.18 7.543.547 3.51 5.05 5.827 10.115 5.166 5.065-.662 8.727-4.033 8.18-7.543-.547-3.51-5.05-5.827-10.115-5.166zm5.636-1.591c-.275-.052-.462-.199-.422-.332.041-.133.287-.194.562-.143.619.117.998.452.84.776-.156.318-.685.423-1.304.308-.197-.037-.34-.161-.32-.278.021-.117.186-.182.382-.145.276.053.466.012.44-.064-.026-.076-.214-.142-.49-.195.303.12.498.278.457.411-.04.131-.284.19-.558.14-.613-.116-.991-.451-.833-.774.155-.316.679-.418 1.292-.304zM7.706 9.262c-.226-.062-.374-.212-.332-.334.043-.122.252-.172.478-.11.564.152.892.482.735.79-.155.303-.628.42-1.192.27-.569-.152-.891-.483-.734-.791.156-.309.625-.428 1.186-.278.236.064.384.214.341.335-.042.122-.25.172-.482.118zM14.912.472c-2.023-.558-4.314.126-5.963 1.664-.658.614-1.145 1.313-1.44 2.043-.307.759-.417 1.525-.363 2.216.27.208.557.389.861.543.286.144.586.262.897.353.36.107.737.18 1.112.229.054-.09.104-.184.155-.277.244-.45.582-.845 1.006-1.17.957-.735 2.145-.991 3.157-.735 1.011.257 1.646 1.01 1.78 1.992.039.281.04.566.002.846.385.032.76.098 1.113.2.38.108.736.258 1.065.443.15.084.293.177.43.277.257-.954.184-2.07-.311-3.118C21.372 2.933 18.595.735 14.912.472zm-1.374 17.918c-2.203.691-4.611-.196-5.368-1.982-.762-1.796.46-3.788 2.667-4.483 2.203-.695 4.61.197 5.368 1.983.762 1.796-.46 3.788-2.667 4.482zm1.157-2.272c.462-.815-.198-1.848-1.438-2.296-1.239-.447-2.473-.205-2.935.608-.462.813.197 1.848 1.437 2.296 1.24.449 2.473.207 2.936-.608z"/></svg>
+    </a>
+    <button class="share-btn share-copy" onclick="copyPageLink(this)" aria-label="复制链接">
+      <svg class="share-copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+    </button>
+    <span class="share-copy-feedback" aria-hidden>已复制</span>
+  </div>
+
+  
+    
+    
+      
+        
+      
+        
+          
+        
+      
+    
+      
+        
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+        
+      
+    
+    
+    <div class="related-posts">
+      <h3 class="related-title">相关文章</h3>
+      <div class="related-list">
+        
+        <a class="related-item" href="/posts/e5faa21f/">
+          <span class="related-item-title">Claude 环境变量配置 ｜ 搭配 DeepSeek V4 模型</span>
+          <time class="related-item-date">2026-04-29</time>
+        </a>
+        
+      </div>
+    </div>
+    
+  
+
+  <nav class="post-nav">
+    
+      <a href="/posts/4f4d7fcc/" class="post-nav-item post-nav-prev">
+        <span class="post-nav-label">Previous</span>
+        <span class="post-nav-title">notesmd-cli 安装与使用</span>
+      </a>
+    
+    
+      <a href="/posts/3963eea8/" class="post-nav-item post-nav-next">
+        <span class="post-nav-label">Next</span>
+        <span class="post-nav-title">灵芝、硫磺菌和羊肚菌的分子鉴定</span>
+      </a>
+    
+  </nav>
+
+  <section id="comments" class="comments-section">
+    <script src="https://giscus.app/client.js"
+      data-repo="realzhengxi/zhengxi_blog_comments"
+      data-repo-id="R_kgDOSKT6sA"
+      data-category="General"
+      data-category-id="DIC_kwDOSKT6sM4C7fUT"
+      data-mapping="title"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="light"
+      data-lang="zh-CN"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </section>
+</article>
+
+    </main>
+  </div>
+
+  <footer id="footer">
+  <div class="footer-inner">
+    <p>&copy; 2024 - 2026 <a href="/">ZhengXi Wiki</a>. Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> &amp; <a href="#">hellowiki</a>.</p>
+  </div>
+</footer>
+
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- Mermaid for diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+
+  <!-- Search Index -->
+  <script>
+  window.__SEARCH_INDEX__ = [
+    
+      {
+        title: "硫磺菌（Laetiporus）新种发表——完整工作流程与数据统计指南",
+        path: "/posts/a3f7b2d1/",
+        date: "2026-05-04",
+        categories: ["食用菌研究"],
+        tags: ["系统发育","真菌学","分类学","分子鉴定","GCPSR","实验方法","硫磺菌","新种发表"],
+        excerpt: "硫磺菌（Laetiporus）新种发表——完整工作流程与数据统计指南 本文结合硫磺菌属最新分类学进展（Song et al. 2014, 2017, 2018; Hakizimana et al. 2024）与 GCPSR 物种识别框架，系统梳理发表一个硫磺菌新种所需的全部工作、数据和统计信息。 一、工作总览发表一个硫磺菌新种，需要完成四大模块、十二个阶段的工作，从野外采集到论文发表，全程通常需要 6–18 个月。 graph LR A[&quot;模块一&lt;br/&gt;标本采集与保藏&quot;] --&gt; B[&quot;模块二&lt;br/&gt;形态学数据收集&quot;] "
+      },
+    
+      {
+        title: "MacOS 上 Conda 安装与使用指南",
+        path: "/posts/526a2e3a/",
+        date: "2026-04-29",
+        categories: ["环境配置"],
+        tags: ["conda","python","macos","环境管理","包管理"],
+        excerpt: "Conda 是一个开源的包管理系统和环境管理系统，支持 Python、R 等多种语言。相比 pip + venv，Conda 的优势在于： 跨语言：不仅管 Python 包，还能管 C 库、R 包等 二进制分发：预编译好的包，无需本地编译工具链 环境隔离：每个环境有独立的 Python 解释器和包集合 1. 安装 Conda选择版本推荐安装 Miniconda（精简版）而非 Anaconda（完整版 3GB+），只装最核心的 conda + Python，需要什么包再自己装。 安装步骤# 下载 Miniconda (Apple Silicon / Intel 根据你的机器选)# Apple S"
+      },
+    
+      {
+        title: "Claude 环境变量配置 ｜ 搭配 DeepSeek V4 模型",
+        path: "/posts/e5faa21f/",
+        date: "2026-04-29",
+        categories: ["工具配置"],
+        tags: ["配置","Claude Code","DeepSeek","AI编程","环境变量","API"],
+        excerpt: "要让 Claude 相关的环境变量（比如 ANTHROPIC_AUTH_TOKEN）永久生效，关键是把变量写入 shell 的启动配置文件，而不是仅在当前终端里 export。 下面按操作系统给出最常见、最稳妥的做法。 Linux &#x2F; macOS（终端）1. 确定你用的 shell打开终端，运行： echo $SHELL 通常输出 /bin/bash（bash）或者 /bin/zsh（zsh，macOS 默认）。 2. 编辑对应的配置文件 bash 用户：编辑 ~/.bashrc（大多数 Linux）或者 ~/.bash_profile &#x2F; ~/.profile（macOS"
+      },
+    
+      {
+        title: "Claude Code Skills 安装记录",
+        path: "/posts/64478dc9/",
+        date: "2026-04-28",
+        categories: ["工具配置"],
+        tags: ["claude-code","skills","obsidian","配置"],
+        excerpt: "Claude Code Skills 安装记录通过 npx skills 安装了 5 个全局技能（zhengxi 用户下所有项目可用）。 已安装技能 技能 来源 用途 find-skills vercel-labs&#x2F;skills 搜索和发现更多社区技能 md-to-office claude-office-skills&#x2F;skills Markdown 转 Word&#x2F;Office 文档 obsidian-markdown kepano&#x2F;obsidian-skills Obsidian 格式 Markdown（wikilinks、callouts、属性等） "
+      },
+    
+      {
+        title: "真菌分子系统学与多基因系统发育树构建",
+        path: "/posts/72c69583/",
+        date: "2026-04-28",
+        categories: ["食用菌研究"],
+        tags: ["系统发育","真菌学","分类学","分子鉴定","GCPSR","实验方法","生物信息学","食用菌"],
+        excerpt: "真菌分子系统学与多基因系统发育树构建 以羊肚菌属（Morchella）和硫磺菌属（Laetiporus）的现代分类学研究为实例，覆盖从隐存种概念、GCPSR物种识别框架、引物设计、遗传距离、到多基因联合建树全流程的完整知识体系。 第一部分：真菌分类学基础概念1.1 隐存种复合体（Cryptic Species Complex）许多传统上被认为是&quot;一个世界广布种&quot;的真菌，经分子系统学研究后被发现实际是一群形态几乎无法区分但遗传上显著分化的独立物种。 实例 传统认知 分子证据揭示 羊肚菌属 少数几个形态变种 80+ 系统发育种，大陆特有性强 硫磺菌属 L. sulphureus"
+      },
+    
+      {
+        title: "硫磺菌（Laetiporus）分类学与新种鉴定",
+        path: "/posts/c5bf302b/",
+        date: "2026-04-28",
+        categories: ["食用菌研究"],
+        tags: ["真菌学","分类学","食用菌","硫磺菌","多孔菌"],
+        excerpt: "硫磺菌（Laetiporus）分类学与新种鉴定分类学地位硫磺菌属（Laetiporus Murrill, 1904）隶属 硫磺孔菌科（Laetiporaceae），属于褐腐真菌。 graph TD A[&quot;担子菌门 Basidiomycota&quot;] --&gt; B[&quot;伞菌纲 Agaricomycetes&quot;] B --&gt; C[&quot;多孔菌目 Polyporales&quot;] C --&gt; D[&quot;硫磺孔菌科 Laetiporaceae&quot;] D --&gt; E[&quot;**硫磺菌属 Laetiporus**&quot"
+      },
+    
+      {
+        title: "羊肚菌（Morchella）分类学与系统发育",
+        path: "/posts/d3363a64/",
+        date: "2026-04-28",
+        categories: ["食用菌研究"],
+        tags: ["真菌学","分类学","食用菌","羊肚菌"],
+        excerpt: "羊肚菌（Morchella）分类学与系统发育分类学地位羊肚菌属（Morchella Dill. ex Pers., 1794）隶属羊肚菌科（Morchellaceae），该科由德国生物学家路德维希·赖兴巴赫于 1834 年描述发表。 graph TD A[&quot;子囊菌门 Ascomycota&quot;] --&gt; B[&quot;盘菌纲 Pezizomycetes&quot;] B --&gt; C[&quot;盘菌目 Pezizales&quot;] C --&gt; D[&quot;羊肚菌科 Morchellaceae (Reichenbach, 1834)&quot;] D "
+      },
+    
+      {
+        title: "Hexo 静态博客方案 ｜ GitHub Actions 自动化部署",
+        path: "/posts/342e4b03/",
+        date: "2026-04-26",
+        categories: ["开发笔记"],
+        tags: ["Hexo","GitHub Pages","GitHub Actions","静态博客","CI/CD","Node.js"],
+        excerpt: "[!abstract] 适用环境与目标 适用环境：macOS &#x2F; Windows &#x2F; Linux + Node.js 16.0+ + Git 目标：在 GitHub Pages 上搭建 Hexo 静态博客，实现「写文章 → 推送源码 → 自动构建并部署」的全自动化工作流 概述静态博客方案结合了 Markdown 的写作体验和 GitHub Pages 的免费托管能力，是个人技术博客和知识库的首选方案之一。Hexo 作为最流行的静态博客框架，生态成熟、主题丰富、部署方式灵活，社区中积累了大量开箱即用的主题和插件。 本文以一个真实的生产环境博客（伞间岁月）为案例，详细讲解： H"
+      },
+    
+      {
+        title: "木耳（Auricularia）分子鉴定方法",
+        path: "/posts/6d371a40/",
+        date: "2026-04-26",
+        categories: ["食用菌研究"],
+        tags: ["ITS","分子生物学","木耳","Auricularia","DNA条形码","IGS"],
+        excerpt: "木耳（Auricularia）分子鉴定方法一、概述木耳属（Auricularia）真菌的分子鉴定主要基于 核糖体 DNA（rDNA） 的多区域联合分析。rDNA 在基因组中以串联重复单元形式存在，木耳基因组中约有 310 个 重复单元（毛木耳 A. cornea），每个重复单元全长约 10.6~11.2 kb。 rDNA 重复单元结构： [18S]-ITS1-[5.8S]-ITS2-[28S]-IGS1-[5S]-IGS2-[18S]... 二、核心基因&#x2F;区域1. ITS 区（Internal Transcribed Spacer）— 首选 DNA 条形码引物： 真菌通用引物 ITS"
+      },
+    
+      {
+        title: "notesmd-cli 安装与使用",
+        path: "/posts/4f4d7fcc/",
+        date: "2026-04-26",
+        categories: ["工具配置"],
+        tags: ["obsidian","cli","工具配置"],
+        excerpt: "notesmd-cli 安装与使用背景notesmd-cli（原名 obsidian-cli）是一个 Go 语言编写的命令行工具，用于在终端中与 Obsidian vault 交互。支持搜索、创建、编辑笔记等操作。 早期版本叫 Yakitrak/obsidian-cli，后更名为 notesmd-cli。 安装过程踩坑：错误的 obsidian-cli [!warning] 装错了包npm 上的 obsidian-cli 实际上是 Obsidianqa（测试管理平台）的 CLI，不是 Obsidian 笔记工具的 CLI。初始安装成功后，会发现不支持 set-default、search、cr"
+      },
+    
+      {
+        title: "Mac 用户 Claude Code 完全配置指南：接入 DeepSeek / Kimi 等国内大模型",
+        path: "/posts/2b01f7e5/",
+        date: "2026-04-24",
+        categories: ["开发笔记"],
+        tags: ["Claude Code","DeepSeek","Kimi","macOS","开发工具","AI编程"],
+        excerpt: "[!abstract] 适用环境与目标 适用环境：macOS（Intel &#x2F; Apple Silicon）+ Homebrew + zsh 目标：在无法直接访问 Anthropic 官方服务的环境下，让 Claude Code 通过国内大模型（DeepSeek、Kimi、GLM、MiniMax 等）正常运行。 一、安装 Claude CodeClaude Code 是 Anthropic 推出的终端 AI 编程助手，可通过 Homebrew 一键安装： brew install --cask claude-code@latest 安装完成后，终端输入： claude 如果看到 Cla"
+      },
+    
+      {
+        title: "灵芝、硫磺菌和羊肚菌的分子鉴定",
+        path: "/posts/3963eea8/",
+        date: "2026-04-22",
+        categories: ["食用菌研究"],
+        tags: ["分子鉴定","食用菌","PCR引物","灵芝","硫磺菌","羊肚菌","ITS"],
+        excerpt: "[!abstract] 核心思路基于 rDNA（核糖体 DNA） 和 蛋白编码基因 的多基因分子鉴定方案 概述食用菌的传统形态学鉴定依赖于子实体的宏观特征（菌盖形状、菌褶颜色、孢子印等），但在以下场景中往往力不从心： 菌丝体阶段（无子实体） 同物异名 &#x2F; 同名异物 的分类混乱 近缘种 形态高度相似（如灵芝属 Ganoderma 内部） 药用菌真伪鉴别（市场掺假问题） DNA 分子标记 通过 PCR 扩增保守区域的特异性序列，结合测序和数据库比对，已成为食用菌鉴定的金标准。 一、常用分子标记概述 基因位点 全称 特点 适用范围 ITS Internal Transcribed Spac"
+      },
+    
+      {
+        title: "微信小程序：生科小算Pro",
+        path: "/posts/bfa151ca/",
+        date: "2026-04-21",
+        categories: ["开发笔记"],
+        tags: ["生物信息学","微信小程序","科研工具","实验计算"],
+        excerpt: "[!abstract] 生科小算 Pro一站式分子生物学科研计算工具箱 项目简介 | Project Introduction生科小算 Pro 是一款专为生命科学领域科研人员打造的微信小程序工具集。它将日常实验中频繁使用的各类计算功能整合到一个简洁优雅的应用中，帮助研究者从繁琐的手工计算中解放出来，专注于科学发现本身。 从 DNA 序列分析到细胞培养方案设计，从 PCR 体系配制到动物实验剂量计算——22 个精心设计的工具模块覆盖了分子生物学、细胞生物学和基础药理学的常见计算需求。 设计理念 精准可靠：所有计算公式均来自权威文献或教科书，确保结果可溯源 薄荷清新：采用薄荷绿主色调（#3ecec"
+      },
+    
+      {
+        title: "Git版本管理",
+        path: "/posts/42224731/",
+        date: "2026-04-20",
+        categories: ["开发笔记"],
+        tags: ["git","版本控制","教程"],
+        excerpt: "Git 版本管理 [!abstract] 概述Git 是一个&#x3D;&#x3D;分布式版本控制系统&#x3D;&#x3D;，用于追踪文件的变更历史，支持多人协作开发。本教程将帮助你理解 Git 的核心原理和基本用法。 一、为什么需要版本控制？想象你在写一篇论文，你可能会这样备份： 论文.doc论文_修改.doc论文_最终版.doc论文_最终版2.doc论文_打死不改版.doc [!warning] 问题 文件越来越多，根本分不清哪个是最新的 想找回之前某个版本？几乎不可能 多人同时修改同一文件？冲突不断 版本控制系统（VCS） 就是来解决这些问题的。而 Git 是目前最流行的版本控制工具。"
+      },
+    
+      {
+        title: "微信小程序Git远程仓库设置（GitHub）",
+        path: "/posts/e211538c/",
+        date: "2026-04-20",
+        categories: ["开发笔记"],
+        tags: ["微信小程序","Git","GitHub","SSH","微信开发者工具"],
+        excerpt: "微信小程序 Git 远程仓库设置（GitHub）概述在微信开发者工具中，通过 Git 版本管理将小程序项目推送到 GitHub 远程仓库，需要完成 SSH 密钥配置 和 远程仓库设置 两个核心步骤。 [!tip] 推荐认证方式使用 SSH Key（指定密钥） 方式认证，比 SSH Agent 更可靠，不依赖系统 ssh-agent 进程。 一、生成 SSH 密钥对打开终端（Terminal），执行以下命令： ssh-keygen -t ed25519 -C &quot;你的GitHub邮箱@example.com&quot; 按提示操作： 文件保存路径：直接回车，使用默认路径 ~/.ssh/i"
+      }
+    
+  ];
+  </script>
+
+  <script>
+  (function() {
+    'use strict';
+
+    var content = document.querySelector('.wiki-content');
+
+    // ============================
+    // 0. Mermaid — detect & render
+    // ============================
+    if (content) (function() {
+      function getPlainText(el) {
+        // <br> in hexo's code output replaces \n; restore them
+        var c = el.cloneNode(true);
+        c.querySelectorAll('br').forEach(function(b){ b.replaceWith('\n'); });
+        return (c.textContent || '').replace(/ /g, ' ');
+      }
+      var blocks = [];
+      content.querySelectorAll('figure.highlight.plaintext pre code').forEach(function(code) {
+        var t = getPlainText(code);
+        if (!/^\s*(graph\s+(TB|BT|RL|LR|TD)|flowchart|sequenceDiagram|classDiagram|stateDiagram|erDiagram|gantt|pie|gitGraph|journey|requirementDiagram|mindmap|timeline)\b/.test(t)) return;
+        var fig = code.closest('figure.highlight');
+        if (!fig) return;
+        var div = document.createElement('div');
+        div.className = 'mermaid';
+        // Mermaid with htmlLabels:true doesn't convert **bold** → <strong>
+        var mermaidSrc = t.trim().replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+        div.textContent = mermaidSrc;
+        fig.parentNode.replaceChild(div, fig);
+        blocks.push(div);
+      });
+      if (blocks.length && typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: false, theme: 'neutral', flowchart: { useMaxWidth: true, htmlLabels: true } });
+        mermaid.run({ nodes: blocks }).catch(function(){});
+      }
+    })();
+
+    // ============================
+    // 1. Obsidian Callout
+    // ============================
+    if (content) (function() {
+      var ICONS = {
+        note:'📝', abstract:'📋', summary:'📋', info:'ℹ️', todo:'✅',
+        tip:'💡', hint:'💡', important:'⭐', success:'✅', check:'✅', done:'✅',
+        question:'❓', help:'❓', faq:'❓',
+        warning:'⚠️', caution:'⚠️', attention:'⚠️',
+        failure:'❌', fail:'❌', danger:'⚡', error:'⚡', bug:'🐛',
+        example:'📄', quote:'💬', cite:'💬'
+      };
+
+      content.querySelectorAll('blockquote').forEach(function(bq) {
+        var p = bq.querySelector('p');
+        if (!p) return;
+
+        // Collect text before first <br> and locate the <br> node
+        var calloutText = '';
+        var brNode = null;
+        for (var ci = 0; ci < p.childNodes.length; ci++) {
+          var cn = p.childNodes[ci];
+          if (cn.nodeType === 3) calloutText += cn.textContent;
+          else if (cn.nodeName === 'BR') { brNode = cn; break; }
+        }
+        var m = calloutText.match(/^\[!(\w+)\]([-+])?\s*(.*)/);
+        if (!m) return;
+
+        var type = m[1].toLowerCase();
+        var foldMarker = m[2] || '';
+        var rawTitle = (m[3] || '').trim();
+        var title = rawTitle || type.charAt(0).toUpperCase() + type.slice(1);
+        var icon = ICONS[type] || '📌';
+
+        var w = document.createElement('div');
+        w.className = 'callout';
+        w.setAttribute('data-callout', type);
+        if (foldMarker === '-') w.classList.add('is-folded');
+        if (foldMarker) w.classList.add('is-foldable');
+
+        var td = document.createElement('div');
+        td.className = 'callout-title';
+        var is = document.createElement('span');
+        is.className = 'callout-icon';
+        is.textContent = icon;
+        td.appendChild(is);
+        td.appendChild(document.createTextNode(' ' + title));
+
+        var bd = document.createElement('div');
+        bd.className = 'callout-content';
+
+        // Move content after <br> from the title paragraph into a new <p>
+        if (brNode) {
+          var frag = document.createDocumentFragment();
+          var next = brNode.nextSibling;
+          while (next) {
+            var toMove = next;
+            next = next.nextSibling;
+            frag.appendChild(toMove);
+          }
+          if (frag.hasChildNodes()) {
+            var bodyP = document.createElement('p');
+            bodyP.appendChild(frag);
+            bd.appendChild(bodyP);
+          }
+        }
+
+        // Remove title <p> from blockquote
+        bq.removeChild(p);
+
+        // Move any remaining children (separate <p>, <ul>, etc.)
+        while (bq.firstChild) bd.appendChild(bq.firstChild);
+
+        w.appendChild(td);
+        w.appendChild(bd);
+        bq.parentNode.replaceChild(w, bq);
+
+        // Click-to-toggle for foldable callouts
+        if (foldMarker) {
+          td.style.cursor = 'pointer';
+          td.addEventListener('click', function() {
+            w.classList.toggle('is-folded');
+          });
+        }
+      });
+    })();
+
+    // ============================
+    // 2. Obsidian ==highlight==
+    // ============================
+    (function() {
+      var root = content || document.body;
+      var iter = document.createNodeIterator(root, NodeFilter.SHOW_TEXT, null, false);
+      var nodes = [], n;
+      while ((n = iter.nextNode())) nodes.push(n);
+      nodes.forEach(function(tn) {
+        if (tn.textContent.indexOf('==') === -1) return;
+        var frag = document.createDocumentFragment();
+        (tn.textContent.split(/(==.+?==)/)).forEach(function(part) {
+          var mk = part.match(/^==([\s\S]+?)==$/);
+          if (mk) { var m = document.createElement('mark'); m.className = 'obsidian-highlight'; m.textContent = mk[1]; frag.appendChild(m); }
+          else { frag.appendChild(document.createTextNode(part)); }
+        });
+        tn.parentNode.replaceChild(frag, tn);
+      });
+    })();
+
+    // ============================
+    // 3. ~~strikethrough~~
+    // ============================
+    (function() {
+      var root = content || document.body;
+      var iter = document.createNodeIterator(root, NodeFilter.SHOW_TEXT, null, false);
+      var nodes = [], n;
+      while ((n = iter.nextNode())) nodes.push(n);
+      nodes.forEach(function(tn) {
+        if (tn.textContent.indexOf('~~') === -1) return;
+        var frag = document.createDocumentFragment();
+        (tn.textContent.split(/(~~.+?~~)/)).forEach(function(part) {
+          var mk = part.match(/^~~([\s\S]+?)~~$/);
+          if (mk) { var d = document.createElement('del'); d.textContent = mk[1]; frag.appendChild(d); }
+          else { frag.appendChild(document.createTextNode(part)); }
+        });
+        tn.parentNode.replaceChild(frag, tn);
+      });
+    })();
+
+    // ============================
+    // 4. %%comment%%
+    // ============================
+    (function() {
+      var root = content || document.body;
+      var iter = document.createNodeIterator(root, NodeFilter.SHOW_TEXT, null, false);
+      var nodes = [], n;
+      while ((n = iter.nextNode())) nodes.push(n);
+      nodes.forEach(function(tn) {
+        if (tn.textContent.indexOf('%%') === -1) return;
+        var frag = document.createDocumentFragment();
+        (tn.textContent.split(/(%%.+?%%)/)).forEach(function(part) {
+          var mk = part.match(/^%%([\s\S]+?)%%$/);
+          if (mk) { var s = document.createElement('span'); s.className = 'obsidian-comment'; s.textContent = '// ' + mk[1]; frag.appendChild(s); }
+          else { frag.appendChild(document.createTextNode(part)); }
+        });
+        tn.parentNode.replaceChild(frag, tn);
+      });
+    })();
+
+    // ============================
+    // 5. Wiki links [[Page]] or [[Page|Alias]]
+    // ============================
+    (function() {
+      var root = content || document.body;
+      var iter = document.createNodeIterator(root, NodeFilter.SHOW_TEXT, null, false);
+      var nodes = [], n;
+      while ((n = iter.nextNode())) nodes.push(n);
+      nodes.forEach(function(tn) {
+        if (tn.textContent.indexOf('[[') === -1) return;
+        var frag = document.createDocumentFragment();
+        (tn.textContent.split(/(\[\[.+?\]\])/)).forEach(function(part) {
+          var mk = part.match(/^\[\[([^\]|]+)(?:\|([^\]]+))?\]\]$/);
+          if (mk) {
+            var target = mk[1].trim();
+            var label = (mk[2] || target).trim();
+            var a = document.createElement('a');
+            a.className = 'wiki-link';
+            a.href = '/tags/' + encodeURIComponent(target) + '/';
+            a.textContent = label;
+            frag.appendChild(a);
+          } else {
+            frag.appendChild(document.createTextNode(part));
+          }
+        });
+        tn.parentNode.replaceChild(frag, tn);
+      });
+    })();
+
+    // ============================
+    // 6. Language label on code blocks
+    // ============================
+    if (content) content.querySelectorAll('figure.highlight').forEach(function(fig) {
+      var lang = '';
+      fig.className.split(' ').forEach(function(c) { if (c !== 'highlight') lang = c; });
+      if (!lang) {
+        var code = fig.querySelector('code');
+        if (code) lang = (code.className || '').replace(/^hljs\s*/,'').replace(/\s*language-/g,'').trim();
+      }
+      if (lang) fig.setAttribute('data-lang', lang);
+    });
+
+    // ============================
+    // 7. Copy button
+    // ============================
+    if (content) content.querySelectorAll('figure.highlight').forEach(function(fig) {
+      var btn = document.createElement('button');
+      btn.className = 'code-copy-btn';
+      btn.textContent = 'Copy';
+      btn.addEventListener('click', function() {
+        var code = fig.querySelector('code');
+        if (!code) return;
+        var text = code.textContent || '';
+        (navigator.clipboard ? navigator.clipboard.writeText(text) : new Promise(function(r) {
+          var ta = document.createElement('textarea');
+          ta.value = text; ta.style.cssText = 'position:fixed;opacity:0';
+          document.body.appendChild(ta); ta.select();
+          document.execCommand('copy'); document.body.removeChild(ta);
+          r();
+        })).then(function() {
+          btn.textContent = 'Copied!';
+          btn.classList.add('copied');
+          setTimeout(function() { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+        }).catch(function() {});
+      });
+      fig.appendChild(btn);
+    });
+
+    // ============================
+    // 8. Reading progress
+    // ============================
+    var bar = document.getElementById('reading-progress');
+    if (bar) {
+      var tick = function() {
+        var h = document.documentElement;
+        var p = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
+        bar.style.width = Math.min(p, 100) + '%';
+        bar.style.opacity = p > 1 ? '1' : '0';
+      };
+      window.addEventListener('scroll', tick, {passive:true});
+      tick();
+    }
+
+    // ============================
+    // 9. Back to top
+    // ============================
+    var btt = document.getElementById('back-to-top');
+    if (btt) {
+      window.addEventListener('scroll', function() {
+        btt.classList.toggle('visible', window.scrollY > 300);
+      }, {passive:true});
+      btt.addEventListener('click', function() { window.scrollTo({top:0,behavior:'smooth'}); });
+    }
+
+    // ============================
+    // 10. Search
+    // ============================
+    var searchInput = document.getElementById('search-input');
+    var searchIndex = window.__SEARCH_INDEX__ || [];
+
+    if (searchInput && searchIndex.length) {
+      var searchResult = document.createElement('div');
+      searchResult.className = 'search-result';
+      document.body.appendChild(searchResult);
+
+      var selectedIdx = -1;
+
+      function positionDropdown() {
+        var rect = searchInput.getBoundingClientRect();
+        searchResult.style.top = (rect.bottom + 4) + 'px';
+        searchResult.style.left = rect.left + 'px';
+        searchResult.style.width = rect.width + 'px';
+      }
+
+      function escapeHtml(str) {
+        var div = document.createElement('div');
+        div.appendChild(document.createTextNode(str));
+        return div.innerHTML;
+      }
+
+      function highlightMatch(text, query) {
+        var words = query.trim().split(/\s+/).filter(Boolean);
+        if (!words.length) return escapeHtml(text);
+        var regex = new RegExp('(' + words.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }).join('|') + ')', 'gi');
+        return escapeHtml(text).replace(regex, '<mark>$1</mark>');
+      }
+
+      function doSearch() {
+        var query = searchInput.value.trim().toLowerCase();
+        selectedIdx = -1;
+        searchResult.textContent = '';
+
+        if (!query || query.length < 2) {
+          searchResult.classList.remove('active');
+          return;
+        }
+
+        positionDropdown();
+
+        var words = query.split(/\s+/).filter(Boolean);
+        var results = [];
+
+        searchIndex.forEach(function(post) {
+          var searchText = [post.title, post.categories.join(' '), post.tags.join(' '), post.excerpt].join(' ').toLowerCase();
+          var match = words.every(function(w) { return searchText.indexOf(w) !== -1; });
+          if (!match) return;
+
+          var score = 0;
+          var titleLower = post.title.toLowerCase();
+          var tagsLower = post.tags.join(' ').toLowerCase();
+          var excerptLower = post.excerpt.toLowerCase();
+
+          words.forEach(function(w) {
+            if (titleLower.indexOf(w) !== -1) score += 10;
+            else if (tagsLower.indexOf(w) !== -1) score += 5;
+            else if (excerptLower.indexOf(w) !== -1) score += 1;
+          });
+
+          results.push({ post: post, score: score });
+        });
+
+        results.sort(function(a, b) { return b.score - a.score; });
+        results = results.slice(0, 8);
+
+        if (!results.length) {
+          var emptyMsg = document.createElement('div');
+          emptyMsg.className = 'search-result-empty';
+          emptyMsg.textContent = 'No results found';
+          searchResult.appendChild(emptyMsg);
+          searchResult.classList.add('active');
+          return;
+        }
+
+        results.forEach(function(item, idx) {
+          var p = item.post;
+          var row = document.createElement('a');
+          row.className = 'search-result-item';
+          row.href = p.path;
+          row.setAttribute('data-index', String(idx));
+
+          var titleSpan = document.createElement('span');
+          titleSpan.className = 'search-result-title';
+          titleSpan.innerHTML = highlightMatch(p.title, query);
+
+          var metaSpan = document.createElement('span');
+          metaSpan.className = 'search-result-meta';
+          var metaParts = [p.date];
+          if (p.categories.length) metaParts.push(p.categories.join(', '));
+          metaSpan.textContent = metaParts.join(' · ');
+
+          row.appendChild(titleSpan);
+          row.appendChild(metaSpan);
+          searchResult.appendChild(row);
+        });
+
+        searchResult.classList.add('active');
+      }
+
+      searchInput.addEventListener('input', doSearch);
+      searchInput.addEventListener('focus', doSearch);
+
+      searchInput.addEventListener('keydown', function(e) {
+        var items = searchResult.querySelectorAll('.search-result-item');
+        if (!items.length) return;
+
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          selectedIdx = Math.min(selectedIdx + 1, items.length - 1);
+          updateSelection(items);
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          selectedIdx = Math.max(selectedIdx - 1, 0);
+          updateSelection(items);
+        } else if (e.key === 'Enter') {
+          if (selectedIdx >= 0 && items[selectedIdx]) {
+            e.preventDefault();
+            window.location.href = items[selectedIdx].href;
+          }
+        } else if (e.key === 'Escape') {
+          searchResult.classList.remove('active');
+          searchInput.blur();
+          selectedIdx = -1;
+        }
+      });
+
+      function updateSelection(items) {
+        items.forEach(function(item, i) {
+          if (i === selectedIdx) {
+            item.classList.add('selected');
+            item.scrollIntoView({ block: 'nearest' });
+          } else {
+            item.classList.remove('selected');
+          }
+        });
+      }
+
+      document.addEventListener('click', function(e) {
+        if (e.target !== searchInput && !searchResult.contains(e.target)) {
+          searchResult.classList.remove('active');
+          selectedIdx = -1;
+        }
+      });
+
+      window.addEventListener('resize', function() {
+        if (searchResult.classList.contains('active')) {
+          positionDropdown();
+        }
+      });
+    }
+  })();
+  </script>
+  <!-- Share functions -->
+  <script>
+  function shareTo(platform, title) {
+    var url = window.location.href;
+    var shareUrl;
+    switch (platform) {
+      case 'twitter':
+        shareUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(title) + '&url=' + encodeURIComponent(url);
+        break;
+      case 'weibo':
+        shareUrl = 'https://service.weibo.com/share/share.php?title=' + encodeURIComponent(title) + '&url=' + encodeURIComponent(url);
+        break;
+    }
+    if (shareUrl) window.open(shareUrl, '_blank', 'width=600,height=500');
+  }
+  function copyPageLink(btn) {
+    var url = window.location.href;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url);
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = url;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch(e) {}
+      document.body.removeChild(ta);
+    }
+    btn.classList.add('copied');
+    setTimeout(function() { btn.classList.remove('copied'); }, 1800);
+  }
+  </script>
+
+</body>
+</html>

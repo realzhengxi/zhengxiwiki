@@ -1,0 +1,417 @@
+/* ========================================
+   Obsidian Flavored Markdown 完全支持
+   hellowiki / ZhengXi Wiki
+   ======================================== */
+
+/* ========================================
+   1. Callouts (引用块拓展)
+   > [!note] 格式
+   ======================================== */
+
+.callout {
+  --callout-color: var(--accent, #b74e4e);
+
+  margin: 1.5rem 0;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--callout-color);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.callout-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: #333;
+  margin-bottom: 0.4rem;
+}
+
+.callout-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.callout-content {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #555);
+  line-height: 1.7;
+}
+
+.callout-content > p:first-child { margin-top: 0; }
+.callout-content > p:last-child { margin-bottom: 0; }
+
+/* Callout 类型色彩 */
+.callout[data-callout="note"],
+.callout[data-callout="abstract"] { --callout-color: #5b8fd9; }
+.callout[data-callout="info"],
+.callout[data-callout="todo"] { --callout-color: #3ba3c9; }
+.callout[data-callout="tip"],
+.callout[data-callout="hint"],
+.callout[data-callout="success"] { --callout-color: #50a85a; }
+.callout[data-callout="question"],
+.callout[data-callout="help"],
+.callout[data-callout="faq"] { --callout-color: #9b72cf; }
+.callout[data-callout="warning"],
+.callout[data-callout="caution"],
+.callout[data-callout="important"] { --callout-color: #d4982a; }
+.callout[data-callout="failure"],
+.callout[data-callout="fail"],
+.callout[data-callout="danger"],
+.callout[data-callout="error"],
+.callout[data-callout="bug"] { --callout-color: #d94f4f; }
+.callout[data-callout="example"] { --callout-color: #c77da8; }
+.callout[data-callout="quote"],
+.callout[data-callout="cite"] { --callout-color: #888; }
+
+/* Foldable callout */
+.callout.is-foldable .callout-title::after {
+  content: '';
+  display: inline-block;
+  margin-left: auto;
+  width: 0;
+  height: 0;
+  border-left: 5px solid var(--callout-color);
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  transition: transform 0.2s ease;
+}
+.callout.is-folded .callout-title::after {
+  transform: rotate(90deg);
+}
+.callout.is-folded .callout-content {
+  display: none;
+}
+
+/* ========================================
+   2. Wiki-Link 双向链接
+   [[Internal Link]] 或 [[Page|Alias]]
+   ======================================== */
+
+.wiki-link,
+a[data-wiki] {
+  color: var(--accent, #b74e4e) !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+.wiki-link:hover,
+a[data-wiki]:hover {
+  border-bottom-color: currentColor;
+}
+
+/* 未找到页面的链接（虚线） */
+.wiki-link.is-broken,
+a[data-wiki].is-broken {
+  opacity: 0.5;
+  border-bottom: 1px dashed currentColor;
+}
+
+/* ========================================
+   3. ==高亮== (Obsidian mark highlight)
+   ======================================== */
+
+.obsidian-highlight,
+.wiki-content .obsidian-highlight {
+  background: #fef08a;
+  color: var(--text);
+  padding: 0.08em 0.2em;
+  border-radius: 3px;
+}
+
+/* ========================================
+   4. %%注释%% (Obsidian comments)
+   ======================================== */
+
+.obsidian-comment {
+  opacity: 0.4;
+  font-size: 0.85em;
+  font-style: italic;
+  transition: opacity 0.3s ease;
+}
+
+.obsidian-comment:hover {
+  opacity: 0.8;
+}
+
+/* ========================================
+   5. 任务列表 (Checkboxes)
+   ======================================== */
+
+.wiki-content ul.contains-task-list {
+  list-style: none;
+  padding-left: 0.5em;
+}
+
+.wiki-content .task-list-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4em;
+  margin-bottom: 0.35em;
+}
+
+.wiki-content .task-list-item input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 0.2em;
+  cursor: default;
+}
+
+.wiki-content .task-list-item.is-checked {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+/* ========================================
+   6. Wiki Links [[Page]]
+   ======================================== */
+
+a.wiki-link {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--accent-dim, rgba(183,78,78,0.3));
+  padding: 0 0.1em;
+  transition: border-color 0.2s, background 0.2s;
+}
+a.wiki-link:hover {
+  border-bottom-style: solid;
+  background: rgba(183,78,78,0.06);
+  border-radius: 2px;
+}
+
+/* ========================================
+   7. Mermaid 流程图/图表
+   ======================================== */
+
+.mermaid {
+  margin: 1.8rem auto;
+  padding: 0.5rem;
+  max-width: 100%;
+  text-align: center;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif !important;
+}
+
+.mermaid .nodeLabel,
+.mermaid .edgeLabel,
+.mermaid .label {
+  color: var(--text) !important;
+  font-size: 0.88rem !important;
+}
+
+.mermaid .edgePath path {
+  stroke: #bbb !important;
+}
+
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node polygon {
+  stroke: #999 !important;
+  filter: none !important;
+}
+
+@media (max-width: 600px) {
+  .mermaid {
+    transform: scale(0.85);
+    transform-origin: center top;
+  }
+}
+
+/* ========================================
+   7. 脚注
+   ======================================== */
+
+.wiki-content .footnotes {
+  margin-top: 2.5em;
+  padding-top: 1.5em;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.wiki-content .footnotes ol {
+  padding-left: 1.2em;
+}
+
+.wiki-content .footnotes li {
+  margin-bottom: 0.3em;
+}
+
+.wiki-content .footnote-ref {
+  font-size: 0.8em;
+  vertical-align: super;
+  line-height: 0;
+}
+
+.wiki-content .footnote-backref {
+  font-size: 0.8em;
+  color: var(--accent);
+  margin-left: 0.3em;
+}
+
+/* ========================================
+   8. 图片尺寸控制
+   ![name|widthxheight](path)
+   ======================================== */
+
+.obsidian-img-size img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ========================================
+   9. 块引用 (Blockquote 美化)
+   ======================================== */
+
+.wiki-content blockquote {
+  margin: 1.8em 0;
+  padding: 1em 1.35em;
+  border-left: 3px solid var(--accent);
+  background: linear-gradient(90deg, var(--accent-light) 0%, transparent 100%);
+  color: var(--text-secondary);
+  font-style: italic;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.wiki-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Blockquote with cite */
+.wiki-content blockquote cite {
+  display: block;
+  margin-top: 0.5em;
+  font-size: 0.85em;
+  font-style: normal;
+  opacity: 0.7;
+}
+
+/* ========================================
+   10. 数学公式 (MathJax / KaTeX)
+   ======================================== */
+
+.wiki-content .math {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.2em 0;
+}
+
+.wiki-content .katex-display {
+  margin: 1.5em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.wiki-content .katex {
+  font-size: 1.05em;
+}
+
+/* ========================================
+   11. Highlight.js 语法高亮 (轻量主题)
+   ======================================== */
+
+.hljs,
+.hljs-subst { color: #1a3a2a; }
+
+.hljs-comment,
+.hljs-quote { color: #5a8a6f; font-style: italic; }
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula { color: #8b5cf6; }
+
+.hljs-deletion,
+.hljs-name,
+.hljs-section,
+.hljs-selector-tag,
+.hljs-template-variable,
+.hljs-variable { color: #c45c4a; }
+
+.hljs-string,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta-string,
+.hljs-regexp,
+.hljs-symbol { color: #2d7a5a; }
+
+.hljs-built_in,
+.hljs-class .hljs-title,
+.hljs-number { color: #b07d2e; }
+
+.hljs-params,
+.hljs-title,
+.hljs-title.function_ { color: #2563eb; }
+
+.hljs-builtin-name,
+.hljs-link,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-type,
+.hljs-title.class_ { color: #9a6a2e; }
+
+.hljs-strong { font-weight: bold; }
+.hljs-em { font-style: italic; }
+.hljs-literal { color: #0d9488; }
+.hljs-meta { color: #4a7a5a; }
+
+/* ========================================
+   12. 行号样式 (highlight.js line numbers)
+   ======================================== */
+
+.wiki-content table.hljs-ln {
+  border: none;
+  margin: 0;
+  width: auto;
+  box-shadow: none;
+}
+
+.wiki-content td.hljs-ln-numbers,
+.wiki-content td.hljs-ln-code {
+  border: none;
+  padding: 0 12px 0 8px;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.wiki-content td.hljs-ln-numbers {
+  -webkit-user-select: none;
+  user-select: none;
+  text-align: right;
+  color: #495162;
+  min-width: 24px;
+  font-size: 0.82em;
+  opacity: 0.45;
+  transition: opacity 0.15s ease;
+}
+
+.wiki-content tr:hover td.hljs-ln-numbers {
+  opacity: 0.75;
+}
+
+/* ========================================
+   13. 响应式
+   ======================================== */
+
+@media (max-width: 600px) {
+  .callout {
+    padding: 0.65rem 0.85rem;
+    margin: 1.2rem 0;
+    border-radius: 6px;
+  }
+
+  .callout-title { font-size: 0.88rem; }
+  .callout-content { font-size: 0.87rem; }
+}

@@ -1,0 +1,2373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>硫磺菌（Laetiporus）新种发表——完整工作流程与数据统计指南 | ZhengXi Wiki</title>
+
+
+  <meta name="description" content="A personal wiki for organizing knowledge and notes. Note: Some content is AI-generated and for reference only.">
+
+
+
+  <meta name="keywords" content="wiki, knowledge base, notes">
+
+
+<!-- Noto Serif SC — 开源可商用思源宋体 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;700&display=swap">
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/obsidian.css">
+
+<meta name="description" content="硫磺菌（Laetiporus）新种发表——完整工作流程与数据统计指南 本文结合硫磺菌属最新分类学进展（Song et al. 2014, 2017, 2018; Hakizimana et al. 2024）与 GCPSR 物种识别框架，系统梳理发表一个硫磺菌新种所需的全部工作、数据和统计信息。   一、工作总览发表一个硫磺菌新种，需要完成四大模块、十二个阶段的工作，从野外采集到论文发表，全程通常">
+<meta property="og:type" content="article">
+<meta property="og:title" content="硫磺菌（Laetiporus）新种发表——完整工作流程与数据统计指南">
+<meta property="og:url" content="https://wiki.zhengxi.me/posts/a3f7b2d1/index.html">
+<meta property="og:site_name" content="ZhengXi Wiki">
+<meta property="og:description" content="硫磺菌（Laetiporus）新种发表——完整工作流程与数据统计指南 本文结合硫磺菌属最新分类学进展（Song et al. 2014, 2017, 2018; Hakizimana et al. 2024）与 GCPSR 物种识别框架，系统梳理发表一个硫磺菌新种所需的全部工作、数据和统计信息。   一、工作总览发表一个硫磺菌新种，需要完成四大模块、十二个阶段的工作，从野外采集到论文发表，全程通常">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-04T00:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-04T06:16:51.000Z">
+<meta property="article:author" content="zhengxi">
+<meta property="article:tag" content="GCPSR">
+<meta property="article:tag" content="分子鉴定">
+<meta property="article:tag" content="分类学">
+<meta property="article:tag" content="实验方法">
+<meta property="article:tag" content="新种发表">
+<meta property="article:tag" content="真菌学">
+<meta property="article:tag" content="硫磺菌">
+<meta property="article:tag" content="系统发育">
+<meta name="twitter:card" content="summary">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress" id="reading-progress"></div>
+
+  <header id="header">
+  <div class="header-inner">
+    <div class="site-brand">
+      <span class="site-logo-marker"></span>
+      <a href="/" class="site-logo">ZhengXi Wiki</a>
+    </div>
+    <nav class="site-nav">
+      <a href="/">Home</a>
+      <a href="/archives/">Archives</a>
+      
+        <a href="/categories/">Categories</a>
+      
+      
+        <a href="/tags/">Tags</a>
+      
+    </nav>
+  </div>
+</header>
+
+
+  <div id="main">
+    <aside id="sidebar">
+      <div class="sidebar-inner">
+  <!-- Search -->
+  
+    <div class="widget widget-search">
+      <input type="text" id="search-input" placeholder="Search wiki..." />
+    </div>
+  
+
+  <!-- Table of Contents (on posts) -->
+  
+
+  <!-- Categories -->
+  
+    <div class="widget widget-categories">
+      <h3 class="widget-title">Categories</h3>
+      <ul class="category-list">
+        
+          <li>
+            <a href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置</a>
+            <span class="count">3</span>
+          </li>
+        
+          <li>
+            <a href="/categories/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">开发笔记</a>
+            <span class="count">5</span>
+          </li>
+        
+          <li>
+            <a href="/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">环境配置</a>
+            <span class="count">1</span>
+          </li>
+        
+          <li>
+            <a href="/categories/%E9%A3%9F%E7%94%A8%E8%8F%8C%E7%A0%94%E7%A9%B6/">食用菌研究</a>
+            <span class="count">6</span>
+          </li>
+        
+      </ul>
+    </div>
+  
+
+  <!-- Tags -->
+  
+    <div class="widget widget-tags">
+      <h3 class="widget-title">Tags</h3>
+      <div class="tag-cloud">
+        
+          <a href="/tags/AI%E7%BC%96%E7%A8%8B/" class="tag-link">#AI编程</a>
+        
+          <a href="/tags/API/" class="tag-link">#API</a>
+        
+          <a href="/tags/Auricularia/" class="tag-link">#Auricularia</a>
+        
+          <a href="/tags/CI-CD/" class="tag-link">#CI/CD</a>
+        
+          <a href="/tags/Claude-Code/" class="tag-link">#Claude Code</a>
+        
+          <a href="/tags/DNA%E6%9D%A1%E5%BD%A2%E7%A0%81/" class="tag-link">#DNA条形码</a>
+        
+          <a href="/tags/DeepSeek/" class="tag-link">#DeepSeek</a>
+        
+          <a href="/tags/GCPSR/" class="tag-link">#GCPSR</a>
+        
+          <a href="/tags/Git/" class="tag-link">#Git</a>
+        
+          <a href="/tags/GitHub/" class="tag-link">#GitHub</a>
+        
+          <a href="/tags/GitHub-Actions/" class="tag-link">#GitHub Actions</a>
+        
+          <a href="/tags/GitHub-Pages/" class="tag-link">#GitHub Pages</a>
+        
+          <a href="/tags/Hexo/" class="tag-link">#Hexo</a>
+        
+          <a href="/tags/IGS/" class="tag-link">#IGS</a>
+        
+          <a href="/tags/ITS/" class="tag-link">#ITS</a>
+        
+          <a href="/tags/Kimi/" class="tag-link">#Kimi</a>
+        
+          <a href="/tags/Node-js/" class="tag-link">#Node.js</a>
+        
+          <a href="/tags/PCR%E5%BC%95%E7%89%A9/" class="tag-link">#PCR引物</a>
+        
+      </div>
+      
+        <a href="/tags/" class="widget-more">more →</a>
+      
+    </div>
+  
+
+  <!-- Archives -->
+  
+    <div class="widget widget-archives">
+      <h3 class="widget-title">Archives</h3>
+      <ul class="archive-list">
+        
+          <li>
+            <a href="/posts/a3f7b2d1/">硫磺菌（Laetiporus）新种发表——完整工作流程与数据统计指南</a>
+          </li>
+        
+          <li>
+            <a href="/posts/526a2e3a/">MacOS 上 Conda 安装与使用指南</a>
+          </li>
+        
+          <li>
+            <a href="/posts/e5faa21f/">Claude 环境变量配置 ｜ 搭配 DeepSeek V4 模型</a>
+          </li>
+        
+          <li>
+            <a href="/posts/64478dc9/">Claude Code Skills 安装记录</a>
+          </li>
+        
+          <li>
+            <a href="/posts/72c69583/">真菌分子系统学与多基因系统发育树构建</a>
+          </li>
+        
+          <li>
+            <a href="/posts/c5bf302b/">硫磺菌（Laetiporus）分类学与新种鉴定</a>
+          </li>
+        
+          <li>
+            <a href="/posts/d3363a64/">羊肚菌（Morchella）分类学与系统发育</a>
+          </li>
+        
+          <li>
+            <a href="/posts/342e4b03/">Hexo 静态博客方案 ｜ GitHub Actions 自动化部署</a>
+          </li>
+        
+      </ul>
+      
+        <a href="/archives/" class="widget-more">more →</a>
+      
+    </div>
+  
+</div>
+
+    </aside>
+    <main id="content">
+      <article class="wiki-post">
+  <header class="post-header">
+    <h1 class="post-title">硫磺菌（Laetiporus）新种发表——完整工作流程与数据统计指南</h1>
+    <div class="post-meta">
+      <time datetime="2026-05-04T00:00:00.000Z">2026-05-04</time>
+      
+        <span class="meta-sep">·</span>
+        <span class="post-updated">Updated: 2026-05-04</span>
+      
+      
+        <span class="meta-sep">·</span>
+        <span class="post-categories">
+          
+            <a href="/categories/%E9%A3%9F%E7%94%A8%E8%8F%8C%E7%A0%94%E7%A9%B6/">食用菌研究</a>
+          
+        </span>
+      
+    </div>
+  </header>
+
+  <div class="wiki-content">
+    <h1 id="硫磺菌（Laetiporus）新种发表——完整工作流程与数据统计指南"><a href="#硫磺菌（Laetiporus）新种发表——完整工作流程与数据统计指南" class="headerlink" title="硫磺菌（Laetiporus）新种发表——完整工作流程与数据统计指南"></a>硫磺菌（<em>Laetiporus</em>）新种发表——完整工作流程与数据统计指南</h1><blockquote>
+<p>本文结合硫磺菌属最新分类学进展（Song et al. 2014, 2017, 2018; Hakizimana et al. 2024）与 GCPSR 物种识别框架，系统梳理发表一个硫磺菌新种所需的全部工作、数据和统计信息。</p>
+</blockquote>
+<hr>
+<h2 id="一、工作总览"><a href="#一、工作总览" class="headerlink" title="一、工作总览"></a>一、工作总览</h2><p>发表一个硫磺菌新种，需要完成<strong>四大模块、十二个阶段</strong>的工作，从野外采集到论文发表，全程通常需要 <strong>6–18 个月</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs mermaid">graph LR<br>    A[&quot;模块一&lt;br/&gt;标本采集与保藏&quot;] --&gt; B[&quot;模块二&lt;br/&gt;形态学数据收集&quot;]<br>    B --&gt; C[&quot;模块三&lt;br/&gt;分子系统学分析&quot;]<br>    C --&gt; D[&quot;模块四&lt;br/&gt;新种描述与发表&quot;]<br>    <br>    A1[&quot;1.野外采集&quot;] --&gt; A2[&quot;2.标本制作&quot;] --&gt; A3[&quot;3.菌种分离&quot;]<br>    B1[&quot;4.宏观形态&quot;] --&gt; B2[&quot;5.微观形态&quot;] --&gt; B3[&quot;6.培养特征&quot;]<br>    C1[&quot;7.DNA提取与PCR&quot;] --&gt; C2[&quot;8.测序与比对&quot;] --&gt; C3[&quot;9.系统发育分析&quot;]<br>    D1[&quot;10.新种描述&quot;] --&gt; D2[&quot;11.MycoBank注册&quot;] --&gt; D3[&quot;12.论文发表&quot;]<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>主要工作</th>
+<th>预计耗时</th>
+<th>关键产出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标本采集与保藏</td>
+<td>野外采集、标本制作、菌种分离纯化</td>
+<td>2–4 周</td>
+<td>模式标本 + 活体菌株</td>
+</tr>
+<tr>
+<td>形态学数据</td>
+<td>宏观拍照、显微测量、培养观察</td>
+<td>2–3 个月</td>
+<td>形态描述 + 测量数据表</td>
+</tr>
+<tr>
+<td>分子系统学</td>
+<td>DNA 提取、6 基因 PCR、建树分析</td>
+<td>3–6 个月</td>
+<td>系统发育树 + GenBank 序列</td>
+</tr>
+<tr>
+<td>新种描述与发表</td>
+<td>撰写描述、注册、投稿</td>
+<td>2–4 个月</td>
+<td>发表论文</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="二、模块一：标本采集与保藏"><a href="#二、模块一：标本采集与保藏" class="headerlink" title="二、模块一：标本采集与保藏"></a>二、模块一：标本采集与保藏</h2><h3 id="2-1-野外采集"><a href="#2-1-野外采集" class="headerlink" title="2.1 野外采集"></a>2.1 野外采集</h3><h4 id="基本信息记录（每个标本必须记录）"><a href="#基本信息记录（每个标本必须记录）" class="headerlink" title="基本信息记录（每个标本必须记录）"></a>基本信息记录（每个标本必须记录）</h4><table>
+<thead>
+<tr>
+<th>信息类别</th>
+<th>具体项目</th>
+<th>记录方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>采集编号</strong></td>
+<td>采集人 + 年份 + 序号（如 Cui 12240）</td>
+<td>标签 + 记录本</td>
+</tr>
+<tr>
+<td><strong>采集日期</strong></td>
+<td>年&#x2F;月&#x2F;日</td>
+<td>照片 EXIF + 记录本</td>
+</tr>
+<tr>
+<td><strong>采集地点</strong></td>
+<td>省&#x2F;市&#x2F;县 + 具体地名 + GPS 坐标（经纬度，精确到秒）</td>
+<td>GPS 设备或手机定位</td>
+</tr>
+<tr>
+<td><strong>海拔高度</strong></td>
+<td>米（m a.s.l.）</td>
+<td>GPS 或海拔表</td>
+</tr>
+<tr>
+<td><strong>寄主信息</strong></td>
+<td>树种（尽可能鉴定到种）、活立木&#x2F;枯木&#x2F;倒木、腐朽类型</td>
+<td>拍照 + 采集寄主标本</td>
+</tr>
+<tr>
+<td><strong>生境描述</strong></td>
+<td>森林类型（针叶林&#x2F;阔叶林&#x2F;混交林）、郁闭度、土壤类型</td>
+<td>文字记录 + 环境照片</td>
+</tr>
+<tr>
+<td><strong>气候信息</strong></td>
+<td>温带&#x2F;亚热带&#x2F;热带，降雨量大致情况</td>
+<td>后期查询气象数据补充</td>
+</tr>
+</tbody></table>
+<h4 id="野外照片要求"><a href="#野外照片要求" class="headerlink" title="野外照片要求"></a>野外照片要求</h4><table>
+<thead>
+<tr>
+<th>拍摄对象</th>
+<th>要求</th>
+<th>张数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>子实体正面</td>
+<td>自然光，含比例尺</td>
+<td>≥ 3</td>
+</tr>
+<tr>
+<td>子实体腹面（孔面）</td>
+<td>展示孔口颜色、密度</td>
+<td>≥ 2</td>
+</tr>
+<tr>
+<td>子实体纵切面</td>
+<td>展示菌肉厚度、颜色分层</td>
+<td>≥ 1</td>
+</tr>
+<tr>
+<td>着生状态</td>
+<td>展示与寄主的位置关系</td>
+<td>≥ 2</td>
+</tr>
+<tr>
+<td>周围生境</td>
+<td>展示森林类型和植被</td>
+<td>≥ 2</td>
+</tr>
+<tr>
+<td>新鲜状态细节</td>
+<td>菌盖表面纹理、边缘形态</td>
+<td>≥ 2</td>
+</tr>
+</tbody></table>
+<h4 id="采集数量要求"><a href="#采集数量要求" class="headerlink" title="采集数量要求"></a>采集数量要求</h4><p><strong>每个候选新种至少需要 2–5 份标本</strong>（来自不同子实体个体），以评估种内变异。单份标本不足以支撑新种描述。</p>
+<h3 id="2-2-标本制作与保藏"><a href="#2-2-标本制作与保藏" class="headerlink" title="2.2 标本制作与保藏"></a>2.2 标本制作与保藏</h3><table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>方法</th>
+<th>注意事项</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>干燥</td>
+<td>40–50°C 烘干（真菌标本烘干箱），至完全干燥</td>
+<td>温度过高损坏 DNA</td>
+</tr>
+<tr>
+<td>编号</td>
+<td>标签注明采集号、学名（暂定）、采集地、日期</td>
+<td>使用防水标签</td>
+</tr>
+<tr>
+<td>保藏</td>
+<td>密封袋 + 干燥剂，保存于标本馆</td>
+<td>定期检查虫蛀和霉变</td>
+</tr>
+<tr>
+<td><strong>模式标本</strong></td>
+<td>指定 Holotype，保藏于公认标本馆</td>
+<td>如 BJFC（北京林业大学真菌标本馆）、HMAS（中国科学院微生物研究所真菌标本馆）</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>[!important] 标本馆要求<br>新种的<strong>模式标本（Holotype）</strong>必须保藏于国际认可的公共标本馆（具有 Index Herbariorum 编号）。私人收藏不能作为模式标本保藏地。</p>
+</blockquote>
+<h3 id="2-3-菌种分离与保藏"><a href="#2-3-菌种分离与保藏" class="headerlink" title="2.3 菌种分离与保藏"></a>2.3 菌种分离与保藏</h3><table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>分离方法</td>
+<td>从新鲜子实体菌肉组织块分离（组织分离法），或单孢子分离</td>
+</tr>
+<tr>
+<td>培养基</td>
+<td>PDA（马铃薯葡萄糖琼脂）或 MEA（麦芽提取物琼脂）</td>
+</tr>
+<tr>
+<td>培养条件</td>
+<td>25°C，暗培养</td>
+</tr>
+<tr>
+<td>纯化</td>
+<td>尖端菌丝纯化，连续转接 2–3 次至无污染</td>
+</tr>
+<tr>
+<td>保藏</td>
+<td>4°C 斜面保藏 + 甘油管 −80°C 超低温保藏</td>
+</tr>
+<tr>
+<td>保藏编号</td>
+<td>菌株号对应标本号，如 Cui 12240 → 菌株 Cui 12240</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="三、模块二：形态学数据收集"><a href="#三、模块二：形态学数据收集" class="headerlink" title="三、模块二：形态学数据收集"></a>三、模块二：形态学数据收集</h2><h3 id="3-1-宏观形态特征"><a href="#3-1-宏观形态特征" class="headerlink" title="3.1 宏观形态特征"></a>3.1 宏观形态特征</h3><h4 id="需测量的指标"><a href="#需测量的指标" class="headerlink" title="需测量的指标"></a>需测量的指标</h4><table>
+<thead>
+<tr>
+<th>特征</th>
+<th>测量&#x2F;描述内容</th>
+<th>样本量要求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>菌盖大小</strong></td>
+<td>长度 × 宽度 × 厚度（cm），记录范围 + 平均值 ± SD</td>
+<td>n ≥ 5 个子实体</td>
+</tr>
+<tr>
+<td><strong>菌盖颜色</strong></td>
+<td>使用标准色卡（如 Munsell 或 Royal Horticultural Society 色卡）</td>
+<td>新鲜状态记录</td>
+</tr>
+<tr>
+<td><strong>菌盖表面</strong></td>
+<td>光滑&#x2F;粗糙&#x2F;绒毛状，环纹有无及明显程度</td>
+<td>描述 + 拍照</td>
+</tr>
+<tr>
+<td><strong>菌盖形状</strong></td>
+<td>半圆形&#x2F;扇形&#x2F;莲座状&#x2F;覆瓦状</td>
+<td>描述</td>
+</tr>
+<tr>
+<td><strong>孔面颜色</strong></td>
+<td>硫磺黄&#x2F;奶油色&#x2F;白色&#x2F;浅黄色</td>
+<td>新鲜 vs 干燥对比</td>
+</tr>
+<tr>
+<td><strong>孔口密度</strong></td>
+<td>每毫米孔口数（个&#x2F;mm），在体视显微镜下计数</td>
+<td>n ≥ 10 个随机视野</td>
+</tr>
+<tr>
+<td><strong>菌肉厚度</strong></td>
+<td>mm，测量新鲜子实体纵切面</td>
+<td>n ≥ 5</td>
+</tr>
+<tr>
+<td><strong>菌肉颜色</strong></td>
+<td>新鲜&#x2F;干燥&#x2F; KOH 反应</td>
+<td>描述</td>
+</tr>
+<tr>
+<td><strong>子实体重量</strong></td>
+<td>g，新鲜状态下</td>
+<td>n ≥ 3</td>
+</tr>
+<tr>
+<td><strong>气味与味道</strong></td>
+<td>新鲜时的特征</td>
+<td>描述</td>
+</tr>
+</tbody></table>
+<h4 id="宏观特征统计表模板"><a href="#宏观特征统计表模板" class="headerlink" title="宏观特征统计表模板"></a>宏观特征统计表模板</h4><table>
+<thead>
+<tr>
+<th>标本号</th>
+<th>菌盖长(cm)</th>
+<th>菌盖宽(cm)</th>
+<th>菌盖厚(cm)</th>
+<th>孔面颜色</th>
+<th>孔口密度(&#x2F;mm)</th>
+<th>菌肉厚(mm)</th>
+<th>环纹(有&#x2F;无)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cui 12240</td>
+<td>8.5</td>
+<td>6.2</td>
+<td>1.8</td>
+<td>浅黄</td>
+<td>4</td>
+<td>12</td>
+<td>无</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td><strong>平均值±SD</strong></td>
+<td>X.X±X.X</td>
+<td>X.X±X.X</td>
+<td>X.X±X.X</td>
+<td>—</td>
+<td>X.X±X.X</td>
+<td>XX±X</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<h3 id="3-2-微观形态特征"><a href="#3-2-微观形态特征" class="headerlink" title="3.2 微观形态特征"></a>3.2 微观形态特征</h3><h4 id="需制备的切片"><a href="#需制备的切片" class="headerlink" title="需制备的切片"></a>需制备的切片</h4><table>
+<thead>
+<tr>
+<th>切片类型</th>
+<th>染色&#x2F;封片剂</th>
+<th>目的</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>菌髓（trama）纵切</td>
+<td>5% KOH + 1% 刚果红或棉蓝</td>
+<td>观察菌丝系统类型、菌丝排列</td>
+</tr>
+<tr>
+<td>子实层（hymenium）切片</td>
+<td>同上</td>
+<td>观察担子、囊状体、担孢子</td>
+</tr>
+<tr>
+<td>菌盖表面切片</td>
+<td>同上</td>
+<td>观察皮层结构</td>
+</tr>
+<tr>
+<td>孔口切片</td>
+<td>同上</td>
+<td>观察孔口菌丝结构</td>
+</tr>
+</tbody></table>
+<h4 id="需测量的微观数据"><a href="#需测量的微观数据" class="headerlink" title="需测量的微观数据"></a>需测量的微观数据</h4><table>
+<thead>
+<tr>
+<th>特征</th>
+<th>测量内容</th>
+<th>样本量要求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>担孢子大小</strong></td>
+<td>长 × 宽（μm），记录范围 + 平均值 ± SD</td>
+<td>n ≥ 30 个孢子</td>
+</tr>
+<tr>
+<td><strong>担孢子长宽比 Q</strong></td>
+<td>长度&#x2F;宽度，记录范围 + 平均值</td>
+<td>基于上述数据计算</td>
+</tr>
+<tr>
+<td><strong>担孢子形状</strong></td>
+<td>椭圆形&#x2F;卵形&#x2F;近球形&#x2F;圆柱形</td>
+<td>描述</td>
+</tr>
+<tr>
+<td><strong>担孢子壁特征</strong></td>
+<td>壁厚、光滑&#x2F;粗糙、有无油滴</td>
+<td>描述</td>
+</tr>
+<tr>
+<td><strong>担子大小</strong></td>
+<td>长 × 宽（μm），担子孢子梗数（2&#x2F;4）</td>
+<td>n ≥ 20</td>
+</tr>
+<tr>
+<td><strong>菌丝系统类型</strong></td>
+<td>一体型&#x2F;二体型&#x2F;三体型</td>
+<td>判定</td>
+</tr>
+<tr>
+<td><strong>生殖菌丝</strong></td>
+<td>直径（μm）、分隔类型（简单分隔&#x2F;锁状联合）、壁厚</td>
+<td>n ≥ 20</td>
+</tr>
+<tr>
+<td><strong>骨架菌丝</strong></td>
+<td>直径（μm）、壁厚、分枝情况</td>
+<td>n ≥ 20</td>
+</tr>
+<tr>
+<td><strong>囊状体</strong></td>
+<td>有无、大小、形状</td>
+<td>描述</td>
+</tr>
+<tr>
+<td><strong>菌盖皮层结构</strong></td>
+<td>菌丝排列方式、有无壳状层</td>
+<td>描述</td>
+</tr>
+<tr>
+<td><strong>KOH 反应</strong></td>
+<td>菌丝在 5% KOH 中的颜色变化</td>
+<td>描述</td>
+</tr>
+</tbody></table>
+<h4 id="孢子测量数据统计表模板"><a href="#孢子测量数据统计表模板" class="headerlink" title="孢子测量数据统计表模板"></a>孢子测量数据统计表模板</h4><table>
+<thead>
+<tr>
+<th>标本号</th>
+<th>孢子范围(μm)</th>
+<th>平均值±SD(μm)</th>
+<th>Q值范围</th>
+<th>Q平均值±SD</th>
+<th>测量数 n</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标本A</td>
+<td>5.0–6.2 × 4.2–5.2</td>
+<td>5.6±0.3 × 4.7±0.3</td>
+<td>1.1–1.3</td>
+<td>1.19±0.05</td>
+<td>30</td>
+</tr>
+<tr>
+<td>标本B</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>30</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>[!note] 孢子测量注意事项</p>
+<ul>
+<li>必须从<strong>自然弹射的孢子印</strong>或<strong>成熟子实层切片</strong>中测量，不能测量未成熟孢子</li>
+<li>测量时以孢子在光学显微镜下的最大投影面为准</li>
+<li>至少测量 2 份不同标本的孢子，以评估种内变异</li>
+</ul>
+</blockquote>
+<h3 id="3-3-培养特征"><a href="#3-3-培养特征" class="headerlink" title="3.3 培养特征"></a>3.3 培养特征</h3><table>
+<thead>
+<tr>
+<th>观察项目</th>
+<th>方法</th>
+<th>记录内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>菌落形态</td>
+<td>PDA 平板，25°C 暗培养，每 2 天拍照</td>
+<td>菌落颜色、质地、边缘形态、气生菌丝密度</td>
+</tr>
+<tr>
+<td>生长速率</td>
+<td>每 2 天测量菌落直径</td>
+<td>绘制生长曲线，计算日均生长速率（mm&#x2F;d）</td>
+</tr>
+<tr>
+<td>最适温度</td>
+<td>设置 10°C、15°C、20°C、25°C、30°C、35°C 梯度</td>
+<td>各温度下生长速率对比</td>
+</tr>
+<tr>
+<td>色素产生</td>
+<td>观察培养基是否变色</td>
+<td>颜色描述</td>
+</tr>
+<tr>
+<td>特殊气味</td>
+<td>嗅闻菌落</td>
+<td>描述有无特殊气味</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="四、模块三：分子系统学分析"><a href="#四、模块三：分子系统学分析" class="headerlink" title="四、模块三：分子系统学分析"></a>四、模块三：分子系统学分析</h2><h3 id="4-1-DNA-提取与-PCR-扩增"><a href="#4-1-DNA-提取与-PCR-扩增" class="headerlink" title="4.1 DNA 提取与 PCR 扩增"></a>4.1 DNA 提取与 PCR 扩增</h3><h4 id="六基因体系（硫磺菌属标准配置）"><a href="#六基因体系（硫磺菌属标准配置）" class="headerlink" title="六基因体系（硫磺菌属标准配置）"></a>六基因体系（硫磺菌属标准配置）</h4><table>
+<thead>
+<tr>
+<th>基因</th>
+<th>引物对</th>
+<th>退火温度</th>
+<th>PCR 片段长度</th>
+<th>建树用长度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>ITS</strong></td>
+<td>ITS5 &#x2F; ITS4</td>
+<td>50°C</td>
+<td>~600–700 bp</td>
+<td>~450–550 bp</td>
+</tr>
+<tr>
+<td><strong>nrLSU</strong></td>
+<td>LR0R &#x2F; LR7</td>
+<td>50°C</td>
+<td>~1,400 bp</td>
+<td>~1,200–1,300 bp</td>
+</tr>
+<tr>
+<td><strong>nrSSU</strong></td>
+<td>PNS1 &#x2F; NS41</td>
+<td>54°C</td>
+<td>~1,100 bp</td>
+<td>~1,000 bp</td>
+</tr>
+<tr>
+<td><strong>mtSSU</strong></td>
+<td>MS1 &#x2F; MS2</td>
+<td>50°C</td>
+<td>~700–800 bp</td>
+<td>~600–700 bp</td>
+</tr>
+<tr>
+<td><strong>EF-1α</strong></td>
+<td>EF1-983F &#x2F; EF1-1567R</td>
+<td>54°C</td>
+<td>~550–650 bp</td>
+<td>~500–550 bp</td>
+</tr>
+<tr>
+<td><strong>RPB2</strong></td>
+<td>6F-1 &#x2F; 7R-1（硫磺菌专用）</td>
+<td>52°C</td>
+<td>~700–800 bp</td>
+<td>~650–750 bp</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>[!warning] RPB2 引物选择<br>通用真菌 RPB2 引物（fRPB2-5F &#x2F; fRPB2-7cR）在硫磺菌属中扩增效果不佳。必须使用 Song et al. (2018) 为硫磺菌属自主设计的 <strong>6F-1 &#x2F; 7R-1</strong> 引物对。</p>
+</blockquote>
+<h4 id="每标本-PCR-反应统计"><a href="#每标本-PCR-反应统计" class="headerlink" title="每标本 PCR 反应统计"></a>每标本 PCR 反应统计</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>数量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>基因数</td>
+<td>6</td>
+</tr>
+<tr>
+<td>每基因 PCR 反应数</td>
+<td>1</td>
+</tr>
+<tr>
+<td>正向测序数</td>
+<td>6</td>
+</tr>
+<tr>
+<td>反向测序数（双向测序）</td>
+<td>6</td>
+</tr>
+<tr>
+<td><strong>每标本总反应数</strong></td>
+<td><strong>18</strong>（6 PCR + 12 测序）</td>
+</tr>
+</tbody></table>
+<p>对于 n 个候选新种标本 + m 个参考标本，总规模约为 <code>(m+n) × 18</code> 个反应。</p>
+<h3 id="4-2-序列数据处理"><a href="#4-2-序列数据处理" class="headerlink" title="4.2 序列数据处理"></a>4.2 序列数据处理</h3><h4 id="处理流程与数据统计"><a href="#处理流程与数据统计" class="headerlink" title="处理流程与数据统计"></a>处理流程与数据统计</h4><table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>工具</th>
+<th>产出</th>
+<th>需统计的数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>峰图查看</td>
+<td>SeqMan Pro &#x2F; Geneious Prime</td>
+<td>拼接后的序列</td>
+<td>每序列 Phred 质量值 ≥ 30 的比例</td>
+</tr>
+<tr>
+<td>序列拼接</td>
+<td>同上</td>
+<td>Contig</td>
+<td>双向测序覆盖度</td>
+</tr>
+<tr>
+<td>BLAST 验证</td>
+<td>NCBI BLASTn</td>
+<td>最匹配物种</td>
+<td>序列相似度 Top 10 结果表</td>
+</tr>
+<tr>
+<td>污染排除</td>
+<td>人工核查</td>
+<td>确认无污染序列</td>
+<td>排除的序列数及原因</td>
+</tr>
+</tbody></table>
+<h4 id="需整理的序列数据集"><a href="#需整理的序列数据集" class="headerlink" title="需整理的序列数据集"></a>需整理的序列数据集</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">每个基因文件夹内容：<br>├── ITS/<br>│   ├── ITS_raw.fasta          # 原始序列（含自己的 + GenBank 下载的参考序列）<br>│   ├── ITS_aligned.fasta      # MAFFT 比对后<br>│   └── ITS_trimmed.fasta      # trimAl 修剪后<br>├── nrLSU/（同上结构）<br>├── nrSSU/（同上结构）<br>├── mtSSU/（同上结构）<br>├── EF1a/（同上结构）<br>└── RPB2/（同上结构）<br>    <br>最终串联文件：<br>├── concatenated.fas            # 串联超级矩阵<br>├── concatenated.phy            # PHYLIP 格式<br>└── concatenated_partition.txt  # 分区文件<br></code></pre></td></tr></table></figure>
+
+<h4 id="需要统计的序列数据"><a href="#需要统计的序列数据" class="headerlink" title="需要统计的序列数据"></a>需要统计的序列数据</h4><table>
+<thead>
+<tr>
+<th>统计项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>每条序列长度</td>
+<td>bp 数</td>
+</tr>
+<tr>
+<td>比对后长度</td>
+<td>经 MAFFT 比对和修剪后的长度</td>
+</tr>
+<tr>
+<td>GC 含量</td>
+<td>各基因的平均 GC%</td>
+</tr>
+<tr>
+<td>变异位点数</td>
+<td>Variable sites</td>
+</tr>
+<tr>
+<td>简约信息位点数</td>
+<td>Parsimony-informative sites</td>
+</tr>
+<tr>
+<td>自裔位点数</td>
+<td>Singleton sites</td>
+</tr>
+<tr>
+<td>保守位点数</td>
+<td>Constant sites</td>
+</tr>
+<tr>
+<td>各基因序列数</td>
+<td>每条基因包含的总序列条数（含外类群）</td>
+</tr>
+<tr>
+<td>新提交序列数</td>
+<td>本研究新提交至 GenBank 的序列数</td>
+</tr>
+</tbody></table>
+<h4 id="合并矩阵统计表模板"><a href="#合并矩阵统计表模板" class="headerlink" title="合并矩阵统计表模板"></a>合并矩阵统计表模板</h4><table>
+<thead>
+<tr>
+<th>基因</th>
+<th>序列数</th>
+<th>比对长度(bp)</th>
+<th>变异位点</th>
+<th>简约信息位点</th>
+<th>GC%</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ITS</td>
+<td>55</td>
+<td>612</td>
+<td>180</td>
+<td>96</td>
+<td>48.2</td>
+</tr>
+<tr>
+<td>nrLSU</td>
+<td>55</td>
+<td>1,378</td>
+<td>280</td>
+<td>145</td>
+<td>52.1</td>
+</tr>
+<tr>
+<td>nrSSU</td>
+<td>55</td>
+<td>1,041</td>
+<td>95</td>
+<td>38</td>
+<td>51.5</td>
+</tr>
+<tr>
+<td>mtSSU</td>
+<td>55</td>
+<td>682</td>
+<td>152</td>
+<td>78</td>
+<td>38.9</td>
+</tr>
+<tr>
+<td>EF-1α</td>
+<td>55</td>
+<td>512</td>
+<td>201</td>
+<td>115</td>
+<td>53.7</td>
+</tr>
+<tr>
+<td>RPB2</td>
+<td>55</td>
+<td>738</td>
+<td>210</td>
+<td>128</td>
+<td>55.2</td>
+</tr>
+<tr>
+<td><strong>合并</strong></td>
+<td><strong>55</strong></td>
+<td><strong>4,963</strong></td>
+<td><strong>1,118</strong></td>
+<td><strong>600</strong></td>
+<td><strong>—</strong></td>
+</tr>
+</tbody></table>
+<h3 id="4-3-遗传距离计算"><a href="#4-3-遗传距离计算" class="headerlink" title="4.3 遗传距离计算"></a>4.3 遗传距离计算</h3><table>
+<thead>
+<tr>
+<th>计算项目</th>
+<th>方法&#x2F;工具</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>种内遗传距离</strong></td>
+<td>MEGA &#x2F; PAUP*，计算所有同种个体间的 p-distance 和 K2P</td>
+<td>种内变异范围、均值</td>
+</tr>
+<tr>
+<td><strong>种间遗传距离</strong></td>
+<td>同上，计算候选新种与每个已知种之间的遗传距离</td>
+<td>种间距离矩阵</td>
+</tr>
+<tr>
+<td><strong>ITS barcode gap 分析</strong></td>
+<td>对比种内最大距离 vs 种间最小距离</td>
+<td>是否存在 barcode gap</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>[!important] 遗传距离判定参考<br>硫磺菌属 ITS 种内变异通常 &lt; 1%。候选新种与最近缘已知种的 ITS 遗传距离需 <strong>≥ 2–3%</strong>，且超过该属已知种内变异上限。</p>
+</blockquote>
+<h4 id="遗传距离统计表模板"><a href="#遗传距离统计表模板" class="headerlink" title="遗传距离统计表模板"></a>遗传距离统计表模板</h4><table>
+<thead>
+<tr>
+<th>对比对象</th>
+<th>ITS p-distance</th>
+<th>ITS K2P</th>
+<th>nrLSU K2P</th>
+<th>EF-1α K2P</th>
+<th>RPB2 K2P</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>新种 vs 近缘种A</td>
+<td>3.2%</td>
+<td>3.3%</td>
+<td>1.1%</td>
+<td>4.5%</td>
+<td>3.8%</td>
+</tr>
+<tr>
+<td>新种 vs 近缘种B</td>
+<td>5.1%</td>
+<td>5.4%</td>
+<td>1.8%</td>
+<td>6.2%</td>
+<td>5.1%</td>
+</tr>
+<tr>
+<td>新种种内</td>
+<td>0.2%</td>
+<td>0.2%</td>
+<td>0.1%</td>
+<td>0.3%</td>
+<td>0.2%</td>
+</tr>
+</tbody></table>
+<h3 id="4-4-系统发育分析"><a href="#4-4-系统发育分析" class="headerlink" title="4.4 系统发育分析"></a>4.4 系统发育分析</h3><h4 id="三种建树方法必须全部运行"><a href="#三种建树方法必须全部运行" class="headerlink" title="三种建树方法必须全部运行"></a>三种建树方法必须全部运行</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>软件</th>
+<th>需要统计的指标</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>最大似然法 (ML)</strong></td>
+<td>RAxML &#x2F; IQ-TREE</td>
+<td>Bootstrap 支持率 (BT)</td>
+</tr>
+<tr>
+<td><strong>贝叶斯推断 (BI)</strong></td>
+<td>MrBayes</td>
+<td>后验概率 (BPP)</td>
+</tr>
+<tr>
+<td><strong>最大简约法 (MP)</strong></td>
+<td>PAUP*</td>
+<td>Bootstrap 支持率 (BT)、树长 (TL)、一致性指数 (CI)、保留指数 (RI)</td>
+</tr>
+</tbody></table>
+<h4 id="ML-分析参数与统计"><a href="#ML-分析参数与统计" class="headerlink" title="ML 分析参数与统计"></a>ML 分析参数与统计</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>需记录的值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>分区方案</td>
+<td>各基因的分区边界</td>
+</tr>
+<tr>
+<td>最优进化模型</td>
+<td>每分区的最优模型（如 GTR+I+G）</td>
+</tr>
+<tr>
+<td>Bootstrap 重复次数</td>
+<td>≥ 1,000</td>
+</tr>
+<tr>
+<td>似然值 (lnL)</td>
+<td>最优树的 lnL 值</td>
+</tr>
+<tr>
+<td>各分支 BT 值</td>
+<td>标注在树上</td>
+</tr>
+</tbody></table>
+<h4 id="BI-分析参数与统计"><a href="#BI-分析参数与统计" class="headerlink" title="BI 分析参数与统计"></a>BI 分析参数与统计</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>需记录的值</th>
+<th>判定标准</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>运行代数</td>
+<td>论文标准：500 万代</td>
+<td>—</td>
+</tr>
+<tr>
+<td>链数</td>
+<td>4（1冷+3热）</td>
+<td>—</td>
+</tr>
+<tr>
+<td>独立运行次数</td>
+<td>≥ 2，需收敛到相同拓扑</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Burn-in 比例</td>
+<td>前 25% 丢弃</td>
+<td>—</td>
+</tr>
+<tr>
+<td>收敛诊断</td>
+<td>ESS 值（有效样本量）</td>
+<td><strong>ESS &gt; 200</strong></td>
+</tr>
+<tr>
+<td>PSRF（潜在尺度缩减因子）</td>
+<td>—</td>
+<td>接近 1.00</td>
+</tr>
+<tr>
+<td>各分支 BPP 值</td>
+<td>标注在树上</td>
+<td>≥ 0.95 为显著支持</td>
+</tr>
+</tbody></table>
+<h4 id="MP-分析参数与统计"><a href="#MP-分析参数与统计" class="headerlink" title="MP 分析参数与统计"></a>MP 分析参数与统计</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>需记录的值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>同等简约树数</td>
+<td>MPTs</td>
+</tr>
+<tr>
+<td>树长 (Tree Length, TL)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>一致性指数 (CI)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>保留指数 (RI)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>调整后一致性指数 (RC)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>简约 Bootstrap 支持率</td>
+<td>≥ 75% 为显著</td>
+</tr>
+<tr>
+<td>启发式搜索策略</td>
+<td>TBR 分支交换，1,000 次随机添加</td>
+</tr>
+</tbody></table>
+<h4 id="PHT-检验（分区同质性检验）"><a href="#PHT-检验（分区同质性检验）" class="headerlink" title="PHT 检验（分区同质性检验）"></a>PHT 检验（分区同质性检验）</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>需记录的值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>检验方法</td>
+<td>ILD (Incongruence Length Difference) test</td>
+</tr>
+<tr>
+<td>重复次数</td>
+<td>1,000</td>
+</tr>
+<tr>
+<td>P 值</td>
+<td><strong>P &gt; 0.05 表示可以合并</strong></td>
+</tr>
+<tr>
+<td>如 P &lt; 0.05</td>
+<td>需排查冲突来源或改用 ASTRAL 溯祖法</td>
+</tr>
+</tbody></table>
+<h3 id="4-5-GCPSR-谱系一致性判定"><a href="#4-5-GCPSR-谱系一致性判定" class="headerlink" title="4.5 GCPSR 谱系一致性判定"></a>4.5 GCPSR 谱系一致性判定</h3><p>这是<strong>判定新种的核心标准</strong>。需要对 6 个基因分别构建单基因树，然后逐一检查。</p>
+<h4 id="单基因树检查表"><a href="#单基因树检查表" class="headerlink" title="单基因树检查表"></a>单基因树检查表</h4><table>
+<thead>
+<tr>
+<th>基因</th>
+<th>候选种是否形成独立分支？</th>
+<th>支持率 (BS&#x2F;BPP)</th>
+<th>是否与合并树冲突？</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ITS</td>
+<td>✅ 是</td>
+<td>96 &#x2F; 1.00</td>
+<td>否</td>
+</tr>
+<tr>
+<td>nrLSU</td>
+<td>✅ 是</td>
+<td>88 &#x2F; 0.98</td>
+<td>否</td>
+</tr>
+<tr>
+<td>nrSSU</td>
+<td>✅ 是</td>
+<td>82 &#x2F; 0.96</td>
+<td>否</td>
+</tr>
+<tr>
+<td>mtSSU</td>
+<td>✅ 是</td>
+<td>91 &#x2F; 1.00</td>
+<td>否</td>
+</tr>
+<tr>
+<td>EF-1α</td>
+<td>✅ 是</td>
+<td>97 &#x2F; 1.00</td>
+<td>否</td>
+</tr>
+<tr>
+<td>RPB2</td>
+<td>✅ 是</td>
+<td>94 &#x2F; 1.00</td>
+<td>否</td>
+</tr>
+</tbody></table>
+<p><strong>通过条件</strong>：≥ 2 个基因的单基因树中候选分支获得显著支持（ML&#x2F;MP BS ≥ 75%，BI BPP ≥ 0.95），且没有任何基因显著反对该分支。</p>
+<h3 id="4-6-数据提交"><a href="#4-6-数据提交" class="headerlink" title="4.6 数据提交"></a>4.6 数据提交</h3><table>
+<thead>
+<tr>
+<th>提交平台</th>
+<th>提交内容</th>
+<th>获得标识</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>GenBank</strong></td>
+<td>所有新获得的序列</td>
+<td>登录号（Accession number），如 MN123456–MN123500</td>
+</tr>
+<tr>
+<td><strong>TreeBase</strong></td>
+<td>比对矩阵 + 系统发育树</td>
+<td>提交号（Submission ID）</td>
+</tr>
+</tbody></table>
+<h4 id="GenBank-提交清单"><a href="#GenBank-提交清单" class="headerlink" title="GenBank 提交清单"></a>GenBank 提交清单</h4><table>
+<thead>
+<tr>
+<th>基因</th>
+<th>提交序列数</th>
+<th>每序列信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ITS</td>
+<td>n</td>
+<td>标本号、物种名（如为新种暂用 sp. nov.）、产地、采集日期</td>
+</tr>
+<tr>
+<td>nrLSU</td>
+<td>n</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>nrSSU</td>
+<td>n</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>mtSSU</td>
+<td>n</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>EF-1α</td>
+<td>n</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>RPB2</td>
+<td>n</td>
+<td>同上</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="五、模块四：新种描述与发表"><a href="#五、模块四：新种描述与发表" class="headerlink" title="五、模块四：新种描述与发表"></a>五、模块四：新种描述与发表</h2><h3 id="5-1-新种描述撰写"><a href="#5-1-新种描述撰写" class="headerlink" title="5.1 新种描述撰写"></a>5.1 新种描述撰写</h3><h4 id="描述必须包含的要素"><a href="#描述必须包含的要素" class="headerlink" title="描述必须包含的要素"></a>描述必须包含的要素</h4><table>
+<thead>
+<tr>
+<th>要素</th>
+<th>内容要求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>学名</strong></td>
+<td>拉丁学名，符合《国际藻类、真菌和植物命名法规》（ICNafp）</td>
+</tr>
+<tr>
+<td><strong>词源</strong></td>
+<td>Etymology，解释学名来源（如地名、寄主、特征）</td>
+</tr>
+<tr>
+<td><strong>模式标本</strong></td>
+<td>正模 Holotype 指定（标本号 + 保藏机构编号），采集地、日期、寄主</td>
+</tr>
+<tr>
+<td><strong>拉丁文&#x2F;英文描述</strong></td>
+<td>完整的形态描述（宏观 + 微观）</td>
+</tr>
+<tr>
+<td><strong>形态照片</strong></td>
+<td>子实体野外照片 + 显微照片（孢子、担子、菌丝等）</td>
+</tr>
+<tr>
+<td><strong>系统发育树图</strong></td>
+<td>展示新种在属内的系统发育位置（ML&#x2F;BI 树，标注支持率）</td>
+</tr>
+<tr>
+<td><strong>鉴别特征</strong></td>
+<td>Diagnosis，与最近缘种的区分要点</td>
+</tr>
+<tr>
+<td><strong>已知分布</strong></td>
+<td>目前已确认的分布区域</td>
+</tr>
+<tr>
+<td><strong>生态习性</strong></td>
+<td>寄主、基质、季节、海拔</td>
+</tr>
+<tr>
+<td><strong>其他标本</strong></td>
+<td>副模 Paratype 列表（如有）</td>
+</tr>
+</tbody></table>
+<h4 id="种间对比鉴定表（Diagnosis-核心）"><a href="#种间对比鉴定表（Diagnosis-核心）" class="headerlink" title="种间对比鉴定表（Diagnosis 核心）"></a>种间对比鉴定表（Diagnosis 核心）</h4><table>
+<thead>
+<tr>
+<th>特征</th>
+<th><strong>新种 sp. nov.</strong></th>
+<th>近缘种 A</th>
+<th>近缘种 B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>菌盖颜色</td>
+<td>粉黄色至浅粘土色</td>
+<td>橙黄色至红橙色</td>
+<td>奶油色至白色</td>
+</tr>
+<tr>
+<td>孔口密度（&#x2F;mm）</td>
+<td>4–5</td>
+<td>4–6</td>
+<td>3–6</td>
+</tr>
+<tr>
+<td>孢子大小（μm）</td>
+<td>5.0–6.2 × 4.2–5.2</td>
+<td>5.5–7.0 × 4.5–5.5</td>
+<td>5.0–6.5 × 4.0–5.0</td>
+</tr>
+<tr>
+<td>孢子 Q 值</td>
+<td>1.1–1.3</td>
+<td>1.2–1.4</td>
+<td>1.1–1.3</td>
+</tr>
+<tr>
+<td>环纹</td>
+<td>无至微环纹</td>
+<td>无</td>
+<td>明显</td>
+</tr>
+<tr>
+<td>寄主类型</td>
+<td>裸子植物（冷杉）</td>
+<td>被子植物（壳斗科）</td>
+<td>被子植物（阔叶树）</td>
+</tr>
+<tr>
+<td>分布</td>
+<td>西藏墨脱</td>
+<td>云南哀牢山</td>
+<td>云南</td>
+</tr>
+<tr>
+<td>ITS 遗传距离 vs 新种</td>
+<td>—</td>
+<td>4.2%</td>
+<td>6.8%</td>
+</tr>
+</tbody></table>
+<h3 id="5-2-MycoBank-注册"><a href="#5-2-MycoBank-注册" class="headerlink" title="5.2 MycoBank 注册"></a>5.2 MycoBank 注册</h3><table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>注册平台</td>
+<td><a target="_blank" rel="noopener" href="https://www.mycobank.org/">MycoBank</a> 或 <a target="_blank" rel="noopener" href="http://www.indexfungorum.org/">Index Fungorum</a></td>
+</tr>
+<tr>
+<td>注册时机</td>
+<td><strong>论文投稿前或投稿时</strong></td>
+</tr>
+<tr>
+<td>注册内容</td>
+<td>学名、命名人、模式标本信息、分类学地位</td>
+</tr>
+<tr>
+<td>获得标识</td>
+<td>MycoBank 编号（如 MB 8XXXXX），<strong>必须在论文中引用此编号</strong></td>
+</tr>
+</tbody></table>
+<h3 id="5-3-论文投稿"><a href="#5-3-论文投稿" class="headerlink" title="5.3 论文投稿"></a>5.3 论文投稿</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>目标期刊</td>
+<td><em>MycoKeys</em>, <em>Mycologia</em>, <em>Fungal Biology</em>, <em>Mycological Progress</em>, <em>Phytotaxa</em></td>
+</tr>
+<tr>
+<td>论文结构</td>
+<td>引言 → 材料与方法 → 结果（形态 + 系统发育）→ 分类学处理（Taxonomy）→ 讨论 → 参考文献</td>
+</tr>
+<tr>
+<td>图表要求</td>
+<td>系统发育树（高分辨率 TIFF&#x2F;EPS）+ 形态照片图版（PLATE）</td>
+</tr>
+<tr>
+<td>数据可用性声明</td>
+<td>GenBank 登录号 + TreeBase 提交号 + MycoBank 号</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="六、完整数据检查清单"><a href="#六、完整数据检查清单" class="headerlink" title="六、完整数据检查清单"></a>六、完整数据检查清单</h2><blockquote>
+<p>[!important] 发表新种前逐项核对<br>以下检查表涵盖所有必须完成的工作项和数据项，确保无一遗漏。</p>
+</blockquote>
+<h3 id="6-1-标本与保藏"><a href="#6-1-标本与保藏" class="headerlink" title="6.1 标本与保藏"></a>6.1 标本与保藏</h3><ul>
+<li><input disabled="" type="checkbox"> 采集 ≥ 2–5 份标本（不同个体）</li>
+<li><input disabled="" type="checkbox"> GPS 坐标记录（精确到秒）</li>
+<li><input disabled="" type="checkbox"> 海拔记录</li>
+<li><input disabled="" type="checkbox"> 寄主树种鉴定（至少鉴定到属）</li>
+<li><input disabled="" type="checkbox"> 生境描述与照片</li>
+<li><input disabled="" type="checkbox"> 新鲜子实体多角度照片（≥ 10 张，含比例尺）</li>
+<li><input disabled="" type="checkbox"> 标本烘干制作完成</li>
+<li><input disabled="" type="checkbox"> <strong>Holotype 指定并保藏于公认标本馆</strong></li>
+<li><input disabled="" type="checkbox"> Paratype 列表（如有）</li>
+<li><input disabled="" type="checkbox"> 菌种分离成功（≥ 1 株）</li>
+<li><input disabled="" type="checkbox"> 菌种保藏于公认菌种保藏中心（如 CGMCC）</li>
+</ul>
+<h3 id="6-2-形态学数据"><a href="#6-2-形态学数据" class="headerlink" title="6.2 形态学数据"></a>6.2 形态学数据</h3><ul>
+<li><input disabled="" type="checkbox"> 菌盖大小测量（n ≥ 5）</li>
+<li><input disabled="" type="checkbox"> 菌盖颜色色卡比对</li>
+<li><input disabled="" type="checkbox"> 菌盖环纹&#x2F;表面特征描述</li>
+<li><input disabled="" type="checkbox"> 孔面颜色记录</li>
+<li><input disabled="" type="checkbox"> 孔口密度统计（n ≥ 10 视野）</li>
+<li><input disabled="" type="checkbox"> 菌肉厚度测量（n ≥ 5）</li>
+<li><input disabled="" type="checkbox"> <strong>担孢子测量（n ≥ 30，报告范围 + 均值 ± SD）</strong></li>
+<li><input disabled="" type="checkbox"> 担孢子 Q 值计算</li>
+<li><input disabled="" type="checkbox"> 担子测量（n ≥ 20）</li>
+<li><input disabled="" type="checkbox"> 菌丝系统类型判定</li>
+<li><input disabled="" type="checkbox"> 生殖菌丝测量（n ≥ 20）</li>
+<li><input disabled="" type="checkbox"> 骨架菌丝测量（n ≥ 20）</li>
+<li><input disabled="" type="checkbox"> 囊状体检查</li>
+<li><input disabled="" type="checkbox"> 菌盖皮层结构描述</li>
+<li><input disabled="" type="checkbox"> KOH 颜色反应记录</li>
+<li><input disabled="" type="checkbox"> 显微照片（孢子、担子、菌丝、皮层）</li>
+</ul>
+<h3 id="6-3-培养特征"><a href="#6-3-培养特征" class="headerlink" title="6.3 培养特征"></a>6.3 培养特征</h3><ul>
+<li><input disabled="" type="checkbox"> 菌落形态描述与拍照</li>
+<li><input disabled="" type="checkbox"> 生长曲线数据（至少测 14 天）</li>
+<li><input disabled="" type="checkbox"> 日均生长速率（mm&#x2F;d）</li>
+<li><input disabled="" type="checkbox"> 温度梯度实验数据（至少 5 个温度梯度）</li>
+<li><input disabled="" type="checkbox"> 最适生长温度确定</li>
+</ul>
+<h3 id="6-4-分子数据"><a href="#6-4-分子数据" class="headerlink" title="6.4 分子数据"></a>6.4 分子数据</h3><ul>
+<li><input disabled="" type="checkbox"> 基因组 DNA 提取成功（纯度 A260&#x2F;A280 &#x3D; 1.8–2.0）</li>
+<li><input disabled="" type="checkbox"> <strong>6 个基因全部 PCR 扩增成功</strong></li>
+<li><input disabled="" type="checkbox"> 双向测序完成</li>
+<li><input disabled="" type="checkbox"> 序列拼接质量验证</li>
+<li><input disabled="" type="checkbox"> BLAST 验证完成</li>
+<li><input disabled="" type="checkbox"> GenBank 参考序列下载整理完成</li>
+<li><input disabled="" type="checkbox"> 每个基因的单基因 FASTA 文件整理</li>
+<li><input disabled="" type="checkbox"> MAFFT 比对完成</li>
+<li><input disabled="" type="checkbox"> trimAl 修剪完成</li>
+<li><input disabled="" type="checkbox"> <strong>合并矩阵构建完成（记录总长度、各基因分区）</strong></li>
+</ul>
+<h3 id="6-5-系统发育分析"><a href="#6-5-系统发育分析" class="headerlink" title="6.5 系统发育分析"></a>6.5 系统发育分析</h3><ul>
+<li><input disabled="" type="checkbox"> PHT 检验通过（P &gt; 0.05）或冲突已处理</li>
+<li><input disabled="" type="checkbox"> <strong>ML 树构建完成（记录最优模型、lnL）</strong></li>
+<li><input disabled="" type="checkbox"> <strong>BI 树构建完成（记录代数、ESS、收敛状态）</strong></li>
+<li><input disabled="" type="checkbox"> <strong>MP 树构建完成（记录 TL、CI、RI）</strong></li>
+<li><input disabled="" type="checkbox"> 支持值标注完整（ML BS &#x2F; BI BPP &#x2F; MP BS）</li>
+<li><input disabled="" type="checkbox"> <strong>6 个单基因树全部构建完成</strong></li>
+<li><input disabled="" type="checkbox"> 单基因树无严重冲突</li>
+<li><input disabled="" type="checkbox"> 遗传距离矩阵计算完成</li>
+<li><input disabled="" type="checkbox"> <strong>GCPSR 判定通过</strong></li>
+</ul>
+<h3 id="6-6-新种描述与发表"><a href="#6-6-新种描述与发表" class="headerlink" title="6.6 新种描述与发表"></a>6.6 新种描述与发表</h3><ul>
+<li><input disabled="" type="checkbox"> 拉丁学名拟定（符合命名法规）</li>
+<li><input disabled="" type="checkbox"> 词源（Etymology）撰写</li>
+<li><input disabled="" type="checkbox"> 完整形态描述撰写（英文&#x2F;拉丁文）</li>
+<li><input disabled="" type="checkbox"> Diagnosis（鉴别诊断）撰写</li>
+<li><input disabled="" type="checkbox"> 种间对比表制作</li>
+<li><input disabled="" type="checkbox"> 系统发育树图制作</li>
+<li><input disabled="" type="checkbox"> 形态图版（PLATE）制作</li>
+<li><input disabled="" type="checkbox"> <strong>MycoBank 注册完成（获取编号）</strong></li>
+<li><input disabled="" type="checkbox"> GenBank 序列提交（获取登录号）</li>
+<li><input disabled="" type="checkbox"> TreeBase 数据提交</li>
+<li><input disabled="" type="checkbox"> 论文撰写完成</li>
+<li><input disabled="" type="checkbox"> 投稿至同行评审期刊</li>
+</ul>
+<hr>
+<h2 id="七、关键参考资料汇总"><a href="#七、关键参考资料汇总" class="headerlink" title="七、关键参考资料汇总"></a>七、关键参考资料汇总</h2><h3 id="7-1-硫磺菌属分类学核心文献"><a href="#7-1-硫磺菌属分类学核心文献" class="headerlink" title="7.1 硫磺菌属分类学核心文献"></a>7.1 硫磺菌属分类学核心文献</h3><table>
+<thead>
+<tr>
+<th>文献</th>
+<th>内容</th>
+<th>引用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Song et al. (2018) <em>MycoKeys</em> 37: 57–71</td>
+<td>中国西部 2 新种描述，6 基因系统发育</td>
+<td>方法学模板、引物序列、鉴定对比</td>
+</tr>
+<tr>
+<td>Song &amp; Cui (2017) <em>BMC Evol Biol</em> 17: 102</td>
+<td>全属系统发育、分化时间、生物地理</td>
+<td>属级系统发育框架</td>
+</tr>
+<tr>
+<td>Song et al. (2014) <em>Mycologia</em> 106: 1039–1050</td>
+<td>云南 2 新种描述</td>
+<td>形态描述参考</td>
+</tr>
+<tr>
+<td>Ota et al. (2009) <em>Mycol Res</em> 113: 1283–1300</td>
+<td>东亚硫磺菌属分类</td>
+<td>东亚物种对比</td>
+</tr>
+<tr>
+<td>Hakizimana et al. (2024) <em>Mycologia</em> 116: 1083–1100</td>
+<td>非洲硫磺菌 4 种（含 2 新种）</td>
+<td>最新分类框架</td>
+</tr>
+<tr>
+<td>Banik et al. (2010) <em>Mycologia</em> 102: 911–917</td>
+<td>北美-日本交配不亲和</td>
+<td>生殖隔离证据</td>
+</tr>
+<tr>
+<td>Paez et al. (2023) <em>Mycologia</em> 115: 107–121</td>
+<td><em>L. persicinus</em> 移出属</td>
+<td>属界修正参考</td>
+</tr>
+</tbody></table>
+<h3 id="7-2-方法学核心文献"><a href="#7-2-方法学核心文献" class="headerlink" title="7.2 方法学核心文献"></a>7.2 方法学核心文献</h3><table>
+<thead>
+<tr>
+<th>文献</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Taylor et al. (2000) <em>Fungal Genet Biol</em> 31: 21–32</td>
+<td>GCPSR 物种识别框架</td>
+</tr>
+<tr>
+<td>Katoh &amp; Standley (2013) <em>Mol Biol Evol</em> 30: 772–780</td>
+<td>MAFFT 比对</td>
+</tr>
+<tr>
+<td>Minh et al. (2020) <em>Mol Biol Evol</em> 37: 1530–1534</td>
+<td>IQ-TREE 2</td>
+</tr>
+<tr>
+<td>Ronquist et al. (2012) <em>Syst Biol</em> 61: 539–542</td>
+<td>MrBayes 3.2</td>
+</tr>
+<tr>
+<td>Wilson et al. (2023) <em>J Fungi</em> 9: 788</td>
+<td>大型真菌 barcode gap 变异</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="八、工作流程甘特图"><a href="#八、工作流程甘特图" class="headerlink" title="八、工作流程甘特图"></a>八、工作流程甘特图</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs mermaid">gantt<br>    title 硫磺菌新种发表工作时间线（参考）<br>    dateFormat  YYYY-MM<br>    axisFormat  %m月<br>    <br>    section 标本采集<br>    野外采集与标本制作     :2026-06, 2026-07<br>    菌种分离与纯化         :2026-07, 2026-08<br>    <br>    section 形态学<br>    宏观形态观察与拍照     :2026-07, 2026-08<br>    显微切片与测量         :2026-08, 2026-10<br>    <br>    section 分子实验<br>    DNA提取与PCR           :2026-08, 2026-10<br>    测序与序列整理         :2026-10, 2026-12<br>    <br>    section 系统发育分析<br>    多基因比对与建树       :2026-12, 2027-02<br>    GCPSR判定              :2027-02, 2027-03<br>    <br>    section 发表<br>    新种描述撰写           :2027-03, 2027-04<br>    MycoBank注册与投稿     :2027-04, 2027-05<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="相关笔记"><a href="#相关笔记" class="headerlink" title="相关笔记"></a>相关笔记</h2><ul>
+<li>[[硫磺菌（Laetiporus）分类学与新种鉴定]]</li>
+<li>[[多基因联合系统发育树构建方法]]</li>
+<li>[[羊肚菌（Morchella）分类学与系统发育]]</li>
+<li>[[木耳（Auricularia）分子鉴定方法]]</li>
+<li>[[灵芝、硫磺菌和羊肚菌的分子鉴定]]</li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><span id="ref1">1</span>. Song J, Sun Y, Ji X, Dai Y, Cui B. (2018) Phylogeny and taxonomy of <em>Laetiporus</em> (Basidiomycota, Polyporales) with descriptions of two new species from western China. <em>MycoKeys</em>, 37: 57–71. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.3897/mycokeys.37.26016">10.3897&#x2F;mycokeys.37.26016</a>. PMID: 30116139</p>
+<p><span id="ref2">2</span>. Song J, Cui B. (2017) Phylogeny, divergence time and historical biogeography of <em>Laetiporus</em> (Basidiomycota, Polyporales). <em>BMC Evolutionary Biology</em>, 17: 102. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1186/s12862-017-0948-5">10.1186&#x2F;s12862-017-0948-5</a>. PMID: 28424048</p>
+<p><span id="ref3">3</span>. Song J, Chen Y, Cui B, et al. (2014) Morphological and molecular evidence for two new species of <em>Laetiporus</em> from southwestern China. <em>Mycologia</em>, 106(5): 1039–1050. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.3852/13-402">10.3852&#x2F;13-402</a>. PMID: 24987130</p>
+<p><span id="ref4">4</span>. Ota Y, Hattori T, Banik MT, et al. (2009) The genus <em>Laetiporus</em> (Basidiomycota, Polyporales) in East Asia. <em>Mycological Research</em>, 113(11): 1283–1300. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.mycres.2009.08.014">10.1016&#x2F;j.mycres.2009.08.014</a></p>
+<p><span id="ref5">5</span>. Hakizimana JC, et al. (2024) <em>Laetiporus</em> in tropical Africa is represented by a single Afromontane lineage and four species. <em>Mycologia</em>, 116(6): 1083–1100. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1080/00275514.2024.2395688">10.1080&#x2F;00275514.2024.2395688</a>. PMID: 39423306</p>
+<p><span id="ref6">6</span>. Banik MT, Lindner DL, Ota Y, Hattori T. (2010) Relationships among North American and Japanese <em>Laetiporus</em> isolates inferred from molecular phylogenetics and single-spore incompatibility reactions. <em>Mycologia</em>, 102(4): 911–917. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.3852/09-183">10.3852&#x2F;09-183</a></p>
+<p><span id="ref7">7</span>. Taylor JW, et al. (2000) Phylogenetic species recognition and species concepts in fungi. <em>Fungal Genetics and Biology</em>, 31: 21–32.</p>
+<p><span id="ref8">8</span>. Paez CA, et al. (2023) Revising the taxonomic placement of <em>Laetiporus persicinus</em> within the Laetiporaceae. <em>Mycologia</em>, 115(1): 107–121. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1080/00275514.2022.2139144">10.1080&#x2F;00275514.2022.2139144</a>. PMID: 36533930</p>
+<p><span id="ref9">9</span>. Wilson AW, et al. (2023) Does One Size Fit All? Variations in the DNA Barcode Gaps of Macrofungal Genera. <em>Journal of Fungi</em>, 9(8): 788.</p>
+
+  </div>
+
+  
+    <div class="post-tags">
+      
+        <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%82%B2/" class="post-tag">系统发育</a>
+      
+        <a href="/tags/%E7%9C%9F%E8%8F%8C%E5%AD%A6/" class="post-tag">真菌学</a>
+      
+        <a href="/tags/%E5%88%86%E7%B1%BB%E5%AD%A6/" class="post-tag">分类学</a>
+      
+        <a href="/tags/%E5%88%86%E5%AD%90%E9%89%B4%E5%AE%9A/" class="post-tag">分子鉴定</a>
+      
+        <a href="/tags/GCPSR/" class="post-tag">GCPSR</a>
+      
+        <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%96%B9%E6%B3%95/" class="post-tag">实验方法</a>
+      
+        <a href="/tags/%E7%A1%AB%E7%A3%BA%E8%8F%8C/" class="post-tag">硫磺菌</a>
+      
+        <a href="/tags/%E6%96%B0%E7%A7%8D%E5%8F%91%E8%A1%A8/" class="post-tag">新种发表</a>
+      
+    </div>
+  
+
+  <!-- Share -->
+  <div class="post-share">
+    <span class="share-label">分享</span>
+    <a class="share-btn share-twitter" href="javascript:void(0)" onclick="shareTo('twitter','硫磺菌（Laetiporus）新种发表——完整工作流程与数据统计指南')" aria-label="分享到 Twitter">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a class="share-btn share-weibo" href="javascript:void(0)" onclick="shareTo('weibo','硫磺菌（Laetiporus）新种发表——完整工作流程与数据统计指南')" aria-label="分享到微博">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M10.098 20.323c-3.977.391-7.414-1.406-7.672-4.02-.259-2.609 2.759-5.047 6.74-5.441 3.979-.394 7.413 1.404 7.671 4.018.259 2.6-2.759 5.049-6.739 5.443zM8.594 11.39c-5.065.662-8.727 4.033-8.18 7.543.547 3.51 5.05 5.827 10.115 5.166 5.065-.662 8.727-4.033 8.18-7.543-.547-3.51-5.05-5.827-10.115-5.166zm5.636-1.591c-.275-.052-.462-.199-.422-.332.041-.133.287-.194.562-.143.619.117.998.452.84.776-.156.318-.685.423-1.304.308-.197-.037-.34-.161-.32-.278.021-.117.186-.182.382-.145.276.053.466.012.44-.064-.026-.076-.214-.142-.49-.195.303.12.498.278.457.411-.04.131-.284.19-.558.14-.613-.116-.991-.451-.833-.774.155-.316.679-.418 1.292-.304zM7.706 9.262c-.226-.062-.374-.212-.332-.334.043-.122.252-.172.478-.11.564.152.892.482.735.79-.155.303-.628.42-1.192.27-.569-.152-.891-.483-.734-.791.156-.309.625-.428 1.186-.278.236.064.384.214.341.335-.042.122-.25.172-.482.118zM14.912.472c-2.023-.558-4.314.126-5.963 1.664-.658.614-1.145 1.313-1.44 2.043-.307.759-.417 1.525-.363 2.216.27.208.557.389.861.543.286.144.586.262.897.353.36.107.737.18 1.112.229.054-.09.104-.184.155-.277.244-.45.582-.845 1.006-1.17.957-.735 2.145-.991 3.157-.735 1.011.257 1.646 1.01 1.78 1.992.039.281.04.566.002.846.385.032.76.098 1.113.2.38.108.736.258 1.065.443.15.084.293.177.43.277.257-.954.184-2.07-.311-3.118C21.372 2.933 18.595.735 14.912.472zm-1.374 17.918c-2.203.691-4.611-.196-5.368-1.982-.762-1.796.46-3.788 2.667-4.483 2.203-.695 4.61.197 5.368 1.983.762 1.796-.46 3.788-2.667 4.482zm1.157-2.272c.462-.815-.198-1.848-1.438-2.296-1.239-.447-2.473-.205-2.935.608-.462.813.197 1.848 1.437 2.296 1.24.449 2.473.207 2.936-.608z"/></svg>
+    </a>
+    <button class="share-btn share-copy" onclick="copyPageLink(this)" aria-label="复制链接">
+      <svg class="share-copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+    </button>
+    <span class="share-copy-feedback" aria-hidden>已复制</span>
+  </div>
+
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+        
+          
+        
+      
+        
+      
+    
+      
+        
+      
+        
+      
+    
+      
+        
+      
+        
+      
+    
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+    
+    
+    <div class="related-posts">
+      <h3 class="related-title">相关文章</h3>
+      <div class="related-list">
+        
+        <a class="related-item" href="/posts/72c69583/">
+          <span class="related-item-title">真菌分子系统学与多基因系统发育树构建</span>
+          <time class="related-item-date">2026-04-28</time>
+        </a>
+        
+        <a class="related-item" href="/posts/c5bf302b/">
+          <span class="related-item-title">硫磺菌（Laetiporus）分类学与新种鉴定</span>
+          <time class="related-item-date">2026-04-28</time>
+        </a>
+        
+        <a class="related-item" href="/posts/d3363a64/">
+          <span class="related-item-title">羊肚菌（Morchella）分类学与系统发育</span>
+          <time class="related-item-date">2026-04-28</time>
+        </a>
+        
+        <a class="related-item" href="/posts/3963eea8/">
+          <span class="related-item-title">灵芝、硫磺菌和羊肚菌的分子鉴定</span>
+          <time class="related-item-date">2026-04-22</time>
+        </a>
+        
+      </div>
+    </div>
+    
+  
+
+  <nav class="post-nav">
+    
+      <div class="post-nav-item"></div>
+    
+    
+      <a href="/posts/526a2e3a/" class="post-nav-item post-nav-next">
+        <span class="post-nav-label">Next</span>
+        <span class="post-nav-title">MacOS 上 Conda 安装与使用指南</span>
+      </a>
+    
+  </nav>
+
+  <section id="comments" class="comments-section">
+    <script src="https://giscus.app/client.js"
+      data-repo="realzhengxi/zhengxi_blog_comments"
+      data-repo-id="R_kgDOSKT6sA"
+      data-category="General"
+      data-category-id="DIC_kwDOSKT6sM4C7fUT"
+      data-mapping="title"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="light"
+      data-lang="zh-CN"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </section>
+</article>
+
+    </main>
+  </div>
+
+  <footer id="footer">
+  <div class="footer-inner">
+    <p>&copy; 2024 - 2026 <a href="/">ZhengXi Wiki</a>. Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> &amp; <a href="#">hellowiki</a>.</p>
+  </div>
+</footer>
+
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- Mermaid for diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+
+  <!-- Search Index -->
+  <script>
+  window.__SEARCH_INDEX__ = [
+    
+      {
+        title: "硫磺菌（Laetiporus）新种发表——完整工作流程与数据统计指南",
+        path: "/posts/a3f7b2d1/",
+        date: "2026-05-04",
+        categories: ["食用菌研究"],
+        tags: ["系统发育","真菌学","分类学","分子鉴定","GCPSR","实验方法","硫磺菌","新种发表"],
+        excerpt: "硫磺菌（Laetiporus）新种发表——完整工作流程与数据统计指南 本文结合硫磺菌属最新分类学进展（Song et al. 2014, 2017, 2018; Hakizimana et al. 2024）与 GCPSR 物种识别框架，系统梳理发表一个硫磺菌新种所需的全部工作、数据和统计信息。 一、工作总览发表一个硫磺菌新种，需要完成四大模块、十二个阶段的工作，从野外采集到论文发表，全程通常需要 6–18 个月。 graph LR A[&quot;模块一&lt;br/&gt;标本采集与保藏&quot;] --&gt; B[&quot;模块二&lt;br/&gt;形态学数据收集&quot;] "
+      },
+    
+      {
+        title: "MacOS 上 Conda 安装与使用指南",
+        path: "/posts/526a2e3a/",
+        date: "2026-04-29",
+        categories: ["环境配置"],
+        tags: ["conda","python","macos","环境管理","包管理"],
+        excerpt: "Conda 是一个开源的包管理系统和环境管理系统，支持 Python、R 等多种语言。相比 pip + venv，Conda 的优势在于： 跨语言：不仅管 Python 包，还能管 C 库、R 包等 二进制分发：预编译好的包，无需本地编译工具链 环境隔离：每个环境有独立的 Python 解释器和包集合 1. 安装 Conda选择版本推荐安装 Miniconda（精简版）而非 Anaconda（完整版 3GB+），只装最核心的 conda + Python，需要什么包再自己装。 安装步骤# 下载 Miniconda (Apple Silicon / Intel 根据你的机器选)# Apple S"
+      },
+    
+      {
+        title: "Claude 环境变量配置 ｜ 搭配 DeepSeek V4 模型",
+        path: "/posts/e5faa21f/",
+        date: "2026-04-29",
+        categories: ["工具配置"],
+        tags: ["配置","Claude Code","DeepSeek","AI编程","环境变量","API"],
+        excerpt: "要让 Claude 相关的环境变量（比如 ANTHROPIC_AUTH_TOKEN）永久生效，关键是把变量写入 shell 的启动配置文件，而不是仅在当前终端里 export。 下面按操作系统给出最常见、最稳妥的做法。 Linux &#x2F; macOS（终端）1. 确定你用的 shell打开终端，运行： echo $SHELL 通常输出 /bin/bash（bash）或者 /bin/zsh（zsh，macOS 默认）。 2. 编辑对应的配置文件 bash 用户：编辑 ~/.bashrc（大多数 Linux）或者 ~/.bash_profile &#x2F; ~/.profile（macOS"
+      },
+    
+      {
+        title: "Claude Code Skills 安装记录",
+        path: "/posts/64478dc9/",
+        date: "2026-04-28",
+        categories: ["工具配置"],
+        tags: ["claude-code","skills","obsidian","配置"],
+        excerpt: "Claude Code Skills 安装记录通过 npx skills 安装了 5 个全局技能（zhengxi 用户下所有项目可用）。 已安装技能 技能 来源 用途 find-skills vercel-labs&#x2F;skills 搜索和发现更多社区技能 md-to-office claude-office-skills&#x2F;skills Markdown 转 Word&#x2F;Office 文档 obsidian-markdown kepano&#x2F;obsidian-skills Obsidian 格式 Markdown（wikilinks、callouts、属性等） "
+      },
+    
+      {
+        title: "真菌分子系统学与多基因系统发育树构建",
+        path: "/posts/72c69583/",
+        date: "2026-04-28",
+        categories: ["食用菌研究"],
+        tags: ["系统发育","真菌学","分类学","分子鉴定","GCPSR","实验方法","生物信息学","食用菌"],
+        excerpt: "真菌分子系统学与多基因系统发育树构建 以羊肚菌属（Morchella）和硫磺菌属（Laetiporus）的现代分类学研究为实例，覆盖从隐存种概念、GCPSR物种识别框架、引物设计、遗传距离、到多基因联合建树全流程的完整知识体系。 第一部分：真菌分类学基础概念1.1 隐存种复合体（Cryptic Species Complex）许多传统上被认为是&quot;一个世界广布种&quot;的真菌，经分子系统学研究后被发现实际是一群形态几乎无法区分但遗传上显著分化的独立物种。 实例 传统认知 分子证据揭示 羊肚菌属 少数几个形态变种 80+ 系统发育种，大陆特有性强 硫磺菌属 L. sulphureus"
+      },
+    
+      {
+        title: "硫磺菌（Laetiporus）分类学与新种鉴定",
+        path: "/posts/c5bf302b/",
+        date: "2026-04-28",
+        categories: ["食用菌研究"],
+        tags: ["真菌学","分类学","食用菌","硫磺菌","多孔菌"],
+        excerpt: "硫磺菌（Laetiporus）分类学与新种鉴定分类学地位硫磺菌属（Laetiporus Murrill, 1904）隶属 硫磺孔菌科（Laetiporaceae），属于褐腐真菌。 graph TD A[&quot;担子菌门 Basidiomycota&quot;] --&gt; B[&quot;伞菌纲 Agaricomycetes&quot;] B --&gt; C[&quot;多孔菌目 Polyporales&quot;] C --&gt; D[&quot;硫磺孔菌科 Laetiporaceae&quot;] D --&gt; E[&quot;**硫磺菌属 Laetiporus**&quot"
+      },
+    
+      {
+        title: "羊肚菌（Morchella）分类学与系统发育",
+        path: "/posts/d3363a64/",
+        date: "2026-04-28",
+        categories: ["食用菌研究"],
+        tags: ["真菌学","分类学","食用菌","羊肚菌"],
+        excerpt: "羊肚菌（Morchella）分类学与系统发育分类学地位羊肚菌属（Morchella Dill. ex Pers., 1794）隶属羊肚菌科（Morchellaceae），该科由德国生物学家路德维希·赖兴巴赫于 1834 年描述发表。 graph TD A[&quot;子囊菌门 Ascomycota&quot;] --&gt; B[&quot;盘菌纲 Pezizomycetes&quot;] B --&gt; C[&quot;盘菌目 Pezizales&quot;] C --&gt; D[&quot;羊肚菌科 Morchellaceae (Reichenbach, 1834)&quot;] D "
+      },
+    
+      {
+        title: "Hexo 静态博客方案 ｜ GitHub Actions 自动化部署",
+        path: "/posts/342e4b03/",
+        date: "2026-04-26",
+        categories: ["开发笔记"],
+        tags: ["Hexo","GitHub Pages","GitHub Actions","静态博客","CI/CD","Node.js"],
+        excerpt: "[!abstract] 适用环境与目标 适用环境：macOS &#x2F; Windows &#x2F; Linux + Node.js 16.0+ + Git 目标：在 GitHub Pages 上搭建 Hexo 静态博客，实现「写文章 → 推送源码 → 自动构建并部署」的全自动化工作流 概述静态博客方案结合了 Markdown 的写作体验和 GitHub Pages 的免费托管能力，是个人技术博客和知识库的首选方案之一。Hexo 作为最流行的静态博客框架，生态成熟、主题丰富、部署方式灵活，社区中积累了大量开箱即用的主题和插件。 本文以一个真实的生产环境博客（伞间岁月）为案例，详细讲解： H"
+      },
+    
+      {
+        title: "木耳（Auricularia）分子鉴定方法",
+        path: "/posts/6d371a40/",
+        date: "2026-04-26",
+        categories: ["食用菌研究"],
+        tags: ["ITS","分子生物学","木耳","Auricularia","DNA条形码","IGS"],
+        excerpt: "木耳（Auricularia）分子鉴定方法一、概述木耳属（Auricularia）真菌的分子鉴定主要基于 核糖体 DNA（rDNA） 的多区域联合分析。rDNA 在基因组中以串联重复单元形式存在，木耳基因组中约有 310 个 重复单元（毛木耳 A. cornea），每个重复单元全长约 10.6~11.2 kb。 rDNA 重复单元结构： [18S]-ITS1-[5.8S]-ITS2-[28S]-IGS1-[5S]-IGS2-[18S]... 二、核心基因&#x2F;区域1. ITS 区（Internal Transcribed Spacer）— 首选 DNA 条形码引物： 真菌通用引物 ITS"
+      },
+    
+      {
+        title: "notesmd-cli 安装与使用",
+        path: "/posts/4f4d7fcc/",
+        date: "2026-04-26",
+        categories: ["工具配置"],
+        tags: ["obsidian","cli","工具配置"],
+        excerpt: "notesmd-cli 安装与使用背景notesmd-cli（原名 obsidian-cli）是一个 Go 语言编写的命令行工具，用于在终端中与 Obsidian vault 交互。支持搜索、创建、编辑笔记等操作。 早期版本叫 Yakitrak/obsidian-cli，后更名为 notesmd-cli。 安装过程踩坑：错误的 obsidian-cli [!warning] 装错了包npm 上的 obsidian-cli 实际上是 Obsidianqa（测试管理平台）的 CLI，不是 Obsidian 笔记工具的 CLI。初始安装成功后，会发现不支持 set-default、search、cr"
+      },
+    
+      {
+        title: "Mac 用户 Claude Code 完全配置指南：接入 DeepSeek / Kimi 等国内大模型",
+        path: "/posts/2b01f7e5/",
+        date: "2026-04-24",
+        categories: ["开发笔记"],
+        tags: ["Claude Code","DeepSeek","Kimi","macOS","开发工具","AI编程"],
+        excerpt: "[!abstract] 适用环境与目标 适用环境：macOS（Intel &#x2F; Apple Silicon）+ Homebrew + zsh 目标：在无法直接访问 Anthropic 官方服务的环境下，让 Claude Code 通过国内大模型（DeepSeek、Kimi、GLM、MiniMax 等）正常运行。 一、安装 Claude CodeClaude Code 是 Anthropic 推出的终端 AI 编程助手，可通过 Homebrew 一键安装： brew install --cask claude-code@latest 安装完成后，终端输入： claude 如果看到 Cla"
+      },
+    
+      {
+        title: "灵芝、硫磺菌和羊肚菌的分子鉴定",
+        path: "/posts/3963eea8/",
+        date: "2026-04-22",
+        categories: ["食用菌研究"],
+        tags: ["分子鉴定","食用菌","PCR引物","灵芝","硫磺菌","羊肚菌","ITS"],
+        excerpt: "[!abstract] 核心思路基于 rDNA（核糖体 DNA） 和 蛋白编码基因 的多基因分子鉴定方案 概述食用菌的传统形态学鉴定依赖于子实体的宏观特征（菌盖形状、菌褶颜色、孢子印等），但在以下场景中往往力不从心： 菌丝体阶段（无子实体） 同物异名 &#x2F; 同名异物 的分类混乱 近缘种 形态高度相似（如灵芝属 Ganoderma 内部） 药用菌真伪鉴别（市场掺假问题） DNA 分子标记 通过 PCR 扩增保守区域的特异性序列，结合测序和数据库比对，已成为食用菌鉴定的金标准。 一、常用分子标记概述 基因位点 全称 特点 适用范围 ITS Internal Transcribed Spac"
+      },
+    
+      {
+        title: "微信小程序：生科小算Pro",
+        path: "/posts/bfa151ca/",
+        date: "2026-04-21",
+        categories: ["开发笔记"],
+        tags: ["生物信息学","微信小程序","科研工具","实验计算"],
+        excerpt: "[!abstract] 生科小算 Pro一站式分子生物学科研计算工具箱 项目简介 | Project Introduction生科小算 Pro 是一款专为生命科学领域科研人员打造的微信小程序工具集。它将日常实验中频繁使用的各类计算功能整合到一个简洁优雅的应用中，帮助研究者从繁琐的手工计算中解放出来，专注于科学发现本身。 从 DNA 序列分析到细胞培养方案设计，从 PCR 体系配制到动物实验剂量计算——22 个精心设计的工具模块覆盖了分子生物学、细胞生物学和基础药理学的常见计算需求。 设计理念 精准可靠：所有计算公式均来自权威文献或教科书，确保结果可溯源 薄荷清新：采用薄荷绿主色调（#3ecec"
+      },
+    
+      {
+        title: "Git版本管理",
+        path: "/posts/42224731/",
+        date: "2026-04-20",
+        categories: ["开发笔记"],
+        tags: ["git","版本控制","教程"],
+        excerpt: "Git 版本管理 [!abstract] 概述Git 是一个&#x3D;&#x3D;分布式版本控制系统&#x3D;&#x3D;，用于追踪文件的变更历史，支持多人协作开发。本教程将帮助你理解 Git 的核心原理和基本用法。 一、为什么需要版本控制？想象你在写一篇论文，你可能会这样备份： 论文.doc论文_修改.doc论文_最终版.doc论文_最终版2.doc论文_打死不改版.doc [!warning] 问题 文件越来越多，根本分不清哪个是最新的 想找回之前某个版本？几乎不可能 多人同时修改同一文件？冲突不断 版本控制系统（VCS） 就是来解决这些问题的。而 Git 是目前最流行的版本控制工具。"
+      },
+    
+      {
+        title: "微信小程序Git远程仓库设置（GitHub）",
+        path: "/posts/e211538c/",
+        date: "2026-04-20",
+        categories: ["开发笔记"],
+        tags: ["微信小程序","Git","GitHub","SSH","微信开发者工具"],
+        excerpt: "微信小程序 Git 远程仓库设置（GitHub）概述在微信开发者工具中，通过 Git 版本管理将小程序项目推送到 GitHub 远程仓库，需要完成 SSH 密钥配置 和 远程仓库设置 两个核心步骤。 [!tip] 推荐认证方式使用 SSH Key（指定密钥） 方式认证，比 SSH Agent 更可靠，不依赖系统 ssh-agent 进程。 一、生成 SSH 密钥对打开终端（Terminal），执行以下命令： ssh-keygen -t ed25519 -C &quot;你的GitHub邮箱@example.com&quot; 按提示操作： 文件保存路径：直接回车，使用默认路径 ~/.ssh/i"
+      }
+    
+  ];
+  </script>
+
+  <script>
+  (function() {
+    'use strict';
+
+    var content = document.querySelector('.wiki-content');
+
+    // ============================
+    // 0. Mermaid — detect & render
+    // ============================
+    if (content) (function() {
+      function getPlainText(el) {
+        // <br> in hexo's code output replaces \n; restore them
+        var c = el.cloneNode(true);
+        c.querySelectorAll('br').forEach(function(b){ b.replaceWith('\n'); });
+        return (c.textContent || '').replace(/ /g, ' ');
+      }
+      var blocks = [];
+      content.querySelectorAll('figure.highlight.plaintext pre code').forEach(function(code) {
+        var t = getPlainText(code);
+        if (!/^\s*(graph\s+(TB|BT|RL|LR|TD)|flowchart|sequenceDiagram|classDiagram|stateDiagram|erDiagram|gantt|pie|gitGraph|journey|requirementDiagram|mindmap|timeline)\b/.test(t)) return;
+        var fig = code.closest('figure.highlight');
+        if (!fig) return;
+        var div = document.createElement('div');
+        div.className = 'mermaid';
+        // Mermaid with htmlLabels:true doesn't convert **bold** → <strong>
+        var mermaidSrc = t.trim().replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+        div.textContent = mermaidSrc;
+        fig.parentNode.replaceChild(div, fig);
+        blocks.push(div);
+      });
+      if (blocks.length && typeof mermaid !== 'undefined') {
+        mermaid.initialize({ startOnLoad: false, theme: 'neutral', flowchart: { useMaxWidth: true, htmlLabels: true } });
+        mermaid.run({ nodes: blocks }).catch(function(){});
+      }
+    })();
+
+    // ============================
+    // 1. Obsidian Callout
+    // ============================
+    if (content) (function() {
+      var ICONS = {
+        note:'📝', abstract:'📋', summary:'📋', info:'ℹ️', todo:'✅',
+        tip:'💡', hint:'💡', important:'⭐', success:'✅', check:'✅', done:'✅',
+        question:'❓', help:'❓', faq:'❓',
+        warning:'⚠️', caution:'⚠️', attention:'⚠️',
+        failure:'❌', fail:'❌', danger:'⚡', error:'⚡', bug:'🐛',
+        example:'📄', quote:'💬', cite:'💬'
+      };
+
+      content.querySelectorAll('blockquote').forEach(function(bq) {
+        var p = bq.querySelector('p');
+        if (!p) return;
+
+        // Collect text before first <br> and locate the <br> node
+        var calloutText = '';
+        var brNode = null;
+        for (var ci = 0; ci < p.childNodes.length; ci++) {
+          var cn = p.childNodes[ci];
+          if (cn.nodeType === 3) calloutText += cn.textContent;
+          else if (cn.nodeName === 'BR') { brNode = cn; break; }
+        }
+        var m = calloutText.match(/^\[!(\w+)\]([-+])?\s*(.*)/);
+        if (!m) return;
+
+        var type = m[1].toLowerCase();
+        var foldMarker = m[2] || '';
+        var rawTitle = (m[3] || '').trim();
+        var title = rawTitle || type.charAt(0).toUpperCase() + type.slice(1);
+        var icon = ICONS[type] || '📌';
+
+        var w = document.createElement('div');
+        w.className = 'callout';
+        w.setAttribute('data-callout', type);
+        if (foldMarker === '-') w.classList.add('is-folded');
+        if (foldMarker) w.classList.add('is-foldable');
+
+        var td = document.createElement('div');
+        td.className = 'callout-title';
+        var is = document.createElement('span');
+        is.className = 'callout-icon';
+        is.textContent = icon;
+        td.appendChild(is);
+        td.appendChild(document.createTextNode(' ' + title));
+
+        var bd = document.createElement('div');
+        bd.className = 'callout-content';
+
+        // Move content after <br> from the title paragraph into a new <p>
+        if (brNode) {
+          var frag = document.createDocumentFragment();
+          var next = brNode.nextSibling;
+          while (next) {
+            var toMove = next;
+            next = next.nextSibling;
+            frag.appendChild(toMove);
+          }
+          if (frag.hasChildNodes()) {
+            var bodyP = document.createElement('p');
+            bodyP.appendChild(frag);
+            bd.appendChild(bodyP);
+          }
+        }
+
+        // Remove title <p> from blockquote
+        bq.removeChild(p);
+
+        // Move any remaining children (separate <p>, <ul>, etc.)
+        while (bq.firstChild) bd.appendChild(bq.firstChild);
+
+        w.appendChild(td);
+        w.appendChild(bd);
+        bq.parentNode.replaceChild(w, bq);
+
+        // Click-to-toggle for foldable callouts
+        if (foldMarker) {
+          td.style.cursor = 'pointer';
+          td.addEventListener('click', function() {
+            w.classList.toggle('is-folded');
+          });
+        }
+      });
+    })();
+
+    // ============================
+    // 2. Obsidian ==highlight==
+    // ============================
+    (function() {
+      var root = content || document.body;
+      var iter = document.createNodeIterator(root, NodeFilter.SHOW_TEXT, null, false);
+      var nodes = [], n;
+      while ((n = iter.nextNode())) nodes.push(n);
+      nodes.forEach(function(tn) {
+        if (tn.textContent.indexOf('==') === -1) return;
+        var frag = document.createDocumentFragment();
+        (tn.textContent.split(/(==.+?==)/)).forEach(function(part) {
+          var mk = part.match(/^==([\s\S]+?)==$/);
+          if (mk) { var m = document.createElement('mark'); m.className = 'obsidian-highlight'; m.textContent = mk[1]; frag.appendChild(m); }
+          else { frag.appendChild(document.createTextNode(part)); }
+        });
+        tn.parentNode.replaceChild(frag, tn);
+      });
+    })();
+
+    // ============================
+    // 3. ~~strikethrough~~
+    // ============================
+    (function() {
+      var root = content || document.body;
+      var iter = document.createNodeIterator(root, NodeFilter.SHOW_TEXT, null, false);
+      var nodes = [], n;
+      while ((n = iter.nextNode())) nodes.push(n);
+      nodes.forEach(function(tn) {
+        if (tn.textContent.indexOf('~~') === -1) return;
+        var frag = document.createDocumentFragment();
+        (tn.textContent.split(/(~~.+?~~)/)).forEach(function(part) {
+          var mk = part.match(/^~~([\s\S]+?)~~$/);
+          if (mk) { var d = document.createElement('del'); d.textContent = mk[1]; frag.appendChild(d); }
+          else { frag.appendChild(document.createTextNode(part)); }
+        });
+        tn.parentNode.replaceChild(frag, tn);
+      });
+    })();
+
+    // ============================
+    // 4. %%comment%%
+    // ============================
+    (function() {
+      var root = content || document.body;
+      var iter = document.createNodeIterator(root, NodeFilter.SHOW_TEXT, null, false);
+      var nodes = [], n;
+      while ((n = iter.nextNode())) nodes.push(n);
+      nodes.forEach(function(tn) {
+        if (tn.textContent.indexOf('%%') === -1) return;
+        var frag = document.createDocumentFragment();
+        (tn.textContent.split(/(%%.+?%%)/)).forEach(function(part) {
+          var mk = part.match(/^%%([\s\S]+?)%%$/);
+          if (mk) { var s = document.createElement('span'); s.className = 'obsidian-comment'; s.textContent = '// ' + mk[1]; frag.appendChild(s); }
+          else { frag.appendChild(document.createTextNode(part)); }
+        });
+        tn.parentNode.replaceChild(frag, tn);
+      });
+    })();
+
+    // ============================
+    // 5. Wiki links [[Page]] or [[Page|Alias]]
+    // ============================
+    (function() {
+      var root = content || document.body;
+      var iter = document.createNodeIterator(root, NodeFilter.SHOW_TEXT, null, false);
+      var nodes = [], n;
+      while ((n = iter.nextNode())) nodes.push(n);
+      nodes.forEach(function(tn) {
+        if (tn.textContent.indexOf('[[') === -1) return;
+        var frag = document.createDocumentFragment();
+        (tn.textContent.split(/(\[\[.+?\]\])/)).forEach(function(part) {
+          var mk = part.match(/^\[\[([^\]|]+)(?:\|([^\]]+))?\]\]$/);
+          if (mk) {
+            var target = mk[1].trim();
+            var label = (mk[2] || target).trim();
+            var a = document.createElement('a');
+            a.className = 'wiki-link';
+            a.href = '/tags/' + encodeURIComponent(target) + '/';
+            a.textContent = label;
+            frag.appendChild(a);
+          } else {
+            frag.appendChild(document.createTextNode(part));
+          }
+        });
+        tn.parentNode.replaceChild(frag, tn);
+      });
+    })();
+
+    // ============================
+    // 6. Language label on code blocks
+    // ============================
+    if (content) content.querySelectorAll('figure.highlight').forEach(function(fig) {
+      var lang = '';
+      fig.className.split(' ').forEach(function(c) { if (c !== 'highlight') lang = c; });
+      if (!lang) {
+        var code = fig.querySelector('code');
+        if (code) lang = (code.className || '').replace(/^hljs\s*/,'').replace(/\s*language-/g,'').trim();
+      }
+      if (lang) fig.setAttribute('data-lang', lang);
+    });
+
+    // ============================
+    // 7. Copy button
+    // ============================
+    if (content) content.querySelectorAll('figure.highlight').forEach(function(fig) {
+      var btn = document.createElement('button');
+      btn.className = 'code-copy-btn';
+      btn.textContent = 'Copy';
+      btn.addEventListener('click', function() {
+        var code = fig.querySelector('code');
+        if (!code) return;
+        var text = code.textContent || '';
+        (navigator.clipboard ? navigator.clipboard.writeText(text) : new Promise(function(r) {
+          var ta = document.createElement('textarea');
+          ta.value = text; ta.style.cssText = 'position:fixed;opacity:0';
+          document.body.appendChild(ta); ta.select();
+          document.execCommand('copy'); document.body.removeChild(ta);
+          r();
+        })).then(function() {
+          btn.textContent = 'Copied!';
+          btn.classList.add('copied');
+          setTimeout(function() { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+        }).catch(function() {});
+      });
+      fig.appendChild(btn);
+    });
+
+    // ============================
+    // 8. Reading progress
+    // ============================
+    var bar = document.getElementById('reading-progress');
+    if (bar) {
+      var tick = function() {
+        var h = document.documentElement;
+        var p = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
+        bar.style.width = Math.min(p, 100) + '%';
+        bar.style.opacity = p > 1 ? '1' : '0';
+      };
+      window.addEventListener('scroll', tick, {passive:true});
+      tick();
+    }
+
+    // ============================
+    // 9. Back to top
+    // ============================
+    var btt = document.getElementById('back-to-top');
+    if (btt) {
+      window.addEventListener('scroll', function() {
+        btt.classList.toggle('visible', window.scrollY > 300);
+      }, {passive:true});
+      btt.addEventListener('click', function() { window.scrollTo({top:0,behavior:'smooth'}); });
+    }
+
+    // ============================
+    // 10. Search
+    // ============================
+    var searchInput = document.getElementById('search-input');
+    var searchIndex = window.__SEARCH_INDEX__ || [];
+
+    if (searchInput && searchIndex.length) {
+      var searchResult = document.createElement('div');
+      searchResult.className = 'search-result';
+      document.body.appendChild(searchResult);
+
+      var selectedIdx = -1;
+
+      function positionDropdown() {
+        var rect = searchInput.getBoundingClientRect();
+        searchResult.style.top = (rect.bottom + 4) + 'px';
+        searchResult.style.left = rect.left + 'px';
+        searchResult.style.width = rect.width + 'px';
+      }
+
+      function escapeHtml(str) {
+        var div = document.createElement('div');
+        div.appendChild(document.createTextNode(str));
+        return div.innerHTML;
+      }
+
+      function highlightMatch(text, query) {
+        var words = query.trim().split(/\s+/).filter(Boolean);
+        if (!words.length) return escapeHtml(text);
+        var regex = new RegExp('(' + words.map(function(w){ return w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }).join('|') + ')', 'gi');
+        return escapeHtml(text).replace(regex, '<mark>$1</mark>');
+      }
+
+      function doSearch() {
+        var query = searchInput.value.trim().toLowerCase();
+        selectedIdx = -1;
+        searchResult.textContent = '';
+
+        if (!query || query.length < 2) {
+          searchResult.classList.remove('active');
+          return;
+        }
+
+        positionDropdown();
+
+        var words = query.split(/\s+/).filter(Boolean);
+        var results = [];
+
+        searchIndex.forEach(function(post) {
+          var searchText = [post.title, post.categories.join(' '), post.tags.join(' '), post.excerpt].join(' ').toLowerCase();
+          var match = words.every(function(w) { return searchText.indexOf(w) !== -1; });
+          if (!match) return;
+
+          var score = 0;
+          var titleLower = post.title.toLowerCase();
+          var tagsLower = post.tags.join(' ').toLowerCase();
+          var excerptLower = post.excerpt.toLowerCase();
+
+          words.forEach(function(w) {
+            if (titleLower.indexOf(w) !== -1) score += 10;
+            else if (tagsLower.indexOf(w) !== -1) score += 5;
+            else if (excerptLower.indexOf(w) !== -1) score += 1;
+          });
+
+          results.push({ post: post, score: score });
+        });
+
+        results.sort(function(a, b) { return b.score - a.score; });
+        results = results.slice(0, 8);
+
+        if (!results.length) {
+          var emptyMsg = document.createElement('div');
+          emptyMsg.className = 'search-result-empty';
+          emptyMsg.textContent = 'No results found';
+          searchResult.appendChild(emptyMsg);
+          searchResult.classList.add('active');
+          return;
+        }
+
+        results.forEach(function(item, idx) {
+          var p = item.post;
+          var row = document.createElement('a');
+          row.className = 'search-result-item';
+          row.href = p.path;
+          row.setAttribute('data-index', String(idx));
+
+          var titleSpan = document.createElement('span');
+          titleSpan.className = 'search-result-title';
+          titleSpan.innerHTML = highlightMatch(p.title, query);
+
+          var metaSpan = document.createElement('span');
+          metaSpan.className = 'search-result-meta';
+          var metaParts = [p.date];
+          if (p.categories.length) metaParts.push(p.categories.join(', '));
+          metaSpan.textContent = metaParts.join(' · ');
+
+          row.appendChild(titleSpan);
+          row.appendChild(metaSpan);
+          searchResult.appendChild(row);
+        });
+
+        searchResult.classList.add('active');
+      }
+
+      searchInput.addEventListener('input', doSearch);
+      searchInput.addEventListener('focus', doSearch);
+
+      searchInput.addEventListener('keydown', function(e) {
+        var items = searchResult.querySelectorAll('.search-result-item');
+        if (!items.length) return;
+
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          selectedIdx = Math.min(selectedIdx + 1, items.length - 1);
+          updateSelection(items);
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          selectedIdx = Math.max(selectedIdx - 1, 0);
+          updateSelection(items);
+        } else if (e.key === 'Enter') {
+          if (selectedIdx >= 0 && items[selectedIdx]) {
+            e.preventDefault();
+            window.location.href = items[selectedIdx].href;
+          }
+        } else if (e.key === 'Escape') {
+          searchResult.classList.remove('active');
+          searchInput.blur();
+          selectedIdx = -1;
+        }
+      });
+
+      function updateSelection(items) {
+        items.forEach(function(item, i) {
+          if (i === selectedIdx) {
+            item.classList.add('selected');
+            item.scrollIntoView({ block: 'nearest' });
+          } else {
+            item.classList.remove('selected');
+          }
+        });
+      }
+
+      document.addEventListener('click', function(e) {
+        if (e.target !== searchInput && !searchResult.contains(e.target)) {
+          searchResult.classList.remove('active');
+          selectedIdx = -1;
+        }
+      });
+
+      window.addEventListener('resize', function() {
+        if (searchResult.classList.contains('active')) {
+          positionDropdown();
+        }
+      });
+    }
+  })();
+  </script>
+  <!-- Share functions -->
+  <script>
+  function shareTo(platform, title) {
+    var url = window.location.href;
+    var shareUrl;
+    switch (platform) {
+      case 'twitter':
+        shareUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(title) + '&url=' + encodeURIComponent(url);
+        break;
+      case 'weibo':
+        shareUrl = 'https://service.weibo.com/share/share.php?title=' + encodeURIComponent(title) + '&url=' + encodeURIComponent(url);
+        break;
+    }
+    if (shareUrl) window.open(shareUrl, '_blank', 'width=600,height=500');
+  }
+  function copyPageLink(btn) {
+    var url = window.location.href;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url);
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = url;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch(e) {}
+      document.body.removeChild(ta);
+    }
+    btn.classList.add('copied');
+    setTimeout(function() { btn.classList.remove('copied'); }, 1800);
+  }
+  </script>
+
+</body>
+</html>
